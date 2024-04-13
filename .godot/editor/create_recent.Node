@@ -1,3 +1,8 @@
+MarginContainer
+CenterContainer
+ProgressBar
+TextureProgressBar
+CanvasLayer
 Marker2D
 Timer
 CollisionShape2D
@@ -8,8 +13,3 @@ Area2D
 VisibleOnScreenNotifier2D
 TileMap
 TextureRect
-ParallaxLayer
-ParallaxBackground
-PositionClampComponent
-HitboxComponent
-HurtboxComponent

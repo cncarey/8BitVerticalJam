@@ -12,3 +12,6 @@ res://world/move_states.gd
 res://world/pickups/PickUp.tscn
 res://world/game_stats.gd
 res://world/pickups/PickUp.gd
+res://UI/progress_bar.tscn
+res://UI/progress_bar.gd
+res://world/world.gd

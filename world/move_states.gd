@@ -23,3 +23,12 @@ signal canMove_changed(canMove)
 		return canScroll
 
 signal canScroll_changed(canScroll) 
+
+@export var distance = 0:
+	set(value):
+		distance = value
+		distance_changed.emit(distance)
+	get:
+		return distance
+		
+signal  distance_changed(distance)

@@ -27,7 +27,7 @@ script = ExtResource("2_ocf7o")
 script = ExtResource("3_aglfi")
 move = ExtResource("4_pfxd1")
 actor = NodePath("..")
-velocity = Vector2(0, 10)
+velocity = Vector2(0, 20)
 isScrollable = true
 
 [node name="EnemyTimer" type="Timer" parent="."]
