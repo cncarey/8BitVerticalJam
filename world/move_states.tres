@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Move_States" load_steps=2 format=3 uid="uid://do11s08vsav4v"]
+
+[ext_resource type="Script" path="res://world/move_states.gd" id="1_mt2wq"]
+
+[resource]
+script = ExtResource("1_mt2wq")
+canMove = true

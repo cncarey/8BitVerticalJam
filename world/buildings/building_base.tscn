@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://meg5c3kldqun"]
+
+[ext_resource type="Script" path="res://world/buildings/building_base.gd" id="1_0hacf"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="2_ocf7o"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="3_aglfi"]
+[ext_resource type="Resource" uid="uid://do11s08vsav4v" path="res://world/move_states.tres" id="4_pfxd1"]
+
+[node name="buildingBase" type="Node2D"]
+script = ExtResource("1_0hacf")
+move = ExtResource("4_pfxd1")
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+format = 2
+layer_0/name = "base"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="inside" type="Area2D" parent="."]
+
+[node name="collectables" type="Node" parent="."]
+
+[node name="SpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("2_ocf7o")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_aglfi")
+move = ExtResource("4_pfxd1")
+actor = NodePath("..")
+velocity = Vector2(0, 10)
+isScrollable = true
+
+[node name="EnemyTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="inside" to="." method="_on_inside_body_entered"]
+[connection signal="body_exited" from="inside" to="." method="_on_inside_body_exited"]

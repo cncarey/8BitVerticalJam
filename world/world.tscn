@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://i6k5cjoauv2p"]
+
+[ext_resource type="PackedScene" uid="uid://bhdncv51oll25" path="res://player/player.tscn" id="1_aho6t"]
+[ext_resource type="PackedScene" uid="uid://cqfo6008vbvqm" path="res://effects/ground_background.tscn" id="2_2a8ar"]
+[ext_resource type="PackedScene" uid="uid://kxmn157vv7vn" path="res://world/buildings/building_food.tscn" id="3_67i5n"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_aho6t")]
+position = Vector2(136, 354)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_2a8ar")]
+
+[node name="buildingFood" parent="." instance=ExtResource("3_67i5n")]
+position = Vector2(80, -78)

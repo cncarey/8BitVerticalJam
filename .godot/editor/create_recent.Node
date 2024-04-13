@@ -1,0 +1,15 @@
+Marker2D
+Timer
+CollisionShape2D
+MoveComponent
+Node
+SpawnerComponent
+Area2D
+VisibleOnScreenNotifier2D
+TileMap
+TextureRect
+ParallaxLayer
+ParallaxBackground
+PositionClampComponent
+HitboxComponent
+HurtboxComponent

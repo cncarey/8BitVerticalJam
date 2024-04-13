@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Game_Stats" load_steps=2 format=3 uid="uid://b4yxddcx2kf4m"]
+
+[ext_resource type="Script" path="res://world/game_stats.gd" id="1_rtpuo"]
+
+[resource]
+script = ExtResource("1_rtpuo")
+score = -1
+ammo = 25
+comboCounter = 1
