@@ -13,3 +13,6 @@ res://world/game_stats.tres
 res://world/buildings/building_base.gd
 res://UI/progress_bar.tscn
 res://components/hurtbox_component.tscn
+res://components/hitbox_component.gd
+res://projectiles/bullet.tscn
+res://projectiles/baseProjectile.gd

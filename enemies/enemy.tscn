@@ -40,6 +40,9 @@ script = ExtResource("5_x5y2t")
 stats_component = NodePath("../StatsComponent")
 hurtbox_component = NodePath("../HurtboxComponent")
 
+[node name="HurtboxComponent" parent="." instance=ExtResource("10_kuh3e")]
+collision_layer = 4
+
 [node name="HitboxComponent" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
@@ -55,13 +58,9 @@ collision_mask = 0
 [node name="CollisionShape2D" parent="PlayerDetection" index="0"]
 shape = SubResource("CircleShape2D_y4md1")
 
-[node name="HurtboxComponent" parent="." instance=ExtResource("10_kuh3e")]
-collision_layer = 4
-
 [node name="PositionClampComponent" type="Node2D" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("12_4roeh")
 actor = NodePath("..")
 margin = 11
 
 [editable path="PlayerDetection"]
-[editable path="HurtboxComponent"]

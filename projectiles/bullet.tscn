@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvkjhtfhjirxk"]
+[gd_scene load_steps=9 format=3 uid="uid://cvkjhtfhjirxk"]
 
 [ext_resource type="Script" path="res://projectiles/baseProjectile.gd" id="1_x0a2w"]
 [ext_resource type="Texture2D" uid="uid://b4rl4nm1x6pv1" path="res://asserts/art/laser_small.png" id="2_h38uy"]
@@ -20,7 +20,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1he2"]
 size = Vector2(4, 9)
 
-[node name="BaseProjectile" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfvfc"]
+
+[node name="Bullet" type="Node2D"]
 script = ExtResource("1_x0a2w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -47,3 +49,11 @@ script = ExtResource("5_g6mgy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_q1he2")
+
+[node name="WallHit" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallHit"]
+shape = SubResource("RectangleShape2D_gfvfc")
+
+[connection signal="body_entered" from="WallHit" to="." method="_on_area_2d_body_entered"]

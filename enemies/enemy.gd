@@ -19,7 +19,7 @@ extends CharacterBody2D
 func _ready():
 	stats_component.no_health.connect(onNoHealth)
 	visible_on_screen_notifier_2d.screen_exited.connect(queue_free)
-	#hurtbox_component.hurt.connect(onHurt)
+	hurtbox_component.hurt.connect(onHurt)
 	#hitbox_component.hit_hurtbox.connect(destroyed_component.destroy.unbind(1))
 	pass # Replace with function body.
 
