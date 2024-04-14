@@ -2,6 +2,8 @@
 class_name HurtboxComponent
 extends Area2D
 
+@onready var shape = $CollisionShape2D
+
 # Create the is_invincible boolean
 var is_invincible = false :
 	# Here we create an inline setter so we can disable and enable collision shapes on

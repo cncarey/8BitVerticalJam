@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://b0tftyj1qy1j2"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_pj7uq"]
+[ext_resource type="Script" path="res://components/stats_component.gd" id="2_d7xke"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="3_jvaq3"]
+[ext_resource type="Script" path="res://components/shake_component.gd" id="4_cgckr"]
+[ext_resource type="Script" path="res://components/hurt_component.gd" id="5_x5y2t"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="7_c5y4s"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="9_mnp8s"]
+[ext_resource type="PackedScene" uid="uid://ib4a7pgdlhv5" path="res://components/player_detection_component.tscn" id="10_04582"]
+[ext_resource type="PackedScene" uid="uid://bh1teb1nltv5g" path="res://components/hurtbox_component.tscn" id="10_kuh3e"]
+[ext_resource type="Script" path="res://components/position_clamp_component.gd" id="12_4roeh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y4md1"]
+radius = 100.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 4
+motion_mode = 1
+script = ExtResource("1_pj7uq")
+
+[node name="StatsComponent" type="Node" parent="."]
+script = ExtResource("2_d7xke")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_jvaq3")
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="ShakeComponent" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("4_cgckr")
+node = NodePath("../AnimatedSprite2D")
+
+[node name="HurtComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "hurtbox_component")]
+script = ExtResource("5_x5y2t")
+stats_component = NodePath("../StatsComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("7_c5y4s")
+
+[node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("9_mnp8s")
+
+[node name="PlayerDetection" parent="." instance=ExtResource("10_04582")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="PlayerDetection" index="0"]
+shape = SubResource("CircleShape2D_y4md1")
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("10_kuh3e")]
+collision_layer = 4
+
+[node name="PositionClampComponent" type="Node2D" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("12_4roeh")
+actor = NodePath("..")
+margin = 11
+
+[editable path="PlayerDetection"]
+[editable path="HurtboxComponent"]

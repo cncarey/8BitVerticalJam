@@ -4,6 +4,7 @@ extends Area2D
 
 # Export the damage amount this hitbox deals
 @export var damage = 1.0
+@onready var shape = $CollisionShape2D
 
 # Create a signal for when the hitbox hits a hurtbox
 signal hit_hurtbox(hurtbox)
@@ -21,3 +22,11 @@ func _on_hurtbox_entered(hurtbox: HurtboxComponent):
 	hit_hurtbox.emit(hurtbox)
 	# Have the hurtbox signal out that it was hit
 	hurtbox.hurt.emit(self)
+
+func enableShape():
+	shape.set_deferred("disabled", false)
+	pass
+	
+func disableShape():
+	shape.set_deferred("disabled", true)
+	pass

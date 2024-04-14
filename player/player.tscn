@@ -1,10 +1,13 @@
-[gd_scene load_steps=40 format=3 uid="uid://bhdncv51oll25"]
+[gd_scene load_steps=50 format=3 uid="uid://bhdncv51oll25"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_kas0s"]
 [ext_resource type="Texture2D" uid="uid://di2xtaurrbd20" path="res://asserts/art/Character-and-Zombie.png" id="1_sodpf"]
-[ext_resource type="Script" path="res://components/hurtbox_component.gd" id="3_qoou0"]
+[ext_resource type="Resource" uid="uid://b4yxddcx2kf4m" path="res://world/game_stats.tres" id="2_ty8bv"]
+[ext_resource type="Texture2D" uid="uid://bownmf6c1uh6j" path="res://asserts/art/Gun-Sprite-Sheet.png" id="3_1m4t5"]
+[ext_resource type="Resource" uid="uid://do11s08vsav4v" path="res://world/move_states.tres" id="3_3bisx"]
 [ext_resource type="Script" path="res://components/position_clamp_component.gd" id="4_stc0k"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="5_q3htb"]
+[ext_resource type="PackedScene" uid="uid://cvkjhtfhjirxk" path="res://projectiles/bullet.tscn" id="8_kj6t2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7j6l"]
 atlas = ExtResource("1_sodpf")
@@ -246,8 +249,62 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gshhe"]
-size = Vector2(8, 4)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuov6"]
+atlas = ExtResource("3_1m4t5")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4vy"]
+atlas = ExtResource("3_1m4t5")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6fjc"]
+atlas = ExtResource("3_1m4t5")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j5ga"]
+atlas = ExtResource("3_1m4t5")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxh14"]
+atlas = ExtResource("3_1m4t5")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou8rt"]
+atlas = ExtResource("3_1m4t5")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o882a"]
+atlas = ExtResource("3_1m4t5")
+region = Rect2(288, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5wjhy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuov6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya4vy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6fjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j5ga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxh14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ou8rt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o882a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_biuvj"]
 radius = 6.0
@@ -255,23 +312,29 @@ radius = 6.0
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 25
 y_sort_enabled = true
-collision_layer = 5
+collision_layer = 13
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_kas0s")
+game_stats = ExtResource("2_ty8bv")
+move = ExtResource("3_3bisx")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AniBody" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_xgks5")
 animation = &"reload"
 frame = 7
 frame_progress = 0.697016
 
-[node name="HurtboxComponent" type="Area2D" parent="."]
-script = ExtResource("3_qoou0")
+[node name="AniGun" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(3, 1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_5wjhy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_gshhe")
+[node name="Muzzle" type="Marker2D" parent="AniGun"]
+unique_name_in_owner = true
+position = Vector2(10.4, -4.65002)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -280,7 +343,10 @@ shape = SubResource("CircleShape2D_biuvj")
 [node name="PositionClampComponent" type="Node2D" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("4_stc0k")
 actor = NodePath("..")
+margin = 10
 clampV = true
 
 [node name="bulletComponent" type="Node2D" parent="."]
+position = Vector2(0, 2)
 script = ExtResource("5_q3htb")
+scene = ExtResource("8_kj6t2")

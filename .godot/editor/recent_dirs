@@ -1,3 +1,7 @@
+res://components
+res://asserts/art
+res://enemies
+res://projectiles
 res://UI
 res://world
 res://asserts/sounds
@@ -5,4 +9,3 @@ res://world/pickups
 res://world/buildings
 res://effects
 res://player
-res://asserts/art

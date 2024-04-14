@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_rtpuo")
 score = -1
-ammo = 25
+ammo = 250
 comboCounter = 1

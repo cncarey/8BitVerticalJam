@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://dif84j5o0j5gm"]
+
+[ext_resource type="PackedScene" uid="uid://b0tftyj1qy1j2" path="res://enemies/enemy.tscn" id="1_ther5"]
+[ext_resource type="Resource" uid="uid://do11s08vsav4v" path="res://world/move_states.tres" id="2_jtalj"]
+[ext_resource type="Texture2D" uid="uid://di2xtaurrbd20" path="res://asserts/art/Character-and-Zombie.png" id="2_ydnhb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1u41x"]
+radius = 8.06226
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bqg1"]
+atlas = ExtResource("2_ydnhb")
+region = Rect2(0, 120, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbl0s"]
+atlas = ExtResource("2_ydnhb")
+region = Rect2(48, 120, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cpqq"]
+atlas = ExtResource("2_ydnhb")
+region = Rect2(96, 120, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf1li"]
+atlas = ExtResource("2_ydnhb")
+region = Rect2(144, 120, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7puig"]
+atlas = ExtResource("2_ydnhb")
+region = Rect2(192, 120, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tdk3"]
+atlas = ExtResource("2_ydnhb")
+region = Rect2(240, 120, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvj24"]
+atlas = ExtResource("2_ydnhb")
+region = Rect2(288, 120, 48, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yc7o4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bqg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbl0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cpqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf1li")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7puig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tdk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvj24")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q2201"]
+radius = 5.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fq7qj"]
+radius = 6.0
+height = 16.0
+
+[node name="Zombie" instance=ExtResource("1_ther5")]
+move = ExtResource("2_jtalj")
+origVelocity = Vector2(0, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_1u41x")
+
+[node name="StatsComponent" parent="." index="1"]
+maxHealth = 2.0
+health = 2.0
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_yc7o4")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_q2201")
+
+[node name="PlayerDetection" parent="." index="9"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CapsuleShape2D_fq7qj")
+
+[editable path="PlayerDetection"]
+[editable path="HurtboxComponent"]
