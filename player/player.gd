@@ -28,8 +28,17 @@ var isDead: bool = false
 @onready var ani_gun = %AniGun
 @onready var bullet_component = $bulletComponent
 @onready var muzzle = %Muzzle
+@onready var hurtbox_component = $HurtboxComponent
+@onready var stats_component = $StatsComponent
+@onready var invisibility_timer = $invisibilityTimer
 
 
+
+func _ready():
+	syncHealth(stats_component.health)
+	stats_component.health_changed.connect(syncHealth)
+	hurtbox_component.hurt.connect(onHurt)
+	invisibility_timer.timeout.connect(turnOffInvisibility)
 
 func _physics_process(delta):
 	#if Global.isTalking:
@@ -122,3 +131,17 @@ func fireGun():
 	b.global_position = muzzle.global_position
 	b.global_rotation = ani_gun.global_rotation
 	get_tree().current_scene.add_child(b)
+
+func onHurt(hb):
+	#TODO factor in mood
+	stats_component.health -= hb.damage
+	hurtbox_component.is_invincible = true
+	invisibility_timer.start()
+	#TODO 
+	pass
+
+func turnOffInvisibility():
+	hurtbox_component.is_invincible = false	
+	
+func syncHealth(health):
+	game_stats.curHealth = health

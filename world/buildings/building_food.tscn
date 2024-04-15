@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://kxmn157vv7vn"]
+[gd_scene load_steps=7 format=3 uid="uid://kxmn157vv7vn"]
 
 [ext_resource type="PackedScene" uid="uid://meg5c3kldqun" path="res://world/buildings/building_base.tscn" id="1_7o4q5"]
+[ext_resource type="Script" path="res://world/buildings/building_food.gd" id="2_2a54s"]
 [ext_resource type="Texture2D" uid="uid://372w87xx36up" path="res://asserts/art/jawbreaker_tiles.png" id="2_6tfja"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i85lg"]
@@ -241,6 +242,7 @@ sources/0 = SubResource("TileSetAtlasSource_i85lg")
 size = Vector2(363, 182)
 
 [node name="buildingFood" instance=ExtResource("1_7o4q5")]
+script = ExtResource("2_2a54s")
 
 [node name="TileMap" parent="." index="0"]
 position = Vector2(14, 22)
@@ -261,7 +263,16 @@ shape = SubResource("RectangleShape2D_o35wt")
 position = Vector2(38.3579, 48.0396)
 
 [node name="Marker2D2" type="Marker2D" parent="collectables" index="1"]
-position = Vector2(286, 125)
+position = Vector2(266.75, 136.25)
 
 [node name="Marker2D3" type="Marker2D" parent="collectables" index="2"]
 position = Vector2(149, 53)
+
+[node name="Marker2D4" type="Marker2D" parent="collectables" index="3"]
+position = Vector2(208.5, 189.55)
+
+[node name="Marker2D5" type="Marker2D" parent="collectables" index="4"]
+position = Vector2(131.75, 190.3)
+
+[node name="Marker2D6" type="Marker2D" parent="collectables" index="5"]
+position = Vector2(33.2501, 155.8)

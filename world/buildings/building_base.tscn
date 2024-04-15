@@ -1,13 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://meg5c3kldqun"]
+[gd_scene load_steps=10 format=3 uid="uid://meg5c3kldqun"]
 
 [ext_resource type="Script" path="res://world/buildings/building_base.gd" id="1_0hacf"]
+[ext_resource type="PackedScene" uid="uid://cqsc17puxxioq" path="res://world/pickups/barrel.tscn" id="2_jue5w"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="2_ocf7o"]
+[ext_resource type="PackedScene" uid="uid://dfpblge1ldwlv" path="res://world/pickups/box.tscn" id="3_71hlw"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="3_aglfi"]
+[ext_resource type="PackedScene" uid="uid://duv8geiya5wrr" path="res://world/pickups/vase.tscn" id="4_d5oih"]
 [ext_resource type="Resource" uid="uid://do11s08vsav4v" path="res://world/move_states.tres" id="4_pfxd1"]
+[ext_resource type="PackedScene" uid="uid://dif84j5o0j5gm" path="res://enemies/zombie.tscn" id="4_v33h4"]
+[ext_resource type="PackedScene" uid="uid://nkldx7kfmt00" path="res://world/pickups/PickUp.tscn" id="5_84r03"]
 
 [node name="buildingBase" type="Node2D"]
 script = ExtResource("1_0hacf")
+barrel = ExtResource("2_jue5w")
+box = ExtResource("3_71hlw")
+vase = ExtResource("4_d5oih")
+pickUp = ExtResource("5_84r03")
 move = ExtResource("4_pfxd1")
+enemy_scene = ExtResource("4_v33h4")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bhdncv51oll25"]
+[gd_scene load_steps=55 format=3 uid="uid://bhdncv51oll25"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_kas0s"]
 [ext_resource type="Texture2D" uid="uid://di2xtaurrbd20" path="res://asserts/art/Character-and-Zombie.png" id="1_sodpf"]
@@ -7,7 +7,10 @@
 [ext_resource type="Resource" uid="uid://do11s08vsav4v" path="res://world/move_states.tres" id="3_3bisx"]
 [ext_resource type="Script" path="res://components/position_clamp_component.gd" id="4_stc0k"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="5_q3htb"]
+[ext_resource type="PackedScene" uid="uid://bh1teb1nltv5g" path="res://components/hurtbox_component.tscn" id="6_gemq5"]
 [ext_resource type="PackedScene" uid="uid://cvkjhtfhjirxk" path="res://projectiles/bullet.tscn" id="8_kj6t2"]
+[ext_resource type="Script" path="res://components/stats_component.gd" id="10_ex800"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="11_iehpk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7j6l"]
 atlas = ExtResource("1_sodpf")
@@ -307,12 +310,18 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_biuvj"]
-radius = 6.0
+radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob858"]
+size = Vector2(10, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ak0r2"]
+size = Vector2(10, 8)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 25
 y_sort_enabled = true
-collision_layer = 13
+collision_layer = 29
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_kas0s")
@@ -350,3 +359,30 @@ clampV = true
 position = Vector2(0, 2)
 script = ExtResource("5_q3htb")
 scene = ExtResource("8_kj6t2")
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("6_gemq5")]
+collision_layer = 2
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ob858")
+
+[node name="StatsComponent" type="Node" parent="."]
+script = ExtResource("10_ex800")
+maxHealth = 5.0
+health = 5.0
+
+[node name="invisibilityTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("11_iehpk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ak0r2")
+
+[editable path="HurtboxComponent"]

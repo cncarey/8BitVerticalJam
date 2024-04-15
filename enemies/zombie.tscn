@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://di2xtaurrbd20" path="res://asserts/art/Character-and-Zombie.png" id="2_ydnhb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1u41x"]
-radius = 8.06226
+radius = 3.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3bqg1"]
 atlas = ExtResource("2_ydnhb")
@@ -65,11 +65,10 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fq7qj"]
-radius = 6.0
+radius = 5.0
 height = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q2201"]
-radius = 5.0
 
 [node name="Zombie" instance=ExtResource("1_ther5")]
 move = ExtResource("2_jtalj")

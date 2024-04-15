@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://cqsc17puxxioq"]
+
+[ext_resource type="PackedScene" uid="uid://cky80nb3kq30j" path="res://world/pickups/BreakableObject.tscn" id="1_7k3c1"]
+[ext_resource type="Texture2D" uid="uid://bdu2cc70kcuxr" path="res://asserts/art/Destructible Objects Sprite Sheet.png" id="2_qplrh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5b5t"]
+atlas = ExtResource("2_qplrh")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8kwk"]
+atlas = ExtResource("2_qplrh")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxt74"]
+atlas = ExtResource("2_qplrh")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kv3y2"]
+atlas = ExtResource("2_qplrh")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u0b0"]
+atlas = ExtResource("2_qplrh")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oywdb"]
+atlas = ExtResource("2_qplrh")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u6gd"]
+atlas = ExtResource("2_qplrh")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12qna"]
+atlas = ExtResource("2_qplrh")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tbke"]
+atlas = ExtResource("2_qplrh")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x206e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5b5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8kwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxt74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kv3y2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u0b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oywdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u6gd")
+}],
+"loop": false,
+"name": &"break",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12qna")
+}],
+"loop": false,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tbke")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_psa5m"]
+radius = 6.0
+height = 18.0
+
+[node name="Barrel" instance=ExtResource("1_7k3c1")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_x206e")
+animation = &"break"
+autoplay = "default"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent" index="1"]
+position = Vector2(1, 2)
+shape = SubResource("CapsuleShape2D_psa5m")

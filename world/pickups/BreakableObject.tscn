@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://cky80nb3kq30j"]
+
+[ext_resource type="Script" path="res://world/pickups/BreakableObject.gd" id="1_kw5s2"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="2_pc5f1"]
+[ext_resource type="PackedScene" uid="uid://bh1teb1nltv5g" path="res://components/hurtbox_component.tscn" id="3_jxfbp"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="5_mt8qc"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="5_ueee0"]
+[ext_resource type="PackedScene" uid="uid://nkldx7kfmt00" path="res://world/pickups/PickUp.tscn" id="6_ujjk6"]
+
+[node name="BreakableObject" type="Node2D"]
+script = ExtResource("1_kw5s2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("2_pc5f1")
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("3_jxfbp")]
+collision_layer = 4
+
+[node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("5_ueee0")
+
+[node name="SpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("5_mt8qc")
+scene = ExtResource("6_ujjk6")

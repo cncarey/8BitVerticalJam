@@ -39,9 +39,48 @@ func tryTakeAmmo(dec: int) -> bool:
 	get:
 		return comboCounter
 
+@export var curHealth = 1:
+	set(value):
+		curHealth = value
+		curHealth_changed.emit(curHealth)
+	get:
+		return curHealth
+		
+@export var healthPack = 1:
+	set(value):
+		healthPack = value
+		healthPack_changed.emit(healthPack)
+	get:
+		return healthPack
+		
+func tryTakehealthPack(dec: int) -> bool:
+	if healthPack - dec < 0:
+		return false
+	else:
+		healthPack -= dec
+		return true
+		
+@export var food = 1:
+	set(value):
+		food = value
+		food_changed.emit(food)
+	get:
+		return food
+		
+@export var mood = 1:
+	set(value):
+		mood = value
+		mood_changed.emit(mood)
+	get:
+		return mood
+
 #TODO Food and moral
 
 signal score_changed(score) 
 signal ammo_changed(ammo)
 signal comboCounter_changed(combo)
 signal no_ammo()
+signal curHealth_changed(health)
+signal food_changed(food)
+signal mood_changed(mood)
+signal healthPack_changed(healthPacks)

@@ -18,9 +18,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1he2"]
-size = Vector2(4, 9)
+size = Vector2(8, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfvfc"]
+size = Vector2(7, 2)
 
 [node name="Bullet" type="Node2D"]
 script = ExtResource("1_x0a2w")
@@ -30,8 +31,8 @@ rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_fji3n")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, 1.5)
-scale = Vector2(0.2, 0.45)
+position = Vector2(-1, -2.68221e-07)
+scale = Vector2(0.4, 0.2)
 
 [node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("3_a2kju")
@@ -47,13 +48,14 @@ collision_mask = 4
 script = ExtResource("5_g6mgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, 1.5)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_q1he2")
 
 [node name="WallHit" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallHit"]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_gfvfc")
 
 [connection signal="body_entered" from="WallHit" to="." method="_on_area_2d_body_entered"]

@@ -7,11 +7,18 @@ signal leaveBuilding()
 var margin = 8
 var screenWidth = ProjectSettings.get_setting("display/window/size/viewport_width")
 
+@export var barrel : PackedScene
+@export var box : PackedScene
+@export var vase : PackedScene
+@export var pickUp : PackedScene
+
 @export var move : Move_States
 @onready var spawner_component = $SpawnerComponent
 @onready var visible_on_screen_notifier_2d = $VisibleOnScreenNotifier2D
 @onready var enemy_timer = $EnemyTimer
 @export var enemy_scene : PackedScene
+@onready var collectables = $collectables
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,3 +57,15 @@ func onSpawn(enemy: PackedScene, timer: Timer, timeOffset: float = 1.0):
 	var spawnRate = timeOffset # / (0.5 + (game_stats.score *0.01))	
 	
 	timer.start(spawnRate + randf_range(0.25, 0.5))
+
+func pick_rand_number(list: Array, amount: int) -> Array:
+	randomize()
+	list.shuffle()
+	var new_list: Array = []
+
+	assert(amount <= list.size(), "The number cannot be greater than the size of the Array")
+
+	for i in range(amount):
+		if new_list.size() <= amount:
+			new_list.append(list[i])
+	return new_list

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://i6k5cjoauv2p"]
+[gd_scene load_steps=9 format=3 uid="uid://i6k5cjoauv2p"]
 
 [ext_resource type="PackedScene" uid="uid://bhdncv51oll25" path="res://player/player.tscn" id="1_aho6t"]
 [ext_resource type="Script" path="res://world/world.gd" id="1_yjyb2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://0lr03nxkr2gh" path="res://UI/progress_bar.tscn" id="4_rkiif"]
 [ext_resource type="PackedScene" uid="uid://ctb46l2d1pw2g" path="res://enemies/enemy_generator.tscn" id="5_d5p31"]
 [ext_resource type="PackedScene" uid="uid://dif84j5o0j5gm" path="res://enemies/zombie.tscn" id="6_je3rf"]
+[ext_resource type="PackedScene" uid="uid://bdu48j8mciy74" path="res://UI/PlayerStatsUI.tscn" id="7_uisvx"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_yjyb2")
@@ -38,6 +39,15 @@ rotation = 0.0
 size_flags_horizontal = 4
 step = 1.0
 fill_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ui"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+
+[node name="MarginContainer" parent="ui/MarginContainer" instance=ExtResource("7_uisvx")]
+layout_mode = 2
 
 [node name="Enemy" parent="." instance=ExtResource("6_je3rf")]
 position = Vector2(31, 14)

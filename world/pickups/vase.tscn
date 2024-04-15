@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://duv8geiya5wrr"]
+
+[ext_resource type="PackedScene" uid="uid://cky80nb3kq30j" path="res://world/pickups/BreakableObject.tscn" id="1_ca5te"]
+[ext_resource type="Texture2D" uid="uid://bdu2cc70kcuxr" path="res://asserts/art/Destructible Objects Sprite Sheet.png" id="2_gvl24"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvtmi"]
+atlas = ExtResource("2_gvl24")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwprp"]
+atlas = ExtResource("2_gvl24")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prhp8"]
+atlas = ExtResource("2_gvl24")
+region = Rect2(128, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al62r"]
+atlas = ExtResource("2_gvl24")
+region = Rect2(192, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrrmn"]
+atlas = ExtResource("2_gvl24")
+region = Rect2(256, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ars8"]
+atlas = ExtResource("2_gvl24")
+region = Rect2(320, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvvdy"]
+atlas = ExtResource("2_gvl24")
+region = Rect2(384, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq4rk"]
+atlas = ExtResource("2_gvl24")
+region = Rect2(384, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns0e0"]
+atlas = ExtResource("2_gvl24")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_je7mo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvtmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwprp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prhp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al62r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrrmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ars8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvvdy")
+}],
+"loop": false,
+"name": &"break",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq4rk")
+}],
+"loop": false,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns0e0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bps0y"]
+radius = 6.0
+
+[node name="Vase" instance=ExtResource("1_ca5te")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_je7mo")
+autoplay = "default"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent" index="1"]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_bps0y")

@@ -24,6 +24,7 @@ var screenWidth = ProjectSettings.get_setting("display/window/size/viewport_widt
 func _ready():
 	move.canScroll_changed.connect(pauseTimers)
 	enemy_timer.timeout.connect(onSpawn.bind(zombieScene, enemy_timer,2))
+	building_timer.timeout.connect(onBuildingSpawn.bind(building_timer, 8))
 	pass # Replace with function body.
 
 
@@ -44,6 +45,16 @@ func pauseTimers(state: bool):
 
 func onBuildingSpawn(timer: Timer, timeOffset: float = 1.0):
 	#TODO pick a building and do on spawn
+	
+	if move.canMove:
+		spawner_component.scene = building1Scene
+		#TODO back it up based on the size of the scence
+		#we could cheat and keep a cheat sheet instead of calulating it
+		spawner_component.spawn(Vector2( 5, -200))
+		
+	var spawnRate = timeOffset / (0.5 + (move.distance *0.01))	
+	
+	timer.start(spawnRate + randf_range(0.25, 0.5))
 	pass		
 		
 func onSpawn(scene: PackedScene, timer: Timer, timeOffset: float = 1.0):
