@@ -13,18 +13,24 @@ extends Node2D
 
 @onready var spawner_component = $SpawnerComponent
 @onready var enemy_timer = $EnemyTimer
-@onready var building_timer = $BuildingTimer
-@onready var ammo_timer = $AmmoTimer
 
-var margin = 8
+var margin = 13
 var screenWidth = ProjectSettings.get_setting("display/window/size/viewport_width")
 
+var hasBuilding1Swaned = false
+signal building1Swaned()
+
+var hasBuilding2Swaned = false
+signal building2Swaned()
+
+var hasBuilding3Swaned = false
+signal building3Swaned()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	move.canScroll_changed.connect(pauseTimers)
+	move.canMove_changed.connect(pauseTimers)
+	move.distance_changed.connect(onDistance)
 	enemy_timer.timeout.connect(onSpawn.bind(zombieScene, enemy_timer,2))
-	building_timer.timeout.connect(onBuildingSpawn.bind(building_timer, 8))
 	pass # Replace with function body.
 
 
@@ -36,25 +42,44 @@ func _process(delta):
 func pauseTimers(state: bool):
 	if state:
 		enemy_timer.start()
-		building_timer.start()
-		ammo_timer.start()
 	else:
 		enemy_timer.stop()
-		building_timer.stop()
-		ammo_timer.stop()
 
-func onBuildingSpawn(timer: Timer, timeOffset: float = 1.0):
+func onDistance(distance):
+	if distance >= 75:
+		if !hasBuilding3Swaned:
+				hasBuilding3Swaned = true
+				onBuildingSpawn()
+				building3Swaned.emit()
+	elif distance >= 50:
+		if !hasBuilding2Swaned:
+				hasBuilding2Swaned = true
+				onBuildingSpawn()
+				building2Swaned.emit()
+	elif distance >= 25:
+		if !hasBuilding1Swaned:
+				hasBuilding1Swaned = true
+				onBuildingSpawn()
+				building1Swaned.emit()
+
+func onBuildingSpawn():
 	#TODO pick a building and do on spawn
 	
 	if move.canMove:
-		spawner_component.scene = building1Scene
+		var bType = randi_range(1, 2)
+		
+		match bType:
+			1:
+				spawner_component.scene = building1Scene
+				pass
+			2: 
+				spawner_component.scene = building2Scene
+				pass
+		
 		#TODO back it up based on the size of the scence
 		#we could cheat and keep a cheat sheet instead of calulating it
 		spawner_component.spawn(Vector2( 5, -200))
-		
-	var spawnRate = timeOffset / (0.5 + (move.distance *0.01))	
 	
-	timer.start(spawnRate + randf_range(0.25, 0.5))
 	pass		
 		
 func onSpawn(scene: PackedScene, timer: Timer, timeOffset: float = 1.0):

@@ -61,6 +61,6 @@ shape = SubResource("CircleShape2D_y4md1")
 [node name="PositionClampComponent" type="Node2D" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("12_4roeh")
 actor = NodePath("..")
-margin = 11
+margin = 13
 
 [editable path="PlayerDetection"]

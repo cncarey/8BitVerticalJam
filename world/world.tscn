@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bhdncv51oll25" path="res://player/player.tscn" id="1_aho6t"]
 [ext_resource type="Script" path="res://world/world.gd" id="1_yjyb2"]
 [ext_resource type="PackedScene" uid="uid://cqfo6008vbvqm" path="res://effects/ground_background.tscn" id="2_2a8ar"]
-[ext_resource type="PackedScene" uid="uid://kxmn157vv7vn" path="res://world/buildings/building_food.tscn" id="3_67i5n"]
+[ext_resource type="PackedScene" uid="uid://kxmn157vv7vn" path="res://world/buildings/building_1.tscn" id="3_67i5n"]
 [ext_resource type="PackedScene" uid="uid://0lr03nxkr2gh" path="res://UI/progress_bar.tscn" id="4_rkiif"]
 [ext_resource type="PackedScene" uid="uid://ctb46l2d1pw2g" path="res://enemies/enemy_generator.tscn" id="5_d5p31"]
 [ext_resource type="PackedScene" uid="uid://dif84j5o0j5gm" path="res://enemies/zombie.tscn" id="6_je3rf"]
@@ -29,16 +29,17 @@ anchors_preset = 0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 292.0
-offset_top = 0.0
-offset_right = 320.0
-offset_bottom = 480.0
+offset_left = 323.0
+offset_top = 1.0
+offset_right = 351.0
+offset_bottom = 481.0
 grow_horizontal = 1
 grow_vertical = 1
 rotation = 0.0
 size_flags_horizontal = 4
 step = 1.0
 fill_mode = 2
+show_percentage = true
 
 [node name="MarginContainer" type="MarginContainer" parent="ui"]
 offset_right = 40.0

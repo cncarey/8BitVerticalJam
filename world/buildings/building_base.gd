@@ -69,3 +69,27 @@ func pick_rand_number(list: Array, amount: int) -> Array:
 		if new_list.size() <= amount:
 			new_list.append(list[i])
 	return new_list
+
+
+func placeCollectables(collectableCount):
+	
+	var items = pick_rand_number(collectables.get_children(), collectableCount)
+	for iP in items :
+		var iType = randi_range(1,4)
+		
+		match iType:
+			4: 
+				spawner_component.scene = pickUp
+				pass
+			3:
+				spawner_component.scene = barrel
+				pass
+			2: 
+				spawner_component.scene = box
+				pass
+			1:
+				spawner_component.scene = vase
+				pass
+		
+		spawner_component.spawn(iP.global_position, self)
+		pass

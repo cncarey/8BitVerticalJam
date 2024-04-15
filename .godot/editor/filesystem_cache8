@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1713153256
+::res://::1713214029
 icon.svg::CompressedTexture2D::5433256371820914509::1712965274::1712965530::1::::<><>::
 PlayerDetection.gd::GDScript::-1::1713069149::0::1::::PlayerDetectionComponent<>Area2D<>::
 README.md::TextFile::-1::1712965424::0::1::::<><>::
@@ -103,16 +103,16 @@ state_component.gd::GDScript::-1::1702402138::0::1::::StateComponent<>Node<>::
 stats_component.gd::GDScript::-1::1713130251::0::1::::StatsComponent<>Node<>::
 timed_state_componoent.gd::GDScript::-1::1702402138::0::1::::TimedStateComponent<>StateComponent<>::
 variable_pitch_audio_stream_player.gd::GDScript::-1::1702402138::0::1::::VariablePitchAudioStreamPlayer<>AudioStreamPlayer<>::
-::res://effects/::1713153024
+::res://effects/::1713214028
 ground_background.gd::GDScript::-1::1713131441::0::1::::<>ParallaxBackground<>::
 ground_background.tscn::PackedScene::5907091505106161592::1713032327::0::1::::<><>::uid://372w87xx36up::::res://asserts/art/jawbreaker_tiles.png<>res://effects/ground_background.gd<>uid://do11s08vsav4v::::res://world/move_states.tres
-white_flash_material.gdshader::Shader::-1::1713153024::0::1::::<><>::
+white_flash_material.gdshader::Shader::-1::1713214044::0::1::::<><>::
 white_flash_material.tres::ShaderMaterial::210536038483746541::1702402138::0::1::::<><>::res://effects/white_flash_material.gdshader
-::res://enemies/::1713149782
+::res://enemies/::1713214028
 enemy.gd::GDScript::-1::1713076129::0::1::::Enemy<>CharacterBody2D<>::
-enemy.tscn::PackedScene::4180703742686391029::1713129409::0::1::::<><>::res://enemies/enemy.gd<>res://components/stats_component.gd<>res://components/flash_component.gd<>res://components/shake_component.gd<>res://components/hurt_component.gd<>res://components/hitbox_component.gd<>res://components/variable_pitch_audio_stream_player.gd<>uid://ib4a7pgdlhv5::::res://components/player_detection_component.tscn<>uid://bh1teb1nltv5g::::res://components/hurtbox_component.tscn<>res://components/position_clamp_component.gd
-enemy_generator.gd::GDScript::-1::1713079115::0::1::::<>Node2D<>::
-enemy_generator.tscn::PackedScene::6110310546302394156::1713149782::0::1::::<><>::res://enemies/enemy_generator.gd<>res://components/spawner_component.gd<>uid://do11s08vsav4v::::res://world/move_states.tres<>uid://dif84j5o0j5gm::::res://enemies/zombie.tscn<>uid://kxmn157vv7vn::::res://world/buildings/building_food.tscn
+enemy.tscn::PackedScene::4180703742686391029::1713213487::0::1::::<><>::res://enemies/enemy.gd<>res://components/stats_component.gd<>res://components/flash_component.gd<>res://components/shake_component.gd<>res://components/hurt_component.gd<>res://components/hitbox_component.gd<>res://components/variable_pitch_audio_stream_player.gd<>uid://ib4a7pgdlhv5::::res://components/player_detection_component.tscn<>uid://bh1teb1nltv5g::::res://components/hurtbox_component.tscn<>res://components/position_clamp_component.gd
+enemy_generator.gd::GDScript::-1::1713213482::0::1::::<>Node2D<>::
+enemy_generator.tscn::PackedScene::6110310546302394156::1713214028::0::1::::<><>::res://enemies/enemy_generator.gd<>res://components/spawner_component.gd<>uid://do11s08vsav4v::::res://world/move_states.tres<>uid://dif84j5o0j5gm::::res://enemies/zombie.tscn<>uid://kxmn157vv7vn::::res://world/buildings/building_1.tscn
 zombie.tscn::PackedScene::7733150657462573160::1713131447::0::1::::<><>::uid://b0tftyj1qy1j2::::res://enemies/enemy.tscn<>uid://do11s08vsav4v::::res://world/move_states.tres<>uid://di2xtaurrbd20::::res://asserts/art/Character-and-Zombie.png
 ::res://fonts/::1713153256
 default_label_settings.tres::LabelSettings::4442626398858156925::1713153256::0::1::::<><>::uid://bvtb73tme6xgb::::res://fonts/kenney_mini_square.ttf
@@ -125,28 +125,29 @@ player.tscn::PackedScene::2884729765450242136::1713152888::0::1::::<><>::res://p
 baseProjectile.gd::GDScript::-1::1713078008::0::1::::<>Node2D<>::
 baseProjectile.tscn::PackedScene::9149468142871651801::1713070719::0::1::::<><>::res://projectiles/baseProjectile.gd<>res://components/scale_component.gd<>res://components/flash_component.gd<>res://components/hitbox_component.gd
 bullet.tscn::PackedScene::6268010820815797068::1713130875::0::1::::<><>::res://projectiles/baseProjectile.gd<>uid://b4rl4nm1x6pv1::::res://asserts/art/laser_small.png<>res://components/scale_component.gd<>res://components/flash_component.gd<>res://components/hitbox_component.gd
-::res://UI/::1713152888
+::res://UI/::1713153536
 PlayerStatsUI.gd::GDScript::-1::1713151567::0::1::::<>MarginContainer<>::
-PlayerStatsUI.tscn::PackedScene::2640095017914420829::1713152888::0::1::::<><>::res://UI/PlayerStatsUI.gd<>uid://dt01k7xl5vfnj::::res://asserts/art/Sprite sheet for Basic Pack.png<>uid://b4yxddcx2kf4m::::res://world/game_stats.tres
+PlayerStatsUI.tscn::PackedScene::2640095017914420829::1713153536::0::1::::<><>::res://UI/PlayerStatsUI.gd<>uid://dt01k7xl5vfnj::::res://asserts/art/Sprite sheet for Basic Pack.png<>uid://b4yxddcx2kf4m::::res://world/game_stats.tres<>uid://b4kbn4k1bdngv::::res://fonts/default_label_settings.tres
 progress_bar.gd::GDScript::-1::1713024826::0::1::::<>ProgressBar<>::
 progress_bar.tscn::PackedScene::1778507571765458567::1713073527::0::1::::<><>::res://UI/progress_bar.gd<>uid://do11s08vsav4v::::res://world/move_states.tres
-::res://world/::1713151297
+::res://world/::1713214028
 game_stats.gd::GDScript::-1::1713151297::0::1::::Game_Stats<>Resource<>::
-game_stats.tres::Resource/Resource::4472844225249973082::1713070981::0::1::::<><>::res://world/game_stats.gd
+game_stats.tres::Resource/Resource::4472844225249973082::1713154019::0::1::::<><>::res://world/game_stats.gd
 move_states.gd::GDScript::-1::1713021002::0::1::::Move_States<>Resource<>::
 move_states.tres::Resource/Resource::8197191834760049475::1712978466::0::1::::<><>::res://world/move_states.gd
 world.gd::GDScript::-1::1713024985::0::1::::<>Node2D<>::
-world.tscn::PackedScene::626167322811770905::1713131447::0::1::::<><>::uid://bhdncv51oll25::::res://player/player.tscn<>res://world/world.gd<>uid://cqfo6008vbvqm::::res://effects/ground_background.tscn<>uid://kxmn157vv7vn::::res://world/buildings/building_food.tscn<>uid://0lr03nxkr2gh::::res://UI/progress_bar.tscn<>uid://ctb46l2d1pw2g::::res://enemies/enemy_generator.tscn<>uid://dif84j5o0j5gm::::res://enemies/zombie.tscn<>uid://bdu48j8mciy74::::res://UI/PlayerStatsUI.tscn
-::res://world/buildings/::1713152889
-building_base.gd::GDScript::-1::1713152686::0::1::::building<>Node2D<>::
-building_base.tscn::PackedScene::850941659216788349::1713152888::0::1::::<><>::res://world/buildings/building_base.gd<>uid://cqsc17puxxioq::::res://world/pickups/barrel.tscn<>res://components/spawner_component.gd<>uid://dfpblge1ldwlv::::res://world/pickups/box.tscn<>res://components/move_component.gd<>uid://duv8geiya5wrr::::res://world/pickups/vase.tscn<>uid://do11s08vsav4v::::res://world/move_states.tres<>uid://dif84j5o0j5gm::::res://enemies/zombie.tscn
-building_food.gd::GDScript::-1::1713152735::0::1::::<>building<>::
-building_food.tscn::PackedScene::750122357391755855::1713152889::0::1::::<><>::uid://meg5c3kldqun::::res://world/buildings/building_base.tscn<>res://world/buildings/building_food.gd<>uid://372w87xx36up::::res://asserts/art/jawbreaker_tiles.png
+world.tscn::PackedScene::626167322811770905::1713214028::0::1::::<><>::uid://bhdncv51oll25::::res://player/player.tscn<>res://world/world.gd<>uid://cqfo6008vbvqm::::res://effects/ground_background.tscn<>uid://kxmn157vv7vn::::res://world/buildings/building_1.tscn<>uid://0lr03nxkr2gh::::res://UI/progress_bar.tscn<>uid://ctb46l2d1pw2g::::res://enemies/enemy_generator.tscn<>uid://dif84j5o0j5gm::::res://enemies/zombie.tscn<>uid://bdu48j8mciy74::::res://UI/PlayerStatsUI.tscn
+::res://world/buildings/::1713214028
+building_1.tscn::PackedScene::750122357391755855::1713214044::0::1::::<><>::uid://meg5c3kldqun::::res://world/buildings/building_base.tscn<>res://world/buildings/building_food.gd<>uid://372w87xx36up::::res://asserts/art/jawbreaker_tiles.png
+building_2.tscn::PackedScene::4967369256073097425::1713214015::0::1::::<><>::uid://meg5c3kldqun::::res://world/buildings/building_base.tscn
+building_base.gd::GDScript::-1::1713213949::0::1::::building<>Node2D<>::
+building_base.tscn::PackedScene::850941659216788349::1713213949::0::1::::<><>::res://world/buildings/building_base.gd<>uid://cqsc17puxxioq::::res://world/pickups/barrel.tscn<>res://components/spawner_component.gd<>uid://dfpblge1ldwlv::::res://world/pickups/box.tscn<>res://components/move_component.gd<>uid://duv8geiya5wrr::::res://world/pickups/vase.tscn<>uid://do11s08vsav4v::::res://world/move_states.tres<>uid://dif84j5o0j5gm::::res://enemies/zombie.tscn<>uid://nkldx7kfmt00::::res://world/pickups/PickUp.tscn
+building_food.gd::GDScript::-1::1713214015::0::1::::<>building<>::
 DefaultBuildingTM.tres::TileSet::112817752159512335::1712976998::0::1::::<><>::uid://372w87xx36up::::res://asserts/art/jawbreaker_tiles.png
-::res://world/pickups/::1713153023
+::res://world/pickups/::1713153335
 barrel.tscn::PackedScene::5933191234654485236::1713152888::0::1::::<><>::uid://cky80nb3kq30j::::res://world/pickups/BreakableObject.tscn<>uid://bdu2cc70kcuxr::::res://asserts/art/Destructible Objects Sprite Sheet.png
 box.tscn::PackedScene::7541252618821565035::1713152338::0::1::::<><>::uid://cky80nb3kq30j::::res://world/pickups/BreakableObject.tscn<>uid://bdu2cc70kcuxr::::res://asserts/art/Destructible Objects Sprite Sheet.png
-BreakableObject.gd::GDScript::-1::1713153023::0::1::::<>Node2D<>::
+BreakableObject.gd::GDScript::-1::1713153335::0::1::::<>Node2D<>::
 BreakableObject.tscn::PackedScene::5526323861107449899::1713153023::0::1::::<><>::res://world/pickups/BreakableObject.gd<>res://components/flash_component.gd<>uid://bh1teb1nltv5g::::res://components/hurtbox_component.tscn<>res://components/spawner_component.gd<>res://components/variable_pitch_audio_stream_player.gd<>uid://nkldx7kfmt00::::res://world/pickups/PickUp.tscn
 PickUp.gd::GDScript::-1::1713151956::0::1::::PickUp<>Node2D<>::
 PickUp.tscn::PackedScene::933773247069489575::1713152888::0::1::::<><>::res://world/pickups/PickUp.gd<>res://components/flash_component.gd<>uid://b4yxddcx2kf4m::::res://world/game_stats.tres<>res://components/hurtbox_component.gd<>uid://cgamktogcglcv::::res://asserts/art/SpriteSheetSpark.png<>res://components/variable_pitch_audio_stream_player.gd<>uid://cw7degrkebghg::::res://asserts/sounds/powerUp.wav

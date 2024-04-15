@@ -1,4 +1,4 @@
-res://font
+res://world/buildings
 res://world/pickups
 res://asserts/art
 res://UI
@@ -7,6 +7,5 @@ res://enemies
 res://projectiles
 res://world
 res://asserts/sounds
-res://world/buildings
 res://effects
 res://player
