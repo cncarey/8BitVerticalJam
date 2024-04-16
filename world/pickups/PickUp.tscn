@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://nkldx7kfmt00"]
+[gd_scene load_steps=18 format=3 uid="uid://nkldx7kfmt00"]
 
 [ext_resource type="Script" path="res://world/pickups/PickUp.gd" id="1_nk6dq"]
 [ext_resource type="Script" path="res://components/flash_component.gd" id="2_2hyl5"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cgamktogcglcv" path="res://asserts/art/SpriteSheetSpark.png" id="3_moow3"]
 [ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="7_0l5ac"]
 [ext_resource type="AudioStream" uid="uid://cw7degrkebghg" path="res://asserts/sounds/powerUp.wav" id="7_lw7ms"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="8_ar435"]
+[ext_resource type="Resource" uid="uid://do11s08vsav4v" path="res://world/move_states.tres" id="9_ul7jr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cr515"]
 atlas = ExtResource("3_moow3")
@@ -64,6 +66,7 @@ radius = 10.0499
 [node name="PickUp" type="Node2D"]
 script = ExtResource("1_nk6dq")
 game_stats = ExtResource("2_pesv3")
+move_stats = ExtResource("9_ul7jr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -89,3 +92,9 @@ shape = SubResource("CircleShape2D_kh1ys")
 [node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_lw7ms")
 script = ExtResource("7_0l5ac")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("8_ar435")
+move = ExtResource("9_ul7jr")
+actor = NodePath("..")
+velocity = Vector2(0, 20)

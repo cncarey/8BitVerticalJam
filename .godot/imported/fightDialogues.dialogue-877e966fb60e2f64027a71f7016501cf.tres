@@ -1,0 +1,173 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_c0uk4"]
+
+[resource]
+script = ExtResource("1_c0uk4")
+using_states = PackedStringArray()
+titles = {
+"Start": "2"
+}
+character_names = PackedStringArray("")
+first_title = "2"
+lines = {
+"1": {
+"id": "1",
+"next_id": "2",
+"text": "Start",
+"type": &"title"
+},
+"10": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "10",
+"next_id": "13",
+"notes": "",
+"parent_id": "8",
+"tags": PackedStringArray(),
+"text": "They beat you up take -1 food and -1 mood.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "They beat you up take -1 food and -1 mood.",
+"type": &"dialogue"
+},
+"13": {
+"id": "13",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"2": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "2",
+"next_id": "3",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You come across a group of bandits. They look dangerous.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You come across a group of bandits. They look dangerous.",
+"type": &"dialogue"
+},
+"3": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "3",
+"next_id": "4",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Should you",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Should you",
+"type": &"dialogue"
+},
+"4": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "4",
+"next_id": "5",
+"next_id_after": "13",
+"notes": "",
+"responses": PackedStringArray("4", "8"),
+"tags": PackedStringArray(),
+"text": "Fight the Bandits",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Fight the Bandits",
+"type": &"response"
+},
+"5": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "5",
+"next_id": "13",
+"notes": "",
+"parent_id": "4",
+"siblings": [{
+"id": "5",
+"weight": 1.0
+}, {
+"id": "6",
+"weight": 1.0
+}, {
+"id": "7",
+"weight": 1.0
+}],
+"tags": PackedStringArray(),
+"text": "You win the fight +2 mood.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You win the fight +2 mood.",
+"type": &"dialogue"
+},
+"6": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "6",
+"next_id": "13",
+"notes": "",
+"parent_id": "4",
+"tags": PackedStringArray(),
+"text": "You win the fight +1 mood and take their ammo + 30 ammo",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You win the fight +1 mood and take their ammo + 30 ammo",
+"type": &"dialogue"
+},
+"7": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "7",
+"next_id": "13",
+"notes": "",
+"parent_id": "4",
+"tags": PackedStringArray(),
+"text": "Loose health -2 an -1 mood.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Loose health -2 an -1 mood.",
+"type": &"dialogue"
+},
+"8": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "8",
+"next_id": "9",
+"next_id_after": "13",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Try to run before they see you",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Try to run before they see you",
+"type": &"response"
+},
+"9": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "9",
+"next_id": "13",
+"notes": "",
+"parent_id": "8",
+"siblings": [{
+"id": "9",
+"weight": 1.0
+}, {
+"id": "10",
+"weight": 1.0
+}],
+"tags": PackedStringArray(),
+"text": "You get away unnoticed +1 mood.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You get away unnoticed +1 mood.",
+"type": &"dialogue"
+}
+}
+raw_text = "~ Start
+You come across a group of bandits. They look dangerous.
+Should you
+- Fight the Bandits
+	% : You win the fight +2 mood.
+	% : You win the fight +1 mood and take their ammo + 30 ammo
+	% : Loose health -2 an -1 mood.
+- Try to run before they see you
+	% : You get away unnoticed +1 mood.
+	% : They beat you up take -1 food and -1 mood.
+
+
+=> END"
+metadata/dialogue_manager_version = "2.38.0"

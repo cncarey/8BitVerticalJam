@@ -39,6 +39,7 @@ func onNoHealth():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if !move.canMove: return
 	
 	var player = player_detection.player
 	if player != null:

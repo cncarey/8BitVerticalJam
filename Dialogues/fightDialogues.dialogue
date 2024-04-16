@@ -1,0 +1,13 @@
+~ Start
+You come across a group of bandits. They look dangerous.
+Should you
+- Fight the Bandits
+	% : You win the fight +2 mood.
+	% : You win the fight +1 mood and take their ammo + 30 ammo
+	% : Loose health -2 an -1 mood.
+- Try to run before they see you
+	% : You get away unnoticed +1 mood.
+	% : They beat you up take -1 food and -1 mood.
+
+
+=> END

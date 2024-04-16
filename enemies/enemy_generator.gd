@@ -3,8 +3,8 @@ extends Node2D
 @export var move : Move_States
 
 @export var zombieScene : PackedScene
-@export var ammoScene : PackedScene
-@export var healthScene : PackedScene
+@export var pickupScene : PackedScene
+
 @export var building1Scene: PackedScene
 @export var building2Scene: PackedScene
 @export var building3Scene: PackedScene
@@ -13,6 +13,7 @@ extends Node2D
 
 @onready var spawner_component = $SpawnerComponent
 @onready var enemy_timer = $EnemyTimer
+@onready var ammo_timer = $AmmoTimer
 
 var margin = 13
 var screenWidth = ProjectSettings.get_setting("display/window/size/viewport_width")
@@ -28,9 +29,11 @@ signal building3Swaned()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	move.canMove_changed.connect(pauseTimers)
+	move.canMove_changed.connect(pauseMoveTimers)
+	move.canScroll_changed.connect(pauseScrollTimers)
 	move.distance_changed.connect(onDistance)
-	enemy_timer.timeout.connect(onSpawn.bind(zombieScene, enemy_timer,2))
+	enemy_timer.timeout.connect(onEnemySpawn.bind(zombieScene, enemy_timer,2))
+	ammo_timer.timeout.connect(onAmmoSpawn.bind(ammo_timer, 8))
 	pass # Replace with function body.
 
 
@@ -39,11 +42,20 @@ func _process(delta):
 	pass
 
 
-func pauseTimers(state: bool):
+func pauseMoveTimers(state: bool):
 	if state:
 		enemy_timer.start()
+		ammo_timer.start()
 	else:
 		enemy_timer.stop()
+		ammo_timer.stop()
+
+func pauseScrollTimers(state: bool):
+	if state:
+		ammo_timer.start()
+	else:
+		ammo_timer.stop()
+
 
 func onDistance(distance):
 	if distance >= 75:
@@ -82,11 +94,23 @@ func onBuildingSpawn():
 	
 	pass		
 		
-func onSpawn(scene: PackedScene, timer: Timer, timeOffset: float = 1.0):
+func onEnemySpawn(scene: PackedScene, timer: Timer, timeOffset: float = 1.0):
 	if move.canMove:
 		spawner_component.scene = scene
 		spawner_component.spawn(Vector2(randf_range(margin, screenWidth - margin), -16))
 		
+	respawn(timer, timeOffset)
+	
+func onAmmoSpawn(timer: Timer, timeOffset: float = 1.0):
+	if move.canMove:
+		var ammo = pickupScene.instantiate()
+		ammo.pickUpType = 1
+		get_tree().current_scene.add_child(ammo)
+		ammo.global_position = Vector2(randf_range(margin+12, screenWidth - (margin +12)), -16)
+		
+	respawn(timer, timeOffset)
+	
+func respawn(timer: Timer, timeOffset: float = 1.0):	
 	var spawnRate = timeOffset / (0.5 + (move.distance *0.01))	
 	
 	timer.start(spawnRate + randf_range(0.25, 0.5))

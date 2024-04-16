@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://hegdmvwo7e7e"
+path="res://.godot/imported/fightDialogues.dialogue-877e966fb60e2f64027a71f7016501cf.tres"
+
+[deps]
+
+source_file="res://Dialogues/fightDialogues.dialogue"
+dest_files=["res://.godot/imported/fightDialogues.dialogue-877e966fb60e2f64027a71f7016501cf.tres"]
+
+[params]
+
+defaults=true

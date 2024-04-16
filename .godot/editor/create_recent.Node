@@ -1,3 +1,6 @@
+AudioStreamPlayer
+MoveComponent
+ColorRect
 Label
 MarginContainer
 Button
@@ -10,5 +13,3 @@ CollisionShape2D
 SpawnerComponent
 HitboxComponent
 DestroyedComponent
-AnimatedSprite2D
-VariablePitchAudioStreamPlayer

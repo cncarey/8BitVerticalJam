@@ -1,16 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctb46l2d1pw2g"]
+[gd_scene load_steps=8 format=3 uid="uid://ctb46l2d1pw2g"]
 
 [ext_resource type="Script" path="res://enemies/enemy_generator.gd" id="1_ui1kh"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="1_ytp25"]
 [ext_resource type="Resource" uid="uid://do11s08vsav4v" path="res://world/move_states.tres" id="2_g3ysr"]
 [ext_resource type="PackedScene" uid="uid://dif84j5o0j5gm" path="res://enemies/zombie.tscn" id="3_28pms"]
 [ext_resource type="PackedScene" uid="uid://kxmn157vv7vn" path="res://world/buildings/building_1.tscn" id="4_1fjil"]
+[ext_resource type="PackedScene" uid="uid://nkldx7kfmt00" path="res://world/pickups/PickUp.tscn" id="4_1pae3"]
 [ext_resource type="PackedScene" uid="uid://cc1h304qmmpqv" path="res://world/buildings/building_2.tscn" id="5_aaxuq"]
 
 [node name="EnemyGenerator" type="Node2D"]
 script = ExtResource("1_ui1kh")
 move = ExtResource("2_g3ysr")
 zombieScene = ExtResource("3_28pms")
+pickupScene = ExtResource("4_1pae3")
 building1Scene = ExtResource("4_1fjil")
 building2Scene = ExtResource("5_aaxuq")
 
@@ -19,5 +21,10 @@ script = ExtResource("1_ytp25")
 
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="AmmoTimer" type="Timer" parent="."]
+wait_time = 8.0
 one_shot = true
 autostart = true

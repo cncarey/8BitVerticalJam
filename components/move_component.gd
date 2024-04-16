@@ -7,10 +7,11 @@ extends Node
 @export var origVelocity: Vector2
 
 @export var isScrollable: bool = false
+@export var ignore: bool = false
 
 func resetVelocity():
 	velocity = Vector2(origVelocity.x, origVelocity.y)
 
 func _process(delta: float) -> void:
-	if move.canMove && (move.canScroll if isScrollable else true):
+	if !ignore && move.canMove && (move.canScroll if isScrollable else true):
 		actor.translate(velocity * delta)

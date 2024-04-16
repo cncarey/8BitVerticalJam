@@ -41,8 +41,8 @@ func _ready():
 	invisibility_timer.timeout.connect(turnOffInvisibility)
 
 func _physics_process(delta):
-	#if Global.isTalking:
-	#	return
+	if !move.canMove: return
+	
 	ani_gun.look_at(get_global_mouse_position())
 	
 	match state:

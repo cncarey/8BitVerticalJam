@@ -21,3 +21,9 @@ res://UI/MainMenu.tscn
 res://UI/MainMenu.gd
 res://player/player.tscn
 res://player/player.gd
+res://world/world.gd
+res://world/pickups/PickUp.tscn
+res://world/pickups/PickUp.gd
+res://components/move_component.gd
+res://UI/music_player.tscn
+res://enemies/enemy.gd
