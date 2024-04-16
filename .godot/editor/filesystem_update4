@@ -14,3 +14,10 @@ res://world/buildings/building_2.gd
 res://world/buildings/building_1.gd
 res://effects/ground_background.tscn
 res://effects/ground_background.gd
+res://UI/Options.tscn
+res://UI/Options.gd
+res://default_bus_layout.tres
+res://UI/MainMenu.tscn
+res://UI/MainMenu.gd
+res://player/player.tscn
+res://player/player.gd

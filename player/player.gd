@@ -7,10 +7,10 @@ enum worldLocations { Inside, Grass, Sand}
 @export var footstepLocation : worldLocations = worldLocations.Grass
 
 @export var acceleration = 250
-@export var friction = 450
+@export var friction = 300
 
 @export var maxSpeed = 100
-@export var dashSpeed = 250
+
 @export var game_stats: Game_Stats
 @export var move : Move_States
 
