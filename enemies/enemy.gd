@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var ani = $AnimatedSprite2D
 @onready var visible_on_screen_notifier_2d = $VisibleOnScreenNotifier2D
 @onready var stats_component = $StatsComponent as StatsComponent
-#@onready var move_component = $MoveComponent as MoveComponent
+#
 @onready var flash_component = $FlashComponent
 @onready var shake_component = $ShakeComponent
 @onready var hurtbox_component = $HurtboxComponent

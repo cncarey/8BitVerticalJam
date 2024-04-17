@@ -1,5 +1,4 @@
-class_name Game_Stats
-extends Resource
+extends Node
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,7 +12,7 @@ func _ready():
 	get:
 		return score
 		
-@export var ammo = 25 : 
+@export var ammo = 250 : 
 	set(value):
 		ammo = value
 		
@@ -39,14 +38,21 @@ func tryTakeAmmo(dec: int) -> bool:
 	get:
 		return comboCounter
 
-@export var curHealth = 1:
+@export var curHealth = 2:
 	set(value):
 		curHealth = value
 		curHealth_changed.emit(curHealth)
 	get:
 		return curHealth
 		
-@export var healthPack = 1:
+@export var curHealthMax = 5:
+	set(value):
+		curHealthMax = value
+		curHealthMax_changed.emit(curHealthMax)
+	get:
+		return curHealthMax
+		
+@export var healthPack = 0:
 	set(value):
 		healthPack = value
 		healthPack_changed.emit(healthPack)
@@ -60,7 +66,7 @@ func tryTakehealthPack(dec: int) -> bool:
 		healthPack -= dec
 		return true
 		
-@export var food = 1:
+@export var food = 0:
 	set(value):
 		food = value
 		food_changed.emit(food)
@@ -81,6 +87,7 @@ signal ammo_changed(ammo)
 signal comboCounter_changed(combo)
 signal no_ammo()
 signal curHealth_changed(health)
+signal curHealthMax_changed(maxHealth)
 signal food_changed(food)
 signal mood_changed(mood)
 signal healthPack_changed(healthPacks)

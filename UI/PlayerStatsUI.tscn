@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdu48j8mciy74"]
+[gd_scene load_steps=13 format=3 uid="uid://bdu48j8mciy74"]
 
 [ext_resource type="Script" path="res://UI/PlayerStatsUI.gd" id="1_b5im4"]
 [ext_resource type="Texture2D" uid="uid://dt01k7xl5vfnj" path="res://asserts/art/Sprite sheet for Basic Pack.png" id="2_fvxpu"]
-[ext_resource type="Resource" uid="uid://b4yxddcx2kf4m" path="res://world/game_stats.tres" id="2_ya8gx"]
 [ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://fonts/default_label_settings.tres" id="4_0d41u"]
+[ext_resource type="Texture2D" uid="uid://d2brdwxntf0sc" path="res://asserts/art/Icon_spritesheet01.png" id="4_b8244"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_20s0g"]
 atlas = ExtResource("2_fvxpu")
@@ -17,78 +17,117 @@ region = Rect2(387, 163, 11, 11)
 atlas = ExtResource("2_fvxpu")
 region = Rect2(419, 163, 11, 11)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt8pa"]
+atlas = ExtResource("4_b8244")
+region = Rect2(27, 29, 17, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sumb2"]
+atlas = ExtResource("4_b8244")
+region = Rect2(150, 102, 12, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86e2c"]
+atlas = ExtResource("4_b8244")
+region = Rect2(125, 53, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w7uc"]
+atlas = ExtResource("2_fvxpu")
+region = Rect2(580, 115, 9, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k07la"]
+atlas = ExtResource("2_fvxpu")
+region = Rect2(612, 115, 9, 10)
+
 [node name="MarginContainer" type="MarginContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_b5im4")
-game_stats = ExtResource("2_ya8gx")
 Happy = SubResource("AtlasTexture_20s0g")
 Neutral = SubResource("AtlasTexture_2phv7")
 Sad = SubResource("AtlasTexture_42hth")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="MoodSprite" type="TextureRect" parent="HBoxContainer"]
+[node name="ItemsContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ItemsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="MoodSprite" type="TextureRect" parent="VBoxContainer/ItemsContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 expand_mode = 3
+stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ItemsContainer"]
 layout_mode = 2
 
-[node name="HealthContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ItemsContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="HealthLabel" type="Label" parent="HBoxContainer/VBoxContainer/HealthContainer"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-text = "Health"
-label_settings = ExtResource("4_0d41u")
+columns = 3
 
-[node name="HealthValue" type="Label" parent="HBoxContainer/VBoxContainer/HealthContainer"]
+[node name="AmmoContainer" type="VBoxContainer" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="AmmoIcon" type="TextureRect" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer/GridContainer/AmmoContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_pt8pa")
+
+[node name="AmmoValue" type="Label" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer/GridContainer/AmmoContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "3/5"
+text = "0"
 label_settings = ExtResource("4_0d41u")
+horizontal_alignment = 1
 
-[node name="AmmoContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="FoodContainer" type="VBoxContainer" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 
-[node name="AmmoLabel" type="Label" parent="HBoxContainer/VBoxContainer/AmmoContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer/GridContainer/FoodContainer"]
 layout_mode = 2
-text = "Ammo"
-label_settings = ExtResource("4_0d41u")
+texture = SubResource("AtlasTexture_sumb2")
 
-[node name="AmmoValue" type="Label" parent="HBoxContainer/VBoxContainer/AmmoContainer"]
+[node name="FoodValue" type="Label" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer/GridContainer/FoodContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 label_settings = ExtResource("4_0d41u")
 
-[node name="FoodContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="HealthPackContainer" type="VBoxContainer" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 
-[node name="FoodLabel" type="Label" parent="HBoxContainer/VBoxContainer/FoodContainer"]
+[node name="HealthPackLabel" type="TextureRect" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer/GridContainer/HealthPackContainer"]
 layout_mode = 2
-text = "Food"
-label_settings = ExtResource("4_0d41u")
+texture = SubResource("AtlasTexture_86e2c")
 
-[node name="FoodValue" type="Label" parent="HBoxContainer/VBoxContainer/FoodContainer"]
+[node name="HealthPackValue" type="Label" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer/GridContainer/HealthPackContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 label_settings = ExtResource("4_0d41u")
 
-[node name="HealthPackContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="HealthPackLabel" type="Label" parent="HBoxContainer/VBoxContainer/HealthPackContainer"]
-layout_mode = 2
-text = "Health Packs"
-label_settings = ExtResource("4_0d41u")
-
-[node name="HealthPackValue" type="Label" parent="HBoxContainer/VBoxContainer/HealthPackContainer"]
+[node name="HeartsContainer" type="GridContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "0"
-label_settings = ExtResource("4_0d41u")
+
+[node name="Heart" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_1w7uc")
+stretch_mode = 2
+
+[node name="EmptyHeart" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_k07la")
+stretch_mode = 2

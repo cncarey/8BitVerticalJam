@@ -1,13 +1,128 @@
-~ Start
-You come across a group of bandits. They look dangerous.
-Should you
+~ FightBandits
+You come across a group of bandits. They look dangerous and are talking jibberish. They start to approach you. Should you
 - Fight the Bandits
-	% : You win the fight +2 mood.
-	% : You win the fight +1 mood and take their ammo + 30 ammo
-	% : Loose health -2 an -1 mood.
+	=> Fight
 - Try to run before they see you
-	% : You get away unnoticed +1 mood.
-	% : They beat you up take -1 food and -1 mood.
+	=> RunAway
+	=> END
 
+~ Fight
+% => MoodUp 
+% => MoodAmmo
+% => LooseFight
+=> END
 
+~ MoodUp
+You win the fight +2 mood.
+set GameStats.mood += 2
+=> END!
+
+~ MoodAmmo
+You win the fight +1 mood and take their ammo + 30 ammo
+set GameStats.mood += 1
+set GameStats.ammo += 30
+=> END!
+
+~ LooseFight
+You loose the fight -1 mood and they steal your -3 food.
+set GameStats.mood -= 1
+set GameStats.food -= 3
+=> END!
+
+~ RunAway
+% => GetAwayFight
+% => GetCaughtFight
+=> END
+
+~ GetAwayFight
+You get away unnoticed +1 mood.
+set GameStats.mood += 1
+=> END!
+
+~ GetCaughtFight
+They beat you up take -1 food and -1 mood.
+set GameStats.mood -= 1
+set GameStats.food -= 1
+=> END!
+
+~ FarmTrip
+You come across a some people working on a small farm. They offer you some food in exchange for help
+- Offer to help
+	=> HelpTheFarm
+- Rob the farm
+	=> RobTheFarm
+	=> END
+
+~ HelpTheFarm
+% => GoodHelp 
+% => GreatHelp
+% => TiredHelp
+=> END
+
+~ GoodHelp
+They feed you as promised
+set GameStats.food += 3
+=> END!
+
+~ GreatHelp
+They are so happy with what you did they gave you extra + 4 food and that makes you happy +1 mood
+set GameStats.mood += 1
+set GameStats.food += 4
+=> END!
+
+~ TiredHelp
+This was way more work than you expected -1 mood. They did give you some +3 food and extra +50 ammo for all the trouble
+set GameStats.mood -= 1
+set GameStats.food += 3
+set GameStats.ammo += 50
+=> END!
+
+~ RobTheFarm
+% => GetAwayRobTheFarm
+% => GetCaughtRobTheFarm
+=> END
+
+~ GetAwayRobTheFarm
+You feel so guilty -1 mood but you are loaded
+set GameStats.mood -= 1
+=> END!
+
+~ GetCaughtRobTheFarm
+They beat you up take -2 food and -2 mood you are salty you lost.
+set GameStats.mood -= 2
+set GameStats.food -= 2
+=> END!
+
+~ GroceryTrip
+You come across fortified grocery store. It sounds like there are some people inside. Do you
+- Check the Store
+	=> CheckTheGroceryStore
+- Leave
+	=> LeaveTheGroceryStore
+	=> END
+
+~ CheckTheGroceryStore
+% => GoodGroceryStore 
+% => GreatGroceryStore
+% => BadGroceryStore
+=> END
+
+~ GoodGroceryStore
+They let you in and share some of their +3 food
+set GameStats.food += 3
+=> END!
+
+~ GreatGroceryStore
+They are so happy just to see a non-zombie face. They give you some +3 food and +25 ammo and send you on your way. You are a bit happier +1 mood.
+set GameStats.mood += 1
+set GameStats.food += 3
+set GameStats.ammo += 25
+=> END!
+
+~ BadGroceryStore
+There is someone living in there and they don't open up. They shoot at you an tell you to scram
+=> END!
+
+~ LeaveTheGroceryStore
+You get spooked and decide to keep going
 => END

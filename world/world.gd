@@ -27,7 +27,23 @@ func resumePressed():
 
 func _on_progress_bar_total_distance_covered():
 	move.canMove = false
+	move.canScroll = false
+	var randEvent = randi_range(1, 3)
+	var event = ""
 	
-	DialogueManager.show_dialogue_balloon(fightDialogues, "Start")
-	#TODO level complete
-	pass # Replace with function body.
+	match randEvent:
+		1: event = "FightBandits"
+		2: event = "FarmTrip"
+		3: event = "GroceryTrip"
+		
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	DialogueManager.show_dialogue_balloon(fightDialogues, event)
+	
+func _on_dialogue_ended(_resource: DialogueResource):
+	DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
+	move.canMove = true
+	move.canScroll = true
+	move.distance = 0
+	await get_tree().create_timer(0.4).timeout
+	
+	get_tree().reload_current_scene()

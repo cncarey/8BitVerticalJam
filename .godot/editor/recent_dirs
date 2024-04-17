@@ -1,3 +1,4 @@
+res://world
 res://addons/dialogue_manager
 res://UI
 res://world/buildings
@@ -6,7 +7,6 @@ res://asserts/art
 res://components
 res://enemies
 res://projectiles
-res://world
 res://asserts/sounds
 res://effects
 res://player

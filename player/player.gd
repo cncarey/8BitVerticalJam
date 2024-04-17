@@ -11,7 +11,6 @@ enum worldLocations { Inside, Grass, Sand}
 
 @export var maxSpeed = 100
 
-@export var game_stats: Game_Stats
 @export var move : Move_States
 
 const SPEED = 300.0
@@ -36,7 +35,9 @@ var isDead: bool = false
 
 func _ready():
 	syncHealth(stats_component.health)
+	syncMaxHealth(stats_component.maxHealth)
 	stats_component.health_changed.connect(syncHealth)
+	stats_component.maxHealthChange.connect(syncMaxHealth)
 	hurtbox_component.hurt.connect(onHurt)
 	invisibility_timer.timeout.connect(turnOffInvisibility)
 
@@ -121,7 +122,7 @@ func moveState(delta):
 func _input(event: InputEvent) -> void:
 	if move.canMove:
 		if event.is_action_pressed("shoot"):
-			if game_stats.tryTakeAmmo(1):
+			if GameStats.tryTakeAmmo(1):
 				fireGun()
 
 func fireGun():
@@ -144,4 +145,7 @@ func turnOffInvisibility():
 	hurtbox_component.is_invincible = false	
 	
 func syncHealth(health):
-	game_stats.curHealth = health
+	GameStats.curHealth = health
+	
+func syncMaxHealth(maxHealth):
+	GameStats.curHealthMax = maxHealth

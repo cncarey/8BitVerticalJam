@@ -27,3 +27,9 @@ res://world/pickups/PickUp.gd
 res://components/move_component.gd
 res://UI/music_player.tscn
 res://enemies/enemy.gd
+res://world/game_stats.gd
+res://enemies/zombie.tscn
+res://UI/PlayerStatsUI.gd
+res://components/score_component.gd
+res://world/move_states.tres
+res://UI/PlayerStatsUI.tscn

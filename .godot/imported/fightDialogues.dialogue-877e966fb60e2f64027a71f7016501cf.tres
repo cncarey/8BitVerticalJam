@@ -6,34 +6,372 @@
 script = ExtResource("1_c0uk4")
 using_states = PackedStringArray()
 titles = {
-"Start": "2"
+"BadGroceryStore": "123",
+"CheckTheGroceryStore": "105",
+"FarmTrip": "49",
+"Fight": "10",
+"FightBandits": "2",
+"GetAwayFight": "38",
+"GetAwayRobTheFarm": "86",
+"GetCaughtFight": "43",
+"GetCaughtRobTheFarm": "91",
+"GoodGroceryStore": "111",
+"GoodHelp": "63",
+"GreatGroceryStore": "116",
+"GreatHelp": "68",
+"GroceryTrip": "97",
+"HelpTheFarm": "57",
+"LeaveTheGroceryStore": "127",
+"LooseFight": "27",
+"MoodAmmo": "21",
+"MoodUp": "16",
+"RobTheFarm": "81",
+"RunAway": "33",
+"TiredHelp": "74"
 }
-character_names = PackedStringArray("")
+character_names = PackedStringArray()
 first_title = "2"
 lines = {
 "1": {
 "id": "1",
 "next_id": "2",
-"text": "Start",
+"text": "FightBandits",
 "type": &"title"
 },
 "10": {
+"id": "10",
+"is_snippet": false,
+"next_id": "16",
+"siblings": [{
+"id": "10",
+"weight": 1.0
+}, {
+"id": "11",
+"weight": 1.0
+}, {
+"id": "12",
+"weight": 1.0
+}],
+"type": &"goto"
+},
+"100": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "10",
-"next_id": "13",
+"id": "100",
+"next_id": "101",
+"next_id_after": "105",
 "notes": "",
-"parent_id": "8",
 "tags": PackedStringArray(),
-"text": "They beat you up take -1 food and -1 mood.",
+"text": "Leave",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "They beat you up take -1 food and -1 mood.",
+"translation_key": "Leave",
+"type": &"response"
+},
+"101": {
+"id": "101",
+"is_snippet": false,
+"next_id": "127",
+"parent_id": "100",
+"type": &"goto"
+},
+"102": {
+"id": "102",
+"is_snippet": false,
+"next_id": "end",
+"parent_id": "100",
+"type": &"goto"
+},
+"104": {
+"id": "104",
+"next_id": "105",
+"text": "CheckTheGroceryStore",
+"type": &"title"
+},
+"105": {
+"id": "105",
+"is_snippet": false,
+"next_id": "111",
+"siblings": [{
+"id": "105",
+"weight": 1.0
+}, {
+"id": "106",
+"weight": 1.0
+}, {
+"id": "107",
+"weight": 1.0
+}],
+"type": &"goto"
+},
+"106": {
+"id": "106",
+"is_snippet": false,
+"next_id": "116",
+"type": &"goto"
+},
+"107": {
+"id": "107",
+"is_snippet": false,
+"next_id": "123",
+"type": &"goto"
+},
+"108": {
+"id": "108",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"11": {
+"id": "11",
+"is_snippet": false,
+"next_id": "21",
+"type": &"goto"
+},
+"110": {
+"id": "110",
+"next_id": "111",
+"text": "GoodGroceryStore",
+"type": &"title"
+},
+"111": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "111",
+"next_id": "112",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "They let you in and share some of their +3 food",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "They let you in and share some of their +3 food",
 "type": &"dialogue"
+},
+"112": {
+"id": "112",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 3
+}]),
+"is_blocking": true
+},
+"next_id": "113",
+"type": &"mutation"
+},
+"113": {
+"id": "113",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"115": {
+"id": "115",
+"next_id": "116",
+"text": "GreatGroceryStore",
+"type": &"title"
+},
+"116": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "116",
+"next_id": "117",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "They are so happy just to see a non-zombie face. They give you some +3 food and +25 ammo and send you on your way. You are a bit happier +1 mood.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "They are so happy just to see a non-zombie face. They give you some +3 food and +25 ammo and send you on your way. You are a bit happier +1 mood.",
+"type": &"dialogue"
+},
+"117": {
+"id": "117",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "118",
+"type": &"mutation"
+},
+"118": {
+"id": "118",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 3
+}]),
+"is_blocking": true
+},
+"next_id": "119",
+"type": &"mutation"
+},
+"119": {
+"id": "119",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "ammo"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 25
+}]),
+"is_blocking": true
+},
+"next_id": "120",
+"type": &"mutation"
+},
+"12": {
+"id": "12",
+"is_snippet": false,
+"next_id": "27",
+"type": &"goto"
+},
+"120": {
+"id": "120",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"122": {
+"id": "122",
+"next_id": "123",
+"text": "BadGroceryStore",
+"type": &"title"
+},
+"123": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "123",
+"next_id": "124",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "There is someone living in there and they don't open up. They shoot at you an tell you to scram",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "There is someone living in there and they don't open up. They shoot at you an tell you to scram",
+"type": &"dialogue"
+},
+"124": {
+"id": "124",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"126": {
+"id": "126",
+"next_id": "127",
+"text": "LeaveTheGroceryStore",
+"type": &"title"
+},
+"127": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "127",
+"next_id": "128",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You get spooked and decide to keep going",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You get spooked and decide to keep going",
+"type": &"dialogue"
+},
+"128": {
+"id": "128",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
 },
 "13": {
 "id": "13",
 "is_snippet": false,
 "next_id": "end",
+"type": &"goto"
+},
+"15": {
+"id": "15",
+"next_id": "16",
+"text": "MoodUp",
+"type": &"title"
+},
+"16": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "16",
+"next_id": "17",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You win the fight +2 mood.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You win the fight +2 mood.",
+"type": &"dialogue"
+},
+"17": {
+"id": "17",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 2
+}]),
+"is_blocking": true
+},
+"next_id": "18",
+"type": &"mutation"
+},
+"18": {
+"id": "18",
+"is_snippet": false,
+"next_id": "end!",
 "type": &"goto"
 },
 "2": {
@@ -43,92 +381,344 @@ lines = {
 "next_id": "3",
 "notes": "",
 "tags": PackedStringArray(),
-"text": "You come across a group of bandits. They look dangerous.",
+"text": "You come across a group of bandits. They look dangerous and are talking jibberish. They start to approach you. Should you",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "You come across a group of bandits. They look dangerous.",
+"translation_key": "You come across a group of bandits. They look dangerous and are talking jibberish. They start to approach you. Should you",
 "type": &"dialogue"
 },
-"3": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "3",
-"next_id": "4",
-"notes": "",
-"tags": PackedStringArray(),
-"text": "Should you",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Should you",
-"type": &"dialogue"
+"20": {
+"id": "20",
+"next_id": "21",
+"text": "MoodAmmo",
+"type": &"title"
 },
-"4": {
+"21": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "4",
-"next_id": "5",
-"next_id_after": "13",
+"id": "21",
+"next_id": "22",
 "notes": "",
-"responses": PackedStringArray("4", "8"),
-"tags": PackedStringArray(),
-"text": "Fight the Bandits",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Fight the Bandits",
-"type": &"response"
-},
-"5": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "5",
-"next_id": "13",
-"notes": "",
-"parent_id": "4",
-"siblings": [{
-"id": "5",
-"weight": 1.0
-}, {
-"id": "6",
-"weight": 1.0
-}, {
-"id": "7",
-"weight": 1.0
-}],
-"tags": PackedStringArray(),
-"text": "You win the fight +2 mood.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "You win the fight +2 mood.",
-"type": &"dialogue"
-},
-"6": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "6",
-"next_id": "13",
-"notes": "",
-"parent_id": "4",
 "tags": PackedStringArray(),
 "text": "You win the fight +1 mood and take their ammo + 30 ammo",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "You win the fight +1 mood and take their ammo + 30 ammo",
 "type": &"dialogue"
 },
-"7": {
+"22": {
+"id": "22",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "23",
+"type": &"mutation"
+},
+"23": {
+"id": "23",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "ammo"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 30
+}]),
+"is_blocking": true
+},
+"next_id": "24",
+"type": &"mutation"
+},
+"24": {
+"id": "24",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"26": {
+"id": "26",
+"next_id": "27",
+"text": "LooseFight",
+"type": &"title"
+},
+"27": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "7",
-"next_id": "13",
+"id": "27",
+"next_id": "28",
 "notes": "",
-"parent_id": "4",
 "tags": PackedStringArray(),
-"text": "Loose health -2 an -1 mood.",
+"text": "You loose the fight -1 mood and they steal your -3 food.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "Loose health -2 an -1 mood.",
+"translation_key": "You loose the fight -1 mood and they steal your -3 food.",
 "type": &"dialogue"
 },
-"8": {
+"28": {
+"id": "28",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "29",
+"type": &"mutation"
+},
+"29": {
+"id": "29",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 3
+}]),
+"is_blocking": true
+},
+"next_id": "30",
+"type": &"mutation"
+},
+"3": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "8",
-"next_id": "9",
-"next_id_after": "13",
+"id": "3",
+"next_id": "4",
+"next_id_after": "10",
+"notes": "",
+"responses": PackedStringArray("3", "5"),
+"tags": PackedStringArray(),
+"text": "Fight the Bandits",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Fight the Bandits",
+"type": &"response"
+},
+"30": {
+"id": "30",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"32": {
+"id": "32",
+"next_id": "33",
+"text": "RunAway",
+"type": &"title"
+},
+"33": {
+"id": "33",
+"is_snippet": false,
+"next_id": "38",
+"siblings": [{
+"id": "33",
+"weight": 1.0
+}, {
+"id": "34",
+"weight": 1.0
+}],
+"type": &"goto"
+},
+"34": {
+"id": "34",
+"is_snippet": false,
+"next_id": "43",
+"type": &"goto"
+},
+"35": {
+"id": "35",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"37": {
+"id": "37",
+"next_id": "38",
+"text": "GetAwayFight",
+"type": &"title"
+},
+"38": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "38",
+"next_id": "39",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You get away unnoticed +1 mood.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You get away unnoticed +1 mood.",
+"type": &"dialogue"
+},
+"39": {
+"id": "39",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "40",
+"type": &"mutation"
+},
+"4": {
+"id": "4",
+"is_snippet": false,
+"next_id": "10",
+"parent_id": "3",
+"type": &"goto"
+},
+"40": {
+"id": "40",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"42": {
+"id": "42",
+"next_id": "43",
+"text": "GetCaughtFight",
+"type": &"title"
+},
+"43": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "43",
+"next_id": "44",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "They beat you up take -1 food and -1 mood.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "They beat you up take -1 food and -1 mood.",
+"type": &"dialogue"
+},
+"44": {
+"id": "44",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "45",
+"type": &"mutation"
+},
+"45": {
+"id": "45",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "46",
+"type": &"mutation"
+},
+"46": {
+"id": "46",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"48": {
+"id": "48",
+"next_id": "49",
+"text": "FarmTrip",
+"type": &"title"
+},
+"49": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "49",
+"next_id": "50",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You come across a some people working on a small farm. They offer you some food in exchange for help",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You come across a some people working on a small farm. They offer you some food in exchange for help",
+"type": &"dialogue"
+},
+"5": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "5",
+"next_id": "6",
+"next_id_after": "10",
 "notes": "",
 "tags": PackedStringArray(),
 "text": "Try to run before they see you",
@@ -136,38 +726,639 @@ lines = {
 "translation_key": "Try to run before they see you",
 "type": &"response"
 },
-"9": {
+"50": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "9",
-"next_id": "13",
+"id": "50",
+"next_id": "51",
+"next_id_after": "57",
 "notes": "",
-"parent_id": "8",
+"responses": PackedStringArray("50", "52"),
+"tags": PackedStringArray(),
+"text": "Offer to help",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Offer to help",
+"type": &"response"
+},
+"51": {
+"id": "51",
+"is_snippet": false,
+"next_id": "57",
+"parent_id": "50",
+"type": &"goto"
+},
+"52": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "52",
+"next_id": "53",
+"next_id_after": "57",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Rob the farm",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Rob the farm",
+"type": &"response"
+},
+"53": {
+"id": "53",
+"is_snippet": false,
+"next_id": "81",
+"parent_id": "52",
+"type": &"goto"
+},
+"54": {
+"id": "54",
+"is_snippet": false,
+"next_id": "end",
+"parent_id": "52",
+"type": &"goto"
+},
+"56": {
+"id": "56",
+"next_id": "57",
+"text": "HelpTheFarm",
+"type": &"title"
+},
+"57": {
+"id": "57",
+"is_snippet": false,
+"next_id": "63",
 "siblings": [{
-"id": "9",
+"id": "57",
 "weight": 1.0
 }, {
-"id": "10",
+"id": "58",
+"weight": 1.0
+}, {
+"id": "59",
 "weight": 1.0
 }],
+"type": &"goto"
+},
+"58": {
+"id": "58",
+"is_snippet": false,
+"next_id": "68",
+"type": &"goto"
+},
+"59": {
+"id": "59",
+"is_snippet": false,
+"next_id": "74",
+"type": &"goto"
+},
+"6": {
+"id": "6",
+"is_snippet": false,
+"next_id": "33",
+"parent_id": "5",
+"type": &"goto"
+},
+"60": {
+"id": "60",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"62": {
+"id": "62",
+"next_id": "63",
+"text": "GoodHelp",
+"type": &"title"
+},
+"63": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "63",
+"next_id": "64",
+"notes": "",
 "tags": PackedStringArray(),
-"text": "You get away unnoticed +1 mood.",
+"text": "They feed you as promised",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "You get away unnoticed +1 mood.",
+"translation_key": "They feed you as promised",
 "type": &"dialogue"
+},
+"64": {
+"id": "64",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 3
+}]),
+"is_blocking": true
+},
+"next_id": "65",
+"type": &"mutation"
+},
+"65": {
+"id": "65",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"67": {
+"id": "67",
+"next_id": "68",
+"text": "GreatHelp",
+"type": &"title"
+},
+"68": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "68",
+"next_id": "69",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "They are so happy with what you did they gave you extra + 4 food and that makes you happy +1 mood",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "They are so happy with what you did they gave you extra + 4 food and that makes you happy +1 mood",
+"type": &"dialogue"
+},
+"69": {
+"id": "69",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "70",
+"type": &"mutation"
+},
+"7": {
+"id": "7",
+"is_snippet": false,
+"next_id": "end",
+"parent_id": "5",
+"type": &"goto"
+},
+"70": {
+"id": "70",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 4
+}]),
+"is_blocking": true
+},
+"next_id": "71",
+"type": &"mutation"
+},
+"71": {
+"id": "71",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"73": {
+"id": "73",
+"next_id": "74",
+"text": "TiredHelp",
+"type": &"title"
+},
+"74": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "74",
+"next_id": "75",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "This was way more work than you expected -1 mood. They did give you some +3 food and extra +50 ammo for all the trouble",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "This was way more work than you expected -1 mood. They did give you some +3 food and extra +50 ammo for all the trouble",
+"type": &"dialogue"
+},
+"75": {
+"id": "75",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "76",
+"type": &"mutation"
+},
+"76": {
+"id": "76",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 3
+}]),
+"is_blocking": true
+},
+"next_id": "77",
+"type": &"mutation"
+},
+"77": {
+"id": "77",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "ammo"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 50
+}]),
+"is_blocking": true
+},
+"next_id": "78",
+"type": &"mutation"
+},
+"78": {
+"id": "78",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"80": {
+"id": "80",
+"next_id": "81",
+"text": "RobTheFarm",
+"type": &"title"
+},
+"81": {
+"id": "81",
+"is_snippet": false,
+"next_id": "86",
+"siblings": [{
+"id": "81",
+"weight": 1.0
+}, {
+"id": "82",
+"weight": 1.0
+}],
+"type": &"goto"
+},
+"82": {
+"id": "82",
+"is_snippet": false,
+"next_id": "91",
+"type": &"goto"
+},
+"83": {
+"id": "83",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"85": {
+"id": "85",
+"next_id": "86",
+"text": "GetAwayRobTheFarm",
+"type": &"title"
+},
+"86": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "86",
+"next_id": "87",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You feel so guilty -1 mood but you are loaded",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You feel so guilty -1 mood but you are loaded",
+"type": &"dialogue"
+},
+"87": {
+"id": "87",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "88",
+"type": &"mutation"
+},
+"88": {
+"id": "88",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"9": {
+"id": "9",
+"next_id": "10",
+"text": "Fight",
+"type": &"title"
+},
+"90": {
+"id": "90",
+"next_id": "91",
+"text": "GetCaughtRobTheFarm",
+"type": &"title"
+},
+"91": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "91",
+"next_id": "92",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "They beat you up take -2 food and -2 mood you are salty you lost.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "They beat you up take -2 food and -2 mood you are salty you lost.",
+"type": &"dialogue"
+},
+"92": {
+"id": "92",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 2
+}]),
+"is_blocking": true
+},
+"next_id": "93",
+"type": &"mutation"
+},
+"93": {
+"id": "93",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 2
+}]),
+"is_blocking": true
+},
+"next_id": "94",
+"type": &"mutation"
+},
+"94": {
+"id": "94",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"96": {
+"id": "96",
+"next_id": "97",
+"text": "GroceryTrip",
+"type": &"title"
+},
+"97": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "97",
+"next_id": "98",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You come across fortified grocery store. It sounds like there are some people inside. Do you",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You come across fortified grocery store. It sounds like there are some people inside. Do you",
+"type": &"dialogue"
+},
+"98": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "98",
+"next_id": "99",
+"next_id_after": "105",
+"notes": "",
+"responses": PackedStringArray("98", "100"),
+"tags": PackedStringArray(),
+"text": "Check the Store",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Check the Store",
+"type": &"response"
+},
+"99": {
+"id": "99",
+"is_snippet": false,
+"next_id": "105",
+"parent_id": "98",
+"type": &"goto"
 }
 }
-raw_text = "~ Start
-You come across a group of bandits. They look dangerous.
-Should you
+raw_text = "~ FightBandits
+You come across a group of bandits. They look dangerous and are talking jibberish. They start to approach you. Should you
 - Fight the Bandits
-	% : You win the fight +2 mood.
-	% : You win the fight +1 mood and take their ammo + 30 ammo
-	% : Loose health -2 an -1 mood.
+	=> Fight
 - Try to run before they see you
-	% : You get away unnoticed +1 mood.
-	% : They beat you up take -1 food and -1 mood.
+	=> RunAway
+	=> END
 
+~ Fight
+% => MoodUp 
+% => MoodAmmo
+% => LooseFight
+=> END
 
-=> END"
+~ MoodUp
+You win the fight +2 mood.
+set GameStats.mood += 2
+=> END!
+
+~ MoodAmmo
+You win the fight +1 mood and take their ammo + 30 ammo
+set GameStats.mood += 1
+set GameStats.ammo += 30
+=> END!
+
+~ LooseFight
+You loose the fight -1 mood and they steal your -3 food.
+set GameStats.mood -= 1
+set GameStats.food -= 3
+=> END!
+
+~ RunAway
+% => GetAwayFight
+% => GetCaughtFight
+=> END
+
+~ GetAwayFight
+You get away unnoticed +1 mood.
+set GameStats.mood += 1
+=> END!
+
+~ GetCaughtFight
+They beat you up take -1 food and -1 mood.
+set GameStats.mood -= 1
+set GameStats.food -= 1
+=> END!
+
+~ FarmTrip
+You come across a some people working on a small farm. They offer you some food in exchange for help
+- Offer to help
+	=> HelpTheFarm
+- Rob the farm
+	=> RobTheFarm
+	=> END
+
+~ HelpTheFarm
+% => GoodHelp 
+% => GreatHelp
+% => TiredHelp
+=> END
+
+~ GoodHelp
+They feed you as promised
+set GameStats.food += 3
+=> END!
+
+~ GreatHelp
+They are so happy with what you did they gave you extra + 4 food and that makes you happy +1 mood
+set GameStats.mood += 1
+set GameStats.food += 4
+=> END!
+
+~ TiredHelp
+This was way more work than you expected -1 mood. They did give you some +3 food and extra +50 ammo for all the trouble
+set GameStats.mood -= 1
+set GameStats.food += 3
+set GameStats.ammo += 50
+=> END!
+
+~ RobTheFarm
+% => GetAwayRobTheFarm
+% => GetCaughtRobTheFarm
+=> END
+
+~ GetAwayRobTheFarm
+You feel so guilty -1 mood but you are loaded
+set GameStats.mood -= 1
+=> END!
+
+~ GetCaughtRobTheFarm
+They beat you up take -2 food and -2 mood you are salty you lost.
+set GameStats.mood -= 2
+set GameStats.food -= 2
+=> END!
+
+~ GroceryTrip
+You come across fortified grocery store. It sounds like there are some people inside. Do you
+- Check the Store
+	=> CheckTheGroceryStore
+- Leave
+	=> LeaveTheGroceryStore
+	=> END
+
+~ CheckTheGroceryStore
+% => GoodGroceryStore 
+% => GreatGroceryStore
+% => BadGroceryStore
+=> END
+
+~ GoodGroceryStore
+They let you in and share some of their +3 food
+set GameStats.food += 3
+=> END!
+
+~ GreatGroceryStore
+They are so happy just to see a non-zombie face. They give you some +3 food and +25 ammo and send you on your way. You are a bit happier +1 mood.
+set GameStats.mood += 1
+set GameStats.food += 3
+set GameStats.ammo += 25
+=> END!
+
+~ BadGroceryStore
+There is someone living in there and they don't open up. They shoot at you an tell you to scram
+=> END!
+
+~ LeaveTheGroceryStore
+You get spooked and decide to keep going
+=> END
+"
 metadata/dialogue_manager_version = "2.38.0"

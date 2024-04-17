@@ -5,3 +5,5 @@
 [resource]
 script = ExtResource("1_mt2wq")
 canMove = true
+canScroll = true
+distance = 0

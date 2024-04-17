@@ -2,7 +2,7 @@ class_name PickUp
 extends Node2D
 
 var pickedUp = false
-@export var game_stats: Game_Stats
+
 @export var move_stats: Move_States
 @export var pickUpType: int
 
@@ -34,13 +34,13 @@ func onPickUp(hb: HitboxComponent):
 	
 	match pType:
 		1:
-			game_stats.ammo += 10
+			GameStats.ammo += 10
 			pass
 		2: 
-			game_stats.food += 1
+			GameStats.food += 1
 			pass
 		3:
-			game_stats.healthPack += 1
+			GameStats.healthPack += 1
 			pass
 		
 	await get_tree().create_timer(.5).timeout

@@ -2,8 +2,6 @@
 class_name ScoreComponent
 extends Node
 
-# Export the game stats so we can manipulate the game score
-@export var game_stats: Game_Stats
 
 # Export the amount the score should be adjusted
 @export var adjust_amount = 5
@@ -11,5 +9,5 @@ extends Node
 # This is the function that we call to activate this component. By default it will
 # Use the adjust_amount when called but we could optionally pass in a different amount.
 func adjust_score(amount: int = adjust_amount):
-	game_stats.score += (amount * game_stats.comboCounter)
+	GameStats.score += (amount * GameStats.comboCounter)
 	pass
