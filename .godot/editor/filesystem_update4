@@ -14,3 +14,7 @@ res://enemies/enemy.gd
 res://enemies/zombie.tscn
 res://world/pickups/PickUp.tscn
 res://world/pickups/PickUp.gd
+res://world/Camera2D.gd
+res://world/game_stats.gd
+res://world/world.gd
+res://UI/progress_bar.tscn

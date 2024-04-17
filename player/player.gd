@@ -13,6 +13,7 @@ var KickbackVel = Vector2.ZERO
 #TODO move to gun stats
 @export var curKickbackSpeed = 50
 @export var curKnockbackSpeed = 10
+@export var curFireScreenShake = 5.0
 @export var maxSpeed = 150
 
 @export var move : Move_States
@@ -125,8 +126,8 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("shoot"):
 			if GameStats.tryTakeAmmo(1):
 				KickbackVel= (global_position - get_global_mouse_position()).normalized() * curKickbackSpeed
-				
 				fireGun()
+				GameStats.camera.shake(5.0, curFireScreenShake)
 		if event.is_action_pressed("healthPack"):
 			if GameStats.tryTakehealthPack(1):
 				if !stats_component.tryAddHealth(1):

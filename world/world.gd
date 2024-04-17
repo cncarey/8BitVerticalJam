@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var camera : Camera2D= $Camera2D
 @onready var pause_menu = $ui/PauseMenu
 @export var move = Move_States
 

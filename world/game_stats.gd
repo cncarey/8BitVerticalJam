@@ -1,6 +1,15 @@
 extends Node
 
 
+var camera : Camera2D
+
+@onready var shakeSettings : float = .3 : 
+	set (value):
+		shakeSettings = value
+	get:
+		return shakeSettings
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
