@@ -5,6 +5,7 @@ extends Area2D
 # Export the damage amount this hitbox deals
 @export var damage = 1.0
 @onready var shape = $CollisionShape2D
+@export var knockBack : Vector2
 
 # Create a signal for when the hitbox hits a hurtbox
 signal hit_hurtbox(hurtbox)

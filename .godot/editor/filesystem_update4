@@ -33,3 +33,9 @@ res://UI/PlayerStatsUI.gd
 res://components/score_component.gd
 res://world/move_states.tres
 res://UI/PlayerStatsUI.tscn
+res://projectiles/bullet.tscn
+res://components/hitbox_component.gd
+res://projectiles/baseProjectile.gd
+res://fonts/default_label_settings.tres
+res://fonts/title_label_settings.tres
+res://fonts/title_FF_label_settings.tres

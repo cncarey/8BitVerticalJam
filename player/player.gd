@@ -128,6 +128,7 @@ func _input(event: InputEvent) -> void:
 func fireGun():
 	#laserSound.play_with_variance()
 	var b = bullet_component.scene.instantiate()
+	#ani_gun.global_rotation is the knockback Vector
 	
 	b.global_position = muzzle.global_position
 	b.global_rotation = ani_gun.global_rotation

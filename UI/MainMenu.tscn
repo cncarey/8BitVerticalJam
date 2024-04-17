@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://olnks8p2lfpn"]
+[gd_scene load_steps=7 format=3 uid="uid://olnks8p2lfpn"]
 
 [ext_resource type="Script" path="res://UI/MainMenu.gd" id="1_8e8ci"]
 [ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://UI/Options.tscn" id="1_xnqun"]
+[ext_resource type="LabelSettings" uid="uid://ps53ryb1u13q" path="res://fonts/title_FF_label_settings.tres" id="2_vfhax"]
+[ext_resource type="FontFile" uid="uid://dtpxhbj2t1mb0" path="res://fonts/Foul Fiend.ttf" id="3_ixu6s"]
+[ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://fonts/default_label_settings.tres" id="4_ul7p2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o42be"]
+font = ExtResource("3_ixu6s")
+font_size = 11
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.482353)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -28,7 +37,15 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MainContainer/VBoxContainer"]
 layout_mode = 2
-text = "Zombie Come to  the Neighborhood"
+text = "Zombie"
+label_settings = ExtResource("2_vfhax")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MainContainer/VBoxContainer"]
+layout_mode = 2
+text = "came to the neighborhood"
+label_settings = SubResource("LabelSettings_o42be")
+horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="MainContainer/VBoxContainer"]
 layout_mode = 2
@@ -49,6 +66,7 @@ WASD or arrows to move
 Mouse to rotate gun
 P to pause
 R to use Health Packs"
+label_settings = ExtResource("4_ul7p2")
 horizontal_alignment = 1
 
 [node name="OptionsContainer" parent="." instance=ExtResource("1_xnqun")]

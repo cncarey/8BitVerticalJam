@@ -27,6 +27,8 @@ window/size/viewport_height=480
 window/size/window_width_override=800
 window/size/window_height_override=1200
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://asserts/art/Cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2(8, 8)
 
 [editor_plugins]
 
