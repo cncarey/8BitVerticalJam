@@ -6,8 +6,14 @@ extends Node2D
 @export var stumbleDialogues : DialogueResource
 @export var fightDialogues : DialogueResource
 
+@export var randEventCount : int = 1
+@export var curEventCount : int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
+	
+	randEventCount = randi_range(2, 4)
 	pause_menu.process_mode = Node.PROCESS_MODE_WHEN_PAUSED	
 	pass # Replace with function body.
 
@@ -26,24 +32,35 @@ func resumePressed():
 
 
 func _on_progress_bar_total_distance_covered():
+	startRandEvent()
+	
+func startRandEvent():
 	move.canMove = false
 	move.canScroll = false
-	var randEvent = randi_range(1, 3)
+	var randEvent = randi_range(1, 6)
 	var event = ""
 	
 	match randEvent:
 		1: event = "FightBandits"
 		2: event = "FarmTrip"
 		3: event = "GroceryTrip"
+		_: event = "RandomSimple"
 		
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	DialogueManager.show_dialogue_balloon(fightDialogues, event)
 	
 func _on_dialogue_ended(_resource: DialogueResource):
 	DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
+	await get_tree().create_timer(1).timeout
+	
 	move.canMove = true
 	move.canScroll = true
-	move.distance = 0
-	await get_tree().create_timer(0.4).timeout
+	curEventCount += 1
 	
-	get_tree().reload_current_scene()
+	if move.distance >= 100 && curEventCount >= randEventCount :
+		move.distance = 0
+		
+		#TODO navigate to the between scene
+		get_tree().reload_current_scene()
+	else:
+		startRandEvent()

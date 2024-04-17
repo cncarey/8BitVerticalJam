@@ -11,6 +11,7 @@ titles = {
 "FarmTrip": "49",
 "Fight": "10",
 "FightBandits": "2",
+"GenericGood": "139",
 "GetAwayFight": "38",
 "GetAwayRobTheFarm": "86",
 "GetCaughtFight": "43",
@@ -25,11 +26,16 @@ titles = {
 "LooseFight": "27",
 "MoodAmmo": "21",
 "MoodUp": "16",
+"RandomSimple": "131",
 "RobTheFarm": "81",
 "RunAway": "33",
-"TiredHelp": "74"
+"TiredHelp": "74",
+"addAmmo": "150",
+"addFood": "145",
+"addHealthPacks": "155",
+"addNone": "160"
 }
-character_names = PackedStringArray()
+character_names = PackedStringArray("")
 first_title = "2"
 lines = {
 "1": {
@@ -318,7 +324,7 @@ lines = {
 "128": {
 "id": "128",
 "is_snippet": false,
-"next_id": "end",
+"next_id": "end!",
 "type": &"goto"
 },
 "13": {
@@ -327,10 +333,272 @@ lines = {
 "next_id": "end",
 "type": &"goto"
 },
+"130": {
+"id": "130",
+"next_id": "131",
+"text": "RandomSimple",
+"type": &"title"
+},
+"131": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "131",
+"next_id": "132",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You [[come across | spot | stumble upon | see | spy]] a [[bookstore | burning house | factory | grocery store | hotel | police station | park]]. It look [[quiet | dangerous | like a large fight is happening | pretty expensive | empty]].",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You [[come across | spot | stumble upon | see | spy]] a [[bookstore | burning house | factory | grocery store | hotel | police station | park]]. It look [[quiet | dangerous | like a large fight is happening | pretty expensive | empty]].",
+"type": &"dialogue"
+},
+"132": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "132",
+"next_id": "133",
+"next_id_after": "139",
+"notes": "",
+"responses": PackedStringArray("132", "134"),
+"tags": PackedStringArray(),
+"text": "Investigate",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Investigate",
+"type": &"response"
+},
+"133": {
+"id": "133",
+"is_snippet": false,
+"next_id": "139",
+"parent_id": "132",
+"type": &"goto"
+},
+"134": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "134",
+"next_id": "135",
+"next_id_after": "139",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Leave",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Leave",
+"type": &"response"
+},
+"135": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "135",
+"next_id": "136",
+"notes": "",
+"parent_id": "134",
+"tags": PackedStringArray(),
+"text": "Maybe you should go",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Maybe you should go",
+"type": &"dialogue"
+},
+"136": {
+"id": "136",
+"is_snippet": false,
+"next_id": "end!",
+"parent_id": "134",
+"type": &"goto"
+},
+"138": {
+"id": "138",
+"next_id": "139",
+"text": "GenericGood",
+"type": &"title"
+},
+"139": {
+"id": "139",
+"is_snippet": false,
+"next_id": "145",
+"siblings": [{
+"id": "139",
+"weight": 1.0
+}, {
+"id": "140",
+"weight": 1.0
+}, {
+"id": "141",
+"weight": 1.0
+}, {
+"id": "142",
+"weight": 1.0
+}],
+"type": &"goto"
+},
+"140": {
+"id": "140",
+"is_snippet": false,
+"next_id": "150",
+"type": &"goto"
+},
+"141": {
+"id": "141",
+"is_snippet": false,
+"next_id": "155",
+"type": &"goto"
+},
+"142": {
+"id": "142",
+"is_snippet": false,
+"next_id": "160",
+"type": &"goto"
+},
+"144": {
+"id": "144",
+"next_id": "145",
+"text": "addFood",
+"type": &"title"
+},
+"145": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "145",
+"next_id": "146",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You found +3 food",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You found +3 food",
+"type": &"dialogue"
+},
+"146": {
+"id": "146",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 3
+}]),
+"is_blocking": true
+},
+"next_id": "147",
+"type": &"mutation"
+},
+"147": {
+"id": "147",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"149": {
+"id": "149",
+"next_id": "150",
+"text": "addAmmo",
+"type": &"title"
+},
 "15": {
 "id": "15",
 "next_id": "16",
 "text": "MoodUp",
+"type": &"title"
+},
+"150": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "150",
+"next_id": "151",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You found +25 ammo",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You found +25 ammo",
+"type": &"dialogue"
+},
+"151": {
+"id": "151",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "ammo"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 25
+}]),
+"is_blocking": true
+},
+"next_id": "152",
+"type": &"mutation"
+},
+"152": {
+"id": "152",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"154": {
+"id": "154",
+"next_id": "155",
+"text": "addHealthPacks",
+"type": &"title"
+},
+"155": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "155",
+"next_id": "156",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You found +2 Health Packs",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You found +2 Health Packs",
+"type": &"dialogue"
+},
+"156": {
+"id": "156",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "healthPack"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 2
+}]),
+"is_blocking": true
+},
+"next_id": "157",
+"type": &"mutation"
+},
+"157": {
+"id": "157",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"159": {
+"id": "159",
+"next_id": "160",
+"text": "addNone",
 "type": &"title"
 },
 "16": {
@@ -344,6 +612,58 @@ lines = {
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "You win the fight +2 mood.",
 "type": &"dialogue"
+},
+"160": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "160",
+"next_id": "163",
+"notes": "",
+"siblings": [{
+"id": "160",
+"weight": 1.0
+}, {
+"id": "161",
+"weight": 1.0
+}, {
+"id": "162",
+"weight": 1.0
+}],
+"tags": PackedStringArray(),
+"text": "That was a waste of time this place was empty",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "That was a waste of time this place was empty",
+"type": &"dialogue"
+},
+"161": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "161",
+"next_id": "163",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You don't find anything",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You don't find anything",
+"type": &"dialogue"
+},
+"162": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "162",
+"next_id": "163",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You get spooked and decide to just leave now",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You get spooked and decide to just leave now",
+"type": &"dialogue"
+},
+"163": {
+"id": "163",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
 },
 "17": {
 "id": "17",
@@ -1359,6 +1679,40 @@ There is someone living in there and they don't open up. They shoot at you an te
 
 ~ LeaveTheGroceryStore
 You get spooked and decide to keep going
-=> END
-"
+=> END!
+
+~ RandomSimple
+You [[come across | spot | stumble upon | see | spy]] a [[bookstore | burning house | factory | grocery store | hotel | police station | park]]. It look [[quiet | dangerous | like a large fight is happening | pretty expensive | empty]].
+- Investigate
+	=> GenericGood
+- Leave
+	Maybe you should go
+	=> END!
+
+~ GenericGood
+% => addFood
+% => addAmmo
+% => addHealthPacks
+% => addNone
+
+~ addFood
+You found +3 food
+set GameStats.food += 3
+=> END!
+
+~ addAmmo
+You found +25 ammo
+set GameStats.ammo += 25
+=> END!
+
+~ addHealthPacks
+You found +2 Health Packs
+set GameStats.healthPack += 2
+=> END!
+
+~ addNone
+% : That was a waste of time this place was empty
+% : You don't find anything
+% : You get spooked and decide to just leave now
+=> END!"
 metadata/dialogue_manager_version = "2.38.0"

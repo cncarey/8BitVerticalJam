@@ -9,7 +9,7 @@ enum worldLocations { Inside, Grass, Sand}
 @export var acceleration = 250
 @export var friction = 300
 
-@export var maxSpeed = 100
+@export var maxSpeed = 150
 
 @export var move : Move_States
 
@@ -110,7 +110,7 @@ func moveState(delta):
 		#aniTree.set("parameters/Death/blend_position", inputDirection)
 		
 		velocity += (inputDirection * maxSpeed * delta)
-		velocity = velocity.limit_length(maxSpeed)
+		velocity = velocity.limit_length(maxSpeed/2)
 	
 	#we may not need this because you should be able to run and gun		
 	if Input.is_action_just_pressed("shoot"):

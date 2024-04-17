@@ -125,4 +125,39 @@ There is someone living in there and they don't open up. They shoot at you an te
 
 ~ LeaveTheGroceryStore
 You get spooked and decide to keep going
-=> END
+=> END!
+
+~ RandomSimple
+You [[come across | spot | stumble upon | see | spy]] a [[bookstore | burning house | factory | grocery store | hotel | police station | park]]. It look [[quiet | dangerous | like a large fight is happening | pretty expensive | empty]].
+- Investigate
+	=> GenericGood
+- Leave
+	Maybe you should go
+	=> END!
+
+~ GenericGood
+% => addFood
+% => addAmmo
+% => addHealthPacks
+% => addNone
+
+~ addFood
+You found +3 food
+set GameStats.food += 3
+=> END!
+
+~ addAmmo
+You found +25 ammo
+set GameStats.ammo += 25
+=> END!
+
+~ addHealthPacks
+You found +2 Health Packs
+set GameStats.healthPack += 2
+=> END!
+
+~ addNone
+% : That was a waste of time this place was empty
+% : You don't find anything
+% : You get spooked and decide to just leave now
+=> END!
