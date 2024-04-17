@@ -4,10 +4,12 @@ extends Node2D
 @onready var flash_component = $FlashComponent
 @onready var hitbox_component = $HitboxComponent
 
+@export var knockback = Vector2.ZERO
 @export var speed = 750
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	hitbox_component.knockBack = knockback
 	scale_component.tween_scale()
 	flash_component.flash()
 	visible_on_screen_notifier_2d.screen_exited.connect(queue_free)

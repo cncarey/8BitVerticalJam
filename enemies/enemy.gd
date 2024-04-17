@@ -15,6 +15,7 @@ extends CharacterBody2D
 
 @export var move : Move_States
 @export var origVelocity : Vector2
+var KickbackVel = Vector2.ZERO
 
 func _ready():
 	stats_component.no_health.connect(onNoHealth)
@@ -24,11 +25,23 @@ func _ready():
 	pass # Replace with function body.
 
 func onHurt(hb):
+	var _hb = hb as HitboxComponent
+	if _hb:
+		KickbackVel = _hb.knockBack
+	
 	flash_component.flash()
 	shake_component.tween_shake()
 	#TODO when i find a good sounds
 	#hitSound.play_with_variance()
 	pass
+
+func addKickback() -> bool:
+	if KickbackVel != Vector2.ZERO:
+		velocity += KickbackVel
+		KickbackVel = lerp(KickbackVel, Vector2.ZERO, 0.1)
+		return true
+	else:
+		return false
 
 func onNoHealth():
 	#change to blood splatter/play zombie death
@@ -48,6 +61,7 @@ func _physics_process(delta):
 		#translate(origVelocity * delta)
 		velocity = velocity.move_toward(origVelocity, 100 * delta)
 	
+	addKickback()
 	
 	if velocity.x < 0:
 		ani.flip_h = true

@@ -43,7 +43,7 @@ func onPickUp(hb: HitboxComponent):
 			GameStats.healthPack += 1
 			pass
 		
-	await get_tree().create_timer(.5).timeout
+	await get_tree().create_timer(.1).timeout
 	queue_free()
 	#await pickUpSound.play_with_variance()
 	#TODO pick a random type to be and update the correstponding stat

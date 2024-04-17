@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum playerStates { Move, Dashing, Attack, DashingAttack, Dead}
+enum playerStates { Move, Dead}
 enum worldLocations { Inside, Grass, Sand}
 
 
@@ -9,13 +9,16 @@ enum worldLocations { Inside, Grass, Sand}
 @export var acceleration = 250
 @export var friction = 300
 
+var KickbackVel = Vector2.ZERO
+#TODO move to gun stats
+@export var curKickbackSpeed = 50
+@export var curKnockbackSpeed = 10
 @export var maxSpeed = 150
 
 @export var move : Move_States
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
 
 var state = playerStates.Move
 var dashVector = Vector2.DOWN
@@ -50,15 +53,6 @@ func _physics_process(delta):
 		playerStates.Move:
 			moveState(delta)
 			pass
-		playerStates.Dashing:
-			#dashState(delta)
-			pass
-		playerStates.DashingAttack:
-			#rollingAttackState(delta)
-			pass
-		playerStates.Attack:
-			#attackState(delta)
-			pass
 		playerStates.Dead:
 			#deathState(delta)
 			pass
@@ -70,10 +64,11 @@ func moveState(delta):
 	Input.get_action_strength("down") - Input.get_action_strength("up")
 	).normalized()
 	
-	
 	if  inputDirection == Vector2.ZERO:
 		ani_body.play("idle")
 		velocity = Vector2.ZERO
+		addKickback()
+		
 		# stop playing footsteps based on ground type
 		#grassSteps.stop()
 		#floorSteps.stop()
@@ -94,7 +89,6 @@ func moveState(delta):
 					
 			
 		
-		dashVector = inputDirection
 		#swordHitbox.knockbackVector = inputDirection
 		ani_body.play("walk")
 		if velocity.x < 0:
@@ -109,11 +103,18 @@ func moveState(delta):
 		#aniTree.set("parameters/Attack/blend_position", inputDirection)
 		#aniTree.set("parameters/Death/blend_position", inputDirection)
 		
+		
 		velocity += (inputDirection * maxSpeed * delta)
-		velocity = velocity.limit_length(maxSpeed/2)
+		if addKickback():
+			velocity = velocity.limit_length(maxSpeed/3)
+		else:
+			velocity = velocity.limit_length(maxSpeed/2)
+		
+	
 	
 	#we may not need this because you should be able to run and gun		
 	if Input.is_action_just_pressed("shoot"):
+		
 		ani_body.play("shoot")
 		
 	move_and_slide()
@@ -123,17 +124,26 @@ func _input(event: InputEvent) -> void:
 	if move.canMove:
 		if event.is_action_pressed("shoot"):
 			if GameStats.tryTakeAmmo(1):
+				KickbackVel= (global_position - get_global_mouse_position()).normalized() * curKickbackSpeed
+				
 				fireGun()
 		if event.is_action_pressed("healthPack"):
 			if GameStats.tryTakehealthPack(1):
 				if !stats_component.tryAddHealth(1):
 					GameStats.healthPack += 1
+func addKickback() -> bool:
+	if KickbackVel != Vector2.ZERO:
+		velocity += KickbackVel
+		KickbackVel = lerp(KickbackVel, Vector2.ZERO, 0.1)
+		return true
+	else:
+		return false
 
 func fireGun():
 	#laserSound.play_with_variance()
 	var b = bullet_component.scene.instantiate()
 	#ani_gun.global_rotation is the knockback Vector
-	
+	b.knockback = (get_global_mouse_position() - global_position).normalized() * curKnockbackSpeed
 	b.global_position = muzzle.global_position
 	b.global_rotation = ani_gun.global_rotation
 	get_tree().current_scene.add_child(b)
