@@ -124,6 +124,10 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("shoot"):
 			if GameStats.tryTakeAmmo(1):
 				fireGun()
+		if event.is_action_pressed("healthPack"):
+			if GameStats.tryTakehealthPack(1):
+				if !stats_component.tryAddHealth(1):
+					GameStats.healthPack += 1
 
 func fireGun():
 	#laserSound.play_with_variance()
