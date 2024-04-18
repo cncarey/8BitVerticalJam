@@ -36,12 +36,14 @@ var isDead: bool = false
 @onready var invisibility_timer = $invisibilityTimer
 
 
-
 func _ready():
-	syncHealth(stats_component.health)
-	syncMaxHealth(stats_component.maxHealth)
+	stats_component.maxHealth = GameStats.curHealthMax
+	stats_component.health = GameStats.curHealth
+	#syncHealth(stats_component.health)
+	#syncMaxHealth(stats_component.maxHealth)
 	stats_component.health_changed.connect(syncHealth)
 	stats_component.maxHealthChange.connect(syncMaxHealth)
+	GameStats.mood_changed.connect(onMoodChange)
 	hurtbox_component.hurt.connect(onHurt)
 	invisibility_timer.timeout.connect(turnOffInvisibility)
 
@@ -165,3 +167,15 @@ func syncHealth(health):
 	
 func syncMaxHealth(maxHealth):
 	GameStats.curHealthMax = maxHealth
+	
+func onMoodChange(mood):
+	match mood:
+		1, 2, 3:
+			stats_component.maxHealth = 4
+			pass
+		4, 5, 6:
+			stats_component.maxHealth = 5
+			pass
+		7, 8, 9:
+			stats_component.maxHealth = 6
+	pass

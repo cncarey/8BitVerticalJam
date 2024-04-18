@@ -18,3 +18,10 @@ res://world/Camera2D.gd
 res://world/game_stats.gd
 res://world/world.gd
 res://UI/progress_bar.tscn
+res://UI/PlayerStatsUI.gd
+res://projectiles/bullet.tscn
+res://addons/dialogue_manager/example_balloon/example_balloon.tscn
+res://addons/dialogue_manager/example_balloon/ZombieDialogue.gd
+res://effects/ground_background.gd
+res://addons/dialogue_manager/example_balloon/ZombieDialogue.tscn
+res://addons/dialogue_manager/example_balloon/small_example_balloon.tscn

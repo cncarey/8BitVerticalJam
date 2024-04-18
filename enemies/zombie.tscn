@@ -78,8 +78,8 @@ origVelocity = Vector2(0, 25)
 shape = SubResource("CircleShape2D_1u41x")
 
 [node name="StatsComponent" parent="." index="1"]
-maxHealth = 2.0
-health = 2.0
+maxHealth = 3.0
+health = 3.0
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 sprite_frames = SubResource("SpriteFrames_yc7o4")

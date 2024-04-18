@@ -6,6 +6,7 @@ extends Node2D
 
 @export var stumbleDialogues : DialogueResource
 @export var fightDialogues : DialogueResource
+@export var dialogueTemplate : PackedScene
 
 @export var randEventCount : int = 1
 @export var curEventCount : int = 0
@@ -48,7 +49,7 @@ func startRandEvent():
 		_: event = "RandomSimple"
 		
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
-	DialogueManager.show_dialogue_balloon(fightDialogues, event)
+	DialogueManager.show_dialogue_balloon_scene(dialogueTemplate, fightDialogues, event)
 	
 func _on_dialogue_ended(_resource: DialogueResource):
 	DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)

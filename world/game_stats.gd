@@ -14,6 +14,16 @@ var camera : Camera2D
 func _ready():
 	pass # Replace with function body.
 
+func reset():
+	score = 0
+	ammo = 250
+	curHealth = 5
+	curHealthMax = 5
+	healthPack = 0
+	food = 0
+	mood = 5
+	
+
 @export var score = -1:
 	set(value):
 		score = value
@@ -47,7 +57,7 @@ func tryTakeAmmo(dec: int) -> bool:
 	get:
 		return comboCounter
 
-@export var curHealth = 2:
+@export var curHealth = 5:
 	set(value):
 		curHealth = value
 		curHealth_changed.emit(curHealth)
@@ -82,9 +92,9 @@ func tryTakehealthPack(dec: int) -> bool:
 	get:
 		return food
 		
-@export var mood = 1:
+@export var mood = 5:
 	set(value):
-		mood = value
+		mood = clamp(value, 1 , 9)
 		mood_changed.emit(mood)
 	get:
 		return mood

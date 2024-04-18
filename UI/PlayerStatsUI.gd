@@ -68,6 +68,15 @@ func updateHealthPacks(healthPacks: int):
 	health_pack_value.text = str(healthPacks)
 	
 func updateMood(mood: int):
-	#TODO
+	match mood:
+		1, 2, 3:
+			mood_sprite.texture = Sad
+			pass
+		4, 5, 6:
+			mood_sprite.texture = Neutral
+			pass
+		7, 8, 9:
+			mood_sprite.texture = Happy
+	
 	pass
 
