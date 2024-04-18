@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://i6k5cjoauv2p"]
+[gd_scene load_steps=15 format=3 uid="uid://i6k5cjoauv2p"]
 
 [ext_resource type="PackedScene" uid="uid://bhdncv51oll25" path="res://player/player.tscn" id="1_aho6t"]
 [ext_resource type="Script" path="res://world/world.gd" id="1_yjyb2"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dif84j5o0j5gm" path="res://enemies/zombie.tscn" id="6_je3rf"]
 [ext_resource type="PackedScene" uid="uid://bdu48j8mciy74" path="res://UI/PlayerStatsUI.tscn" id="7_uisvx"]
 [ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://UI/Options.tscn" id="8_kna0o"]
+[ext_resource type="PackedScene" uid="uid://cp7wjxn0en1f5" path="res://UI/LevelTransition.tscn" id="10_xgf6g"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_yjyb2")
@@ -33,6 +34,8 @@ position = Vector2(136, 354)
 position = Vector2(-7, 18)
 
 [node name="EnemyGenerator" parent="." instance=ExtResource("5_d5p31")]
+
+[node name="LevelTransition" parent="." instance=ExtResource("10_xgf6g")]
 
 [node name="ui" type="CanvasLayer" parent="."]
 

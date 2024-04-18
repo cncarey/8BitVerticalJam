@@ -10,9 +10,11 @@ extends Node2D
 
 @export var randEventCount : int = 1
 @export var curEventCount : int = 0
+@onready var level_transition = $LevelTransition
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	level_transition.fadeFromBlack()
 	randomize()
 	
 	randEventCount = randi_range(2, 4)
@@ -63,6 +65,7 @@ func _on_dialogue_ended(_resource: DialogueResource):
 		move.distance = 0
 		
 		#TODO navigate to the between scene
+		level_transition.fadeToBlack()
 		get_tree().reload_current_scene()
 	else:
 		startRandEvent()
