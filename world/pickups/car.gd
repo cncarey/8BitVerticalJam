@@ -1,6 +1,7 @@
 extends BreakableObject
 @onready var collision_shape_2d = $HitboxComponent/CollisionShape2D
-@onready var explosion_timer = $ExplosionTimer
+@onready var explosion_affect = $ExplosionAffect
+@onready var explosionSound = $VariablePitchAudioStreamPlayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,11 +13,12 @@ func _ready():
 
 func onBreak(hb):
 	super.onBreak(hb)
-	
-	var canExplode = randi_range(1,2)
+	explosionSound.play_with_variance()
 	GameStats.camera.shake(6.0, 2)
 	collision_shape_2d.set_deferred("disabled", false)
-	explosion_timer.start()
+	explosion_affect.visible = true
+	explosion_affect.play("default")
 	
 func explosionEnd():
 	collision_shape_2d.set_deferred("disabled", true)
+	explosion_affect.visible = false

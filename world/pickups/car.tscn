@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://1i7o88b4k72w"]
+[gd_scene load_steps=28 format=3 uid="uid://1i7o88b4k72w"]
 
 [ext_resource type="PackedScene" uid="uid://cky80nb3kq30j" path="res://world/pickups/BreakableObject.tscn" id="1_eflpf"]
 [ext_resource type="Texture2D" uid="uid://bdbivn4lj1bai" path="res://asserts/art/Zombie Apocalypse Tileset Reference.png" id="2_2qmdx"]
 [ext_resource type="Script" path="res://world/pickups/car.gd" id="2_avgg5"]
 [ext_resource type="Script" path="res://components/hitbox_component.gd" id="4_hmklg"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="5_2sjn2"]
+[ext_resource type="AudioStream" uid="uid://blueb1c3xvgjo" path="res://asserts/sounds/Explosion.ogg" id="5_4w6v2"]
 [ext_resource type="Resource" uid="uid://do11s08vsav4v" path="res://world/move_states.tres" id="6_rqaiw"]
+[ext_resource type="Texture2D" uid="uid://8ro3oj5jiy1p" path="res://asserts/art/explosion.png" id="7_vgx7c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t3tlr"]
 atlas = ExtResource("2_2qmdx")
@@ -46,12 +48,101 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1hav"]
+atlas = ExtResource("7_vgx7c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyb27"]
+atlas = ExtResource("7_vgx7c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tp1um"]
+atlas = ExtResource("7_vgx7c")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6i8n"]
+atlas = ExtResource("7_vgx7c")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dd0m"]
+atlas = ExtResource("7_vgx7c")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paex5"]
+atlas = ExtResource("7_vgx7c")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml1a0"]
+atlas = ExtResource("7_vgx7c")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yskea"]
+atlas = ExtResource("7_vgx7c")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htvig"]
+atlas = ExtResource("7_vgx7c")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1i22"]
+atlas = ExtResource("7_vgx7c")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhjec"]
+atlas = ExtResource("7_vgx7c")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w48yj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1hav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyb27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tp1um")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6i8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dd0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paex5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml1a0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yskea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htvig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1i22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhjec")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ps7p"]
 radius = 7.0
-height = 22.0
+height = 34.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v1n38"]
-radius = 71.007
+[sub_resource type="CircleShape2D" id="CircleShape2D_yuqw6"]
+radius = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aidab"]
+radius = 4.0
+height = 24.0
 
 [node name="Car" instance=ExtResource("1_eflpf")]
 script = ExtResource("2_avgg5")
@@ -62,29 +153,41 @@ sprite_frames = SubResource("SpriteFrames_wju32")
 animation = &"break"
 autoplay = "default"
 
+[node name="ExplosionAffect" type="AnimatedSprite2D" parent="." index="1"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_w48yj")
+frame = 10
+frame_progress = 1.0
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent" index="1"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_3ps7p")
 
-[node name="ExplosionTimer" type="Timer" parent="." index="5"]
-wait_time = 2.0
-one_shot = true
+[node name="VariablePitchAudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("5_4w6v2")
+bus = &"SFx"
 
-[node name="HitboxComponent" type="Area2D" parent="." index="6"]
-collision_layer = 0
-collision_mask = 4
-script = ExtResource("4_hmklg")
-damage = 3.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
-shape = SubResource("CircleShape2D_v1n38")
-disabled = true
-
-[node name="MoveComponent" type="Node" parent="." index="7" node_paths=PackedStringArray("actor")]
+[node name="MoveComponent" type="Node" parent="." index="6" node_paths=PackedStringArray("actor")]
 script = ExtResource("5_2sjn2")
 move = ExtResource("6_rqaiw")
 actor = NodePath("..")
 velocity = Vector2(0, 20)
 isScrollable = true
 
-[connection signal="timeout" from="ExplosionTimer" to="." method="explosionEnd"]
+[node name="HitboxComponent" type="Area2D" parent="." index="7"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_hmklg")
+damage = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_yuqw6")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="." index="8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_aidab")
+
+[connection signal="animation_finished" from="ExplosionAffect" to="." method="explosionEnd"]

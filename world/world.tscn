@@ -34,7 +34,7 @@ position = Vector2(136, 354)
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_2a8ar")]
 
 [node name="buildingFood" parent="." instance=ExtResource("3_67i5n")]
-position = Vector2(5, 28)
+position = Vector2(19, 45)
 
 [node name="EnemyGenerator" parent="." instance=ExtResource("5_d5p31")]
 
@@ -83,7 +83,7 @@ layout_mode = 1
 position = Vector2(31, 14)
 
 [node name="Car" parent="." instance=ExtResource("16_6sbtt")]
-position = Vector2(210, 9)
+position = Vector2(232, 20)
 
 [connection signal="totalDistanceCovered" from="ui/ProgressBar" to="." method="_on_progress_bar_total_distance_covered"]
 [connection signal="returnButton" from="ui/PauseMenu/OptionsContainer" to="." method="resumePressed"]

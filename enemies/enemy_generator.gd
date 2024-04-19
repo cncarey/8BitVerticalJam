@@ -4,6 +4,7 @@ extends Node2D
 
 @export var zombieScene : PackedScene
 @export var pickupScene : PackedScene
+@export var carScene : PackedScene
 
 @export var building1Scene: PackedScene
 @export var building2Scene: PackedScene
@@ -20,12 +21,15 @@ var screenWidth = ProjectSettings.get_setting("display/window/size/viewport_widt
 
 var hasBuilding1Swaned = false
 signal building1Swaned()
-
 var hasBuilding2Swaned = false
 signal building2Swaned()
-
 var hasBuilding3Swaned = false
 signal building3Swaned()
+
+var hasCar1Spawned = false
+signal Car1Spawned()
+var hasCar2Spawned = false
+signal Car2Spawned()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -63,11 +67,23 @@ func onDistance(distance):
 				hasBuilding3Swaned = true
 				onBuildingSpawn()
 				building3Swaned.emit()
+	elif distance >= 65 && GameStats.day >= 1:
+		if !hasCar2Spawned:
+				hasCar2Spawned = true
+				onCarSpawn()
+				Car2Spawned.emit()
+		pass
 	elif distance >= 50:
 		if !hasBuilding2Swaned:
 				hasBuilding2Swaned = true
 				onBuildingSpawn()
 				building2Swaned.emit()
+	elif distance >= 35 && GameStats.day >= 1:
+		if !hasCar1Spawned:
+				hasCar1Spawned = true
+				onCarSpawn()
+				Car1Spawned.emit()
+		pass
 	elif distance >= 25:
 		if !hasBuilding1Swaned:
 				hasBuilding1Swaned = true
@@ -92,7 +108,15 @@ func onBuildingSpawn():
 		#we could cheat and keep a cheat sheet instead of calulating it
 		spawner_component.spawn(Vector2( 5, -200))
 	
-	pass		
+	pass	
+	
+func onCarSpawn():
+	if move.canMove:
+		var bType = randi_range(1, 2)
+		spawner_component.scene = carScene
+				
+		spawner_component.spawn(Vector2(randf_range(margin, screenWidth - margin), -16))
+	pass
 		
 func onEnemySpawn(scene: PackedScene, timer: Timer, timeOffset: float = 1.0):
 	if move.canMove:

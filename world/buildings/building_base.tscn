@@ -30,7 +30,7 @@ layer_0/name = "base"
 collision_layer = 0
 collision_mask = 8
 
-[node name="collectables" type="Node" parent="."]
+[node name="collectables" type="Node2D" parent="."]
 
 [node name="SpawnerComponent" type="Node2D" parent="."]
 script = ExtResource("2_ocf7o")
