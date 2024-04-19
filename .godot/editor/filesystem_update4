@@ -15,3 +15,7 @@ res://world/pickups/car.gd
 res://effects/ExplosionAffect.gd
 res://enemies/enemy_generator.tscn
 res://enemies/enemy_generator.gd
+res://enemies/BloodSplatter.tscn
+res://enemies/BloodSplatter.gd
+res://enemies/enemy.gd
+res://world/pickups/PickUp.tscn

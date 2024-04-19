@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0tftyj1qy1j2"]
+[gd_scene load_steps=15 format=3 uid="uid://b0tftyj1qy1j2"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_pj7uq"]
 [ext_resource type="Script" path="res://components/stats_component.gd" id="2_d7xke"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bh1teb1nltv5g" path="res://components/hurtbox_component.tscn" id="10_kuh3e"]
 [ext_resource type="Script" path="res://components/score_component.gd" id="11_77g5c"]
 [ext_resource type="Script" path="res://components/position_clamp_component.gd" id="12_4roeh"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="12_8861q"]
+[ext_resource type="PackedScene" uid="uid://dq0b0e7it6cwy" path="res://enemies/BloodSplatter.tscn" id="13_j2sjj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y4md1"]
 radius = 100.0
@@ -67,5 +69,9 @@ margin = 13
 [node name="ScoreComponent" type="Node" parent="."]
 script = ExtResource("11_77g5c")
 adjust_amount = 1
+
+[node name="SpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("12_8861q")
+scene = ExtResource("13_j2sjj")
 
 [editable path="PlayerDetection"]

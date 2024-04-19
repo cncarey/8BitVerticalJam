@@ -1,0 +1,151 @@
+[gd_scene load_steps=23 format=3 uid="uid://dq0b0e7it6cwy"]
+
+[ext_resource type="Texture2D" uid="uid://do4mpxbs0vtnp" path="res://asserts/art/splatters.png" id="1_ehvid"]
+[ext_resource type="Script" path="res://enemies/BloodSplatter.gd" id="1_ipsyu"]
+[ext_resource type="Script" path="res://components/scale_component.gd" id="3_v8swp"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="4_bf43f"]
+[ext_resource type="Resource" uid="uid://do11s08vsav4v" path="res://world/move_states.tres" id="5_cuudn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ofov"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eosr"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pd04"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ea3j"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpttl"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0usd"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btjcx"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2dak"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igg4r"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo0va"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jobt"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2n0t"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cbqd"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww7bt"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl74t"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87n8a"]
+atlas = ExtResource("1_ehvid")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v3pc7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ofov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eosr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pd04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ea3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpttl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0usd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btjcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2dak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igg4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo0va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jobt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2n0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cbqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww7bt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl74t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87n8a")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BloodSplatter" type="Node2D"]
+script = ExtResource("1_ipsyu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v3pc7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_v8swp")
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("4_bf43f")
+move = ExtResource("5_cuudn")
+actor = NodePath("..")
+velocity = Vector2(0, 20)
+isScrollable = true
+
+[connection signal="timeout" from="Timer" to="." method="onTimeout"]

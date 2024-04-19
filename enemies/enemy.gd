@@ -13,6 +13,8 @@ extends CharacterBody2D
 @onready var hitSound = $VariablePitchAudioStreamPlayer
 @onready var player_detection = $PlayerDetection
 @onready var score_component = $ScoreComponent
+@onready var spawner_component = $SpawnerComponent
+
 
 @export var move : Move_States
 @export var origVelocity : Vector2
@@ -47,6 +49,7 @@ func addKickback() -> bool:
 func onNoHealth():
 	#change to blood splatter/play zombie death
 	#turn off collisions hurt/hit boxes
+	spawner_component.spawn(global_position)
 	score_component.adjust_score()
 	queue_free()
 	pass
