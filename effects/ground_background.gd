@@ -10,4 +10,4 @@ func _ready():
 func _process(delta: float) -> void:
 	if move.canScroll:
 		ground_layer.motion_offset.y += 20 * delta
-		move.distance += 2 * delta
+		move.distance += 1 * delta

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0tftyj1qy1j2"]
+[gd_scene load_steps=13 format=3 uid="uid://b0tftyj1qy1j2"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_pj7uq"]
 [ext_resource type="Script" path="res://components/stats_component.gd" id="2_d7xke"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="9_mnp8s"]
 [ext_resource type="PackedScene" uid="uid://ib4a7pgdlhv5" path="res://components/player_detection_component.tscn" id="10_04582"]
 [ext_resource type="PackedScene" uid="uid://bh1teb1nltv5g" path="res://components/hurtbox_component.tscn" id="10_kuh3e"]
+[ext_resource type="Script" path="res://components/score_component.gd" id="11_77g5c"]
 [ext_resource type="Script" path="res://components/position_clamp_component.gd" id="12_4roeh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y4md1"]
@@ -62,5 +63,9 @@ shape = SubResource("CircleShape2D_y4md1")
 script = ExtResource("12_4roeh")
 actor = NodePath("..")
 margin = 13
+
+[node name="ScoreComponent" type="Node" parent="."]
+script = ExtResource("11_77g5c")
+adjust_amount = 1
 
 [editable path="PlayerDetection"]

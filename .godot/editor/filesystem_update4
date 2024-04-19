@@ -26,3 +26,9 @@ res://effects/ground_background.gd
 res://addons/dialogue_manager/example_balloon/ZombieDialogue.tscn
 res://addons/dialogue_manager/example_balloon/small_example_balloon.tscn
 res://UI/LevelTransition.tscn
+res://fonts/title_label_settings.tres
+res://fonts/default_blue_label_settings.tres
+res://UI/daySummary.tscn
+res://UI/daySummary.gd
+res://enemies/enemy.tscn
+res://components/score_component.gd

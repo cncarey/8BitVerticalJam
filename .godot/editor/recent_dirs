@@ -1,9 +1,9 @@
-res://addons/dialogue_manager/example_balloon
+res://UI
 res://fonts
+res://addons/dialogue_manager/example_balloon
 res://asserts/art
 res://world
 res://addons/dialogue_manager
-res://UI
 res://world/buildings
 res://world/pickups
 res://components

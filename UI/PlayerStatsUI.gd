@@ -3,7 +3,6 @@ extends MarginContainer
 @export var Happy: Texture
 @export var Neutral: Texture
 @export var Sad: Texture
-@export var heartTexture: Texture
 
 @onready var mood_sprite = %MoodSprite
 @onready var ammo_value = %AmmoValue

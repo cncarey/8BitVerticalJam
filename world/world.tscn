@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://i6k5cjoauv2p"]
+[gd_scene load_steps=16 format=3 uid="uid://i6k5cjoauv2p"]
 
 [ext_resource type="PackedScene" uid="uid://bhdncv51oll25" path="res://player/player.tscn" id="1_aho6t"]
 [ext_resource type="Script" path="res://world/world.gd" id="1_yjyb2"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://world/Camera2D.gd" id="4_grsp6"]
 [ext_resource type="PackedScene" uid="uid://0lr03nxkr2gh" path="res://UI/progress_bar.tscn" id="4_rkiif"]
 [ext_resource type="PackedScene" uid="uid://ctb46l2d1pw2g" path="res://enemies/enemy_generator.tscn" id="5_d5p31"]
+[ext_resource type="PackedScene" uid="uid://dwgaoxrj61dl6" path="res://UI/daySummary.tscn" id="5_lua7v"]
 [ext_resource type="PackedScene" uid="uid://dif84j5o0j5gm" path="res://enemies/zombie.tscn" id="6_je3rf"]
 [ext_resource type="PackedScene" uid="uid://bdu48j8mciy74" path="res://UI/PlayerStatsUI.tscn" id="7_uisvx"]
 [ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://UI/Options.tscn" id="8_kna0o"]
@@ -20,6 +21,7 @@ script = ExtResource("1_yjyb2")
 move = ExtResource("2_0srlo")
 fightDialogues = ExtResource("3_g2awv")
 dialogueTemplate = ExtResource("4_dkxcx")
+daySummary = ExtResource("5_lua7v")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

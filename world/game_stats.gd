@@ -23,8 +23,28 @@ func reset():
 	food = 0
 	mood = 5
 	
+@export var dayStart = {
+	"ammo" = 250,
+	"food" = 0,
+	"healthPack" = 0,
+	"mood" = 5
+}
 
-@export var score = -1:
+func setStartOfDayStats():
+	day += 1
+	dayStart["ammo"] = ammo
+	dayStart["healthPack"] = healthPack
+	dayStart["food"] = food
+	dayStart["mood"] = mood
+	dayStart["score"] = score
+
+@export var day = 0:
+	set(value):
+		day = value
+	get:
+		return day
+
+@export var score = 0:
 	set(value):
 		score = value
 		score_changed.emit(score)

@@ -9,5 +9,5 @@ extends Node
 # This is the function that we call to activate this component. By default it will
 # Use the adjust_amount when called but we could optionally pass in a different amount.
 func adjust_score(amount: int = adjust_amount):
-	GameStats.score += (amount * GameStats.comboCounter)
+	GameStats.score += amount
 	pass

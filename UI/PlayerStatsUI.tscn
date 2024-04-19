@@ -2,20 +2,11 @@
 
 [ext_resource type="Script" path="res://UI/PlayerStatsUI.gd" id="1_b5im4"]
 [ext_resource type="Texture2D" uid="uid://dt01k7xl5vfnj" path="res://asserts/art/Sprite sheet for Basic Pack.png" id="2_fvxpu"]
+[ext_resource type="Texture2D" uid="uid://bh4ib8grregu1" path="res://UI/happy.tres" id="2_pdlfx"]
+[ext_resource type="Texture2D" uid="uid://bbcpnb60jfjxv" path="res://UI/neutral.tres" id="3_bmx61"]
 [ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://fonts/default_label_settings.tres" id="4_0d41u"]
 [ext_resource type="Texture2D" uid="uid://d2brdwxntf0sc" path="res://asserts/art/Icon_spritesheet01.png" id="4_b8244"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_20s0g"]
-atlas = ExtResource("2_fvxpu")
-region = Rect2(355, 163, 11, 11)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2phv7"]
-atlas = ExtResource("2_fvxpu")
-region = Rect2(387, 163, 11, 11)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_42hth"]
-atlas = ExtResource("2_fvxpu")
-region = Rect2(419, 163, 11, 11)
+[ext_resource type="Texture2D" uid="uid://dwoaetdytx5yf" path="res://UI/sad.tres" id="4_buerj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pt8pa"]
 atlas = ExtResource("4_b8244")
@@ -41,9 +32,9 @@ region = Rect2(612, 115, 9, 10)
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_b5im4")
-Happy = SubResource("AtlasTexture_20s0g")
-Neutral = SubResource("AtlasTexture_2phv7")
-Sad = SubResource("AtlasTexture_42hth")
+Happy = ExtResource("2_pdlfx")
+Neutral = ExtResource("3_bmx61")
+Sad = ExtResource("4_buerj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2

@@ -1,0 +1,227 @@
+[gd_scene load_steps=15 format=3 uid="uid://dwgaoxrj61dl6"]
+
+[ext_resource type="Script" path="res://UI/daySummary.gd" id="1_j8tl6"]
+[ext_resource type="Texture2D" uid="uid://bo6bp6c64tu4s" path="res://asserts/art/9prGrey.png" id="1_nwcmh"]
+[ext_resource type="Texture2D" uid="uid://bh4ib8grregu1" path="res://UI/happy.tres" id="2_k7ssg"]
+[ext_resource type="LabelSettings" uid="uid://lyux8pgux32t" path="res://fonts/title_label_settings.tres" id="2_nrrs8"]
+[ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://fonts/default_label_settings.tres" id="3_7lcwl"]
+[ext_resource type="Texture2D" uid="uid://bbcpnb60jfjxv" path="res://UI/neutral.tres" id="3_iigs3"]
+[ext_resource type="Texture2D" uid="uid://dwoaetdytx5yf" path="res://UI/sad.tres" id="4_j004m"]
+[ext_resource type="Texture2D" uid="uid://d2brdwxntf0sc" path="res://asserts/art/Icon_spritesheet01.png" id="4_lbcph"]
+[ext_resource type="LabelSettings" uid="uid://c7ccsewg7v4dx" path="res://fonts/default_blue_label_settings.tres" id="4_x22yu"]
+[ext_resource type="FontVariation" uid="uid://cd0jrsk4u1vyq" path="res://fonts/ButtonFont_Varient.tres" id="5_e1pgp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp6xj"]
+atlas = ExtResource("4_lbcph")
+region = Rect2(148, 100, 17, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6afn"]
+atlas = ExtResource("4_lbcph")
+region = Rect2(27, 29, 17, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuan6"]
+atlas = ExtResource("4_lbcph")
+region = Rect2(123, 53, 17, 14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ymyj"]
+bg_color = Color(0.180392, 0.635294, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="Control" type="CanvasLayer"]
+script = ExtResource("1_j8tl6")
+Happy = ExtResource("2_k7ssg")
+Neutral = ExtResource("3_iigs3")
+Sad = ExtResource("4_j004m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -22.5
+offset_right = 54.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("1_nwcmh")
+region_rect = Rect2(0, 0, 24, 24)
+patch_margin_left = 6
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="DaySummary" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Day Summary"
+label_settings = ExtResource("2_nrrs8")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_nwcmh")
+region_rect = Rect2(0, 0, 24, 24)
+patch_margin_left = 6
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="SuppliesFound" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Supplies Found:"
+label_settings = ExtResource("3_7lcwl")
+
+[node name="FoodContainer" type="HBoxContainer" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/FoodContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jp6xj")
+
+[node name="FoodAdd" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/FoodContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+ 1,"
+label_settings = ExtResource("3_7lcwl")
+
+[node name="FoodLabel" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/FoodContainer"]
+layout_mode = 2
+text = "total food"
+label_settings = ExtResource("4_x22yu")
+
+[node name="FoodIncrease" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/FoodContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1 -> 2"
+label_settings = ExtResource("3_7lcwl")
+
+[node name="AmmoContainer" type="HBoxContainer" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/AmmoContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_q6afn")
+
+[node name="AmmoAdd" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/AmmoContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+ 1,"
+label_settings = ExtResource("3_7lcwl")
+
+[node name="AmmoLabel" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/AmmoContainer"]
+layout_mode = 2
+text = "total ammo"
+label_settings = ExtResource("4_x22yu")
+
+[node name="AmmoIncrease" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/AmmoContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1 -> 2"
+label_settings = ExtResource("3_7lcwl")
+
+[node name="HealthPackContainer" type="HBoxContainer" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/HealthPackContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_wuan6")
+
+[node name="HalthPackLabel" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/HealthPackContainer"]
+layout_mode = 2
+text = "total health packs"
+label_settings = ExtResource("4_x22yu")
+
+[node name="HealthPackIncreased" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/HealthPackContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1 -> 2"
+label_settings = ExtResource("3_7lcwl")
+
+[node name="MoodContainer" type="HBoxContainer" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MoodLabel" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/MoodContainer"]
+layout_mode = 2
+text = "Current mood"
+label_settings = ExtResource("4_x22yu")
+
+[node name="MoodStart" type="TextureRect" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/MoodContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MoodArrow" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/MoodContainer"]
+layout_mode = 2
+text = "->"
+label_settings = ExtResource("3_7lcwl")
+
+[node name="MoodEnd" type="TextureRect" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/MoodContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ZombieKilled" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 Zombies Killed"
+label_settings = ExtResource("3_7lcwl")
+
+[node name="EndDay" type="Button" parent="Control/MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_e1pgp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ymyj")
+text = "End Day"
+
+[connection signal="pressed" from="Control/MarginContainer2/MarginContainer/VBoxContainer/EndDay" to="." method="EndDayPressed"]
