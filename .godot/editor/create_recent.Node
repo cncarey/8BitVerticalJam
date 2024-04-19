@@ -1,3 +1,9 @@
+OnetimeAnimatedEffect
+MoveComponent
+CollisionShape2D
+HitboxComponent
+Area2D
+Timer
 ScoreComponent
 Label
 Button
@@ -7,9 +13,3 @@ MarginContainer
 VBoxContainer
 NinePatchRect
 Control
-AnimationPlayer
-CanvasLayer
-AudioStreamPlayer2D
-Camera2D
-GridContainer
-AudioStreamPlayer

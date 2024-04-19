@@ -91,5 +91,6 @@ func placeCollectables(collectableCount):
 				spawner_component.scene = vase
 				pass
 		
-		spawner_component.spawn(iP.global_position, self)
+		#set the scroll to the created child to that of the parent
+		var newItem = spawner_component.spawn(iP.global_position, self)
 		pass

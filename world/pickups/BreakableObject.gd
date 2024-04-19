@@ -1,3 +1,4 @@
+class_name BreakableObject
 extends Node2D
 
 @export var state = 1

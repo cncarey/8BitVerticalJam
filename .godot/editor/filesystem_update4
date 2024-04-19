@@ -32,3 +32,8 @@ res://UI/daySummary.tscn
 res://UI/daySummary.gd
 res://enemies/enemy.tscn
 res://components/score_component.gd
+res://world/pickups/car.tscn
+res://world/pickups/BreakableObject.gd
+res://world/pickups/car.gd
+res://world/buildings/building_base.tscn
+res://world/buildings/building_base.gd

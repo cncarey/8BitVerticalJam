@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://1i7o88b4k72w"]
+
+[ext_resource type="PackedScene" uid="uid://cky80nb3kq30j" path="res://world/pickups/BreakableObject.tscn" id="1_eflpf"]
+[ext_resource type="Texture2D" uid="uid://bdbivn4lj1bai" path="res://asserts/art/Zombie Apocalypse Tileset Reference.png" id="2_2qmdx"]
+[ext_resource type="Script" path="res://world/pickups/car.gd" id="2_avgg5"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="4_hmklg"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="5_2sjn2"]
+[ext_resource type="Resource" uid="uid://do11s08vsav4v" path="res://world/move_states.tres" id="6_rqaiw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3tlr"]
+atlas = ExtResource("2_2qmdx")
+region = Rect2(544, 244, 32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5auom"]
+atlas = ExtResource("2_2qmdx")
+region = Rect2(544, 244, 32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84abw"]
+atlas = ExtResource("2_2qmdx")
+region = Rect2(545, 225, 32, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wju32"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3tlr")
+}],
+"loop": false,
+"name": &"break",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5auom")
+}],
+"loop": false,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84abw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ps7p"]
+radius = 7.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v1n38"]
+radius = 71.007
+
+[node name="Car" instance=ExtResource("1_eflpf")]
+script = ExtResource("2_avgg5")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_wju32")
+animation = &"break"
+autoplay = "default"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent" index="1"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3ps7p")
+
+[node name="ExplosionTimer" type="Timer" parent="." index="5"]
+wait_time = 2.0
+one_shot = true
+
+[node name="HitboxComponent" type="Area2D" parent="." index="6"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_hmklg")
+damage = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_v1n38")
+disabled = true
+
+[node name="MoveComponent" type="Node" parent="." index="7" node_paths=PackedStringArray("actor")]
+script = ExtResource("5_2sjn2")
+move = ExtResource("6_rqaiw")
+actor = NodePath("..")
+velocity = Vector2(0, 20)
+isScrollable = true
+
+[connection signal="timeout" from="ExplosionTimer" to="." method="explosionEnd"]
