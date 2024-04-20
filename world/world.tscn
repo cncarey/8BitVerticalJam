@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://i6k5cjoauv2p"]
+[gd_scene load_steps=19 format=3 uid="uid://i6k5cjoauv2p"]
 
 [ext_resource type="PackedScene" uid="uid://bhdncv51oll25" path="res://player/player.tscn" id="1_aho6t"]
 [ext_resource type="Script" path="res://world/world.gd" id="1_yjyb2"]
@@ -15,7 +15,17 @@
 [ext_resource type="PackedScene" uid="uid://bdu48j8mciy74" path="res://UI/PlayerStatsUI.tscn" id="7_uisvx"]
 [ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://UI/Options.tscn" id="8_kna0o"]
 [ext_resource type="PackedScene" uid="uid://cp7wjxn0en1f5" path="res://UI/LevelTransition.tscn" id="10_xgf6g"]
+[ext_resource type="Shader" path="res://world/rain.gdshader" id="12_rgf5i"]
 [ext_resource type="PackedScene" uid="uid://1i7o88b4k72w" path="res://world/pickups/car.tscn" id="16_6sbtt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_43vmp"]
+shader = ExtResource("12_rgf5i")
+shader_parameter/count = 150
+shader_parameter/slant = -0.01
+shader_parameter/speed = 50.0
+shader_parameter/blur = 0.002
+shader_parameter/colour = Color(1, 1, 1, 1)
+shader_parameter/size = Vector2(0.005, 0.2)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_yjyb2")
@@ -39,6 +49,15 @@ position = Vector2(19, 45)
 [node name="EnemyGenerator" parent="." instance=ExtResource("5_d5p31")]
 
 [node name="LevelTransition" parent="." instance=ExtResource("10_xgf6g")]
+
+[node name="Rain" type="ColorRect" parent="LevelTransition"]
+material = SubResource("ShaderMaterial_43vmp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.0862745, 0.596078, 0.360784)
 
 [node name="ui" type="CanvasLayer" parent="."]
 

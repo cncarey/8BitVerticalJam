@@ -1,3 +1,5 @@
+ColorRect
+PointLight2D
 HBoxContainer
 MarginContainer
 SpawnerComponent
@@ -11,5 +13,3 @@ Area2D
 HitboxComponent
 AudioStreamPlayer
 AudioStreamPlayer2D
-OnetimeAnimatedEffect
-ScoreComponent

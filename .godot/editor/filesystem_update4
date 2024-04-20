@@ -28,3 +28,5 @@ res://UI/daySummary.gd
 res://fonts/default_red_label_settings.tres
 res://player/player.gd
 res://world/move_states.gd
+res://UI/Options.gd
+res://world/rain.gdshader

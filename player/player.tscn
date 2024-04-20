@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bhdncv51oll25"]
+[gd_scene load_steps=55 format=3 uid="uid://bhdncv51oll25"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_kas0s"]
 [ext_resource type="Texture2D" uid="uid://di2xtaurrbd20" path="res://asserts/art/Character-and-Zombie.png" id="1_sodpf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cvkjhtfhjirxk" path="res://projectiles/bullet.tscn" id="8_kj6t2"]
 [ext_resource type="Script" path="res://components/stats_component.gd" id="10_ex800"]
 [ext_resource type="Script" path="res://components/hitbox_component.gd" id="11_iehpk"]
+[ext_resource type="Texture2D" uid="uid://b5kxrbl7mgaoy" path="res://asserts/art/light.png" id="11_vpmlq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7j6l"]
 atlas = ExtResource("1_sodpf")
@@ -382,5 +383,10 @@ script = ExtResource("11_iehpk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ak0r2")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.5
+texture = ExtResource("11_vpmlq")
+texture_scale = 0.5
 
 [editable path="HurtboxComponent"]
