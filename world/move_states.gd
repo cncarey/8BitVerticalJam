@@ -5,6 +5,10 @@ extends Resource
 func _ready():
 	pass # Replace with function body.
 
+func reset():
+	canMove = true
+	canScroll = true
+	distance = 0
 
 @export var canMove = true:
 	set(value):

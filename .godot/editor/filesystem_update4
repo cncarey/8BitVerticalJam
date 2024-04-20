@@ -19,3 +19,12 @@ res://enemies/BloodSplatter.tscn
 res://enemies/BloodSplatter.gd
 res://enemies/enemy.gd
 res://world/pickups/PickUp.tscn
+res://fonts/title_FF_label_settings.tres
+res://world/game_stats.gd
+res://world/world.gd
+res://UI/daySummary.tscn
+res://fonts/default_FF_label_settings.tres
+res://UI/daySummary.gd
+res://fonts/default_red_label_settings.tres
+res://player/player.gd
+res://world/move_states.gd

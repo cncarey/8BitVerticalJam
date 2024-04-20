@@ -1,3 +1,5 @@
+HBoxContainer
+MarginContainer
 SpawnerComponent
 MoveComponent
 ScaleComponent
@@ -11,5 +13,3 @@ AudioStreamPlayer
 AudioStreamPlayer2D
 OnetimeAnimatedEffect
 ScoreComponent
-Label
-Button

@@ -39,10 +39,10 @@ var isDead: bool = false
 func _ready():
 	stats_component.maxHealth = GameStats.curHealthMax
 	stats_component.health = GameStats.curHealth
-	#syncHealth(stats_component.health)
-	#syncMaxHealth(stats_component.maxHealth)
+	
 	stats_component.health_changed.connect(syncHealth)
 	stats_component.maxHealthChange.connect(syncMaxHealth)
+	stats_component.no_health.connect(onNoHealth)
 	GameStats.mood_changed.connect(onMoodChange)
 	hurtbox_component.hurt.connect(onHurt)
 	invisibility_timer.timeout.connect(turnOffInvisibility)
@@ -59,7 +59,6 @@ func _physics_process(delta):
 		playerStates.Dead:
 			#deathState(delta)
 			pass
-			
 
 func moveState(delta):
 	var inputDirection = Vector2(
@@ -90,8 +89,6 @@ func moveState(delta):
 					#stepTimer.start(1.3)
 					#pass
 					
-			
-		
 		#swordHitbox.knockbackVector = inputDirection
 		ani_body.play("walk")
 		if velocity.x < 0:
@@ -99,13 +96,11 @@ func moveState(delta):
 		else:
 			ani_body.flip_h = false
 		
-		
 		#if we switch this to an animation tree set teh blend positions
 		#aniTree.set("parameters/Idle/blend_position", inputDirection)
 		#aniTree.set("parameters/Run/blend_position", inputDirection)
 		#aniTree.set("parameters/Attack/blend_position", inputDirection)
 		#aniTree.set("parameters/Death/blend_position", inputDirection)
-		
 		
 		velocity += (inputDirection * maxSpeed * delta)
 		if addKickback():
@@ -113,8 +108,6 @@ func moveState(delta):
 		else:
 			velocity = velocity.limit_length(maxSpeed/2)
 		
-	
-	
 	#we may not need this because you should be able to run and gun		
 	if Input.is_action_just_pressed("shoot"):
 		
@@ -167,6 +160,9 @@ func syncHealth(health):
 	
 func syncMaxHealth(maxHealth):
 	GameStats.curHealthMax = maxHealth
+
+func onNoHealth():
+	playerDeath.emit()	
 	
 func onMoodChange(mood):
 	match mood:

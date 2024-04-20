@@ -64,10 +64,13 @@ func _on_dialogue_ended(_resource: DialogueResource):
 	if move.distance >= 100 && curEventCount >= randEventCount :
 		move.distance = 0
 		
-		level_transition.fadeToBlack()
-		var ds = daySummary.instantiate()
-		get_tree().current_scene.add_child(ds)
-		ds.EndDay.connect(closeDaySummary)
+		if GameStats.day >= 3:
+			onGameOver()
+		else:
+			level_transition.fadeToBlack()
+			var ds = daySummary.instantiate()
+			get_tree().current_scene.add_child(ds)
+			ds.EndDay.connect(closeDaySummary)
 	else:
 		startRandEvent()
 		
@@ -76,5 +79,44 @@ func closeDaySummary():
 	move.canScroll = true
 	await get_tree().create_timer(1).timeout
 	
+	get_tree().reload_current_scene()
+	pass
+	
+func onGameOver():
+	
+	if GameStats.isGameOver:
+		return
+	
+	move.canMove = false
+	move.canScroll = false
+	GameStats.isGameOver = true
+	
+	level_transition.fadeToBlack()
+	var ds = daySummary.instantiate()
+	get_tree().current_scene.add_child(ds)
+	ds.EndDay.connect(closeDaySummary)
+	ds.RwOpening.connect(restartWithOpening)
+	ds.RwoOpening.connect(restartWithoutOpening)
+	ds.Quit.connect(backToMainMenu)
+	pass
+
+func onResetGame():
+	GameStats.reset()
+	move.canMove = true
+	move.canScroll = true
+	move.distance = 0
+
+func backToMainMenu():
+	onResetGame()
+	get_tree().change_scene_to_file("res://UI/MainMenu.tscn")
+	pass
+	
+func restartWithOpening():
+	onResetGame()
+	#TODO go to opening scene
+	pass
+	
+func restartWithoutOpening():
+	onResetGame()
 	get_tree().reload_current_scene()
 	pass

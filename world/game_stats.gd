@@ -9,12 +9,18 @@ var camera : Camera2D
 	get:
 		return shakeSettings
 
+@onready var isGameOver : bool = false : 
+	set (value):
+		isGameOver = value
+	get:
+		return isGameOver
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 func reset():
+	isGameOver = false
 	score = 0
 	ammo = 250
 	curHealth = 5
@@ -22,12 +28,14 @@ func reset():
 	healthPack = 0
 	food = 0
 	mood = 5
+	day = 0
 	
 @export var dayStart = {
 	"ammo" = 250,
 	"food" = 0,
 	"healthPack" = 0,
-	"mood" = 5
+	"mood" = 5,
+	"score" = 0
 }
 
 func setStartOfDayStats():

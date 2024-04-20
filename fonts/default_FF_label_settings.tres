@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bthky57exjq5c"]
+
+[ext_resource type="FontFile" uid="uid://dtpxhbj2t1mb0" path="res://fonts/Foul Fiend.ttf" id="1_vd618"]
+
+[resource]
+line_spacing = 1.0
+font = ExtResource("1_vd618")
+font_size = 15
+shadow_size = 7
+shadow_color = Color(0.0980392, 0.0196078, 0.0431373, 0.882353)

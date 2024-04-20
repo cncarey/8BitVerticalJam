@@ -1,15 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwgaoxrj61dl6"]
+[gd_scene load_steps=17 format=3 uid="uid://dwgaoxrj61dl6"]
 
 [ext_resource type="Script" path="res://UI/daySummary.gd" id="1_j8tl6"]
 [ext_resource type="Texture2D" uid="uid://bo6bp6c64tu4s" path="res://asserts/art/9prGrey.png" id="1_nwcmh"]
 [ext_resource type="Texture2D" uid="uid://bh4ib8grregu1" path="res://UI/happy.tres" id="2_k7ssg"]
-[ext_resource type="LabelSettings" uid="uid://lyux8pgux32t" path="res://fonts/title_label_settings.tres" id="2_nrrs8"]
 [ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://fonts/default_label_settings.tres" id="3_7lcwl"]
 [ext_resource type="Texture2D" uid="uid://bbcpnb60jfjxv" path="res://UI/neutral.tres" id="3_iigs3"]
 [ext_resource type="Texture2D" uid="uid://dwoaetdytx5yf" path="res://UI/sad.tres" id="4_j004m"]
 [ext_resource type="Texture2D" uid="uid://d2brdwxntf0sc" path="res://asserts/art/Icon_spritesheet01.png" id="4_lbcph"]
 [ext_resource type="LabelSettings" uid="uid://c7ccsewg7v4dx" path="res://fonts/default_blue_label_settings.tres" id="4_x22yu"]
 [ext_resource type="FontVariation" uid="uid://cd0jrsk4u1vyq" path="res://fonts/ButtonFont_Varient.tres" id="5_e1pgp"]
+[ext_resource type="LabelSettings" uid="uid://bthky57exjq5c" path="res://fonts/default_FF_label_settings.tres" id="6_ew7yl"]
+[ext_resource type="LabelSettings" uid="uid://ps53ryb1u13q" path="res://fonts/title_FF_label_settings.tres" id="7_gb3a5"]
+[ext_resource type="LabelSettings" uid="uid://bn6knt682bk5q" path="res://fonts/default_red_label_settings.tres" id="11_fwn38"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jp6xj"]
 atlas = ExtResource("4_lbcph")
@@ -85,7 +87,15 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "Day Summary"
-label_settings = ExtResource("2_nrrs8")
+label_settings = ExtResource("6_ew7yl")
+horizontal_alignment = 1
+
+[node name="GameOver" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Game Over"
+label_settings = ExtResource("7_gb3a5")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer2/MarginContainer/VBoxContainer"]
@@ -128,12 +138,6 @@ layout_mode = 2
 layout_mode = 2
 texture = SubResource("AtlasTexture_jp6xj")
 
-[node name="FoodAdd" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/FoodContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "+ 1,"
-label_settings = ExtResource("3_7lcwl")
-
 [node name="FoodLabel" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/FoodContainer"]
 layout_mode = 2
 text = "total food"
@@ -153,12 +157,6 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/AmmoContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_q6afn")
-
-[node name="AmmoAdd" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/AmmoContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "+ 1,"
-label_settings = ExtResource("3_7lcwl")
 
 [node name="AmmoLabel" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/AmmoContainer"]
 layout_mode = 2
@@ -218,10 +216,60 @@ layout_mode = 2
 text = "0 Zombies Killed"
 label_settings = ExtResource("3_7lcwl")
 
+[node name="Success" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "You  made it to the safe house!"
+label_settings = ExtResource("3_7lcwl")
+
+[node name="Fail" type="Label" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "You did not made it to the safe house!"
+label_settings = ExtResource("11_fwn38")
+
 [node name="EndDay" type="Button" parent="Control/MarginContainer2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_e1pgp")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2ymyj")
 text = "End Day"
 
+[node name="RestartContainer" type="MarginContainer" parent="Control/MarginContainer2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/RestartContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RwOpeing" type="Button" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/RestartContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_e1pgp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ymyj")
+text = "Restart w/
+Opening"
+
+[node name="RwoOpeing" type="Button" parent="Control/MarginContainer2/MarginContainer/VBoxContainer/RestartContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_e1pgp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ymyj")
+text = "Restart w/o
+Opening"
+
+[node name="Quit" type="Button" parent="Control/MarginContainer2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_e1pgp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ymyj")
+text = "Quit"
+
 [connection signal="pressed" from="Control/MarginContainer2/MarginContainer/VBoxContainer/EndDay" to="." method="EndDayPressed"]
+[connection signal="pressed" from="Control/MarginContainer2/MarginContainer/VBoxContainer/RestartContainer/HBoxContainer/RwOpeing" to="." method="RwOpeningPressed"]
+[connection signal="pressed" from="Control/MarginContainer2/MarginContainer/VBoxContainer/RestartContainer/HBoxContainer/RwoOpeing" to="." method="RwoOpeningPressed"]
+[connection signal="pressed" from="Control/MarginContainer2/MarginContainer/VBoxContainer/Quit" to="." method="QiutPressed"]

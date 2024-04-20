@@ -18,8 +18,18 @@ extends CanvasLayer
 
 
 @onready var zombie_killed = %ZombieKilled
+@onready var success = %Success
+@onready var fail = %Fail
+@onready var game_over = %GameOver
+
+@onready var end_day = %EndDay
+@onready var restart_container = %RestartContainer
+@onready var quit = %Quit
 
 signal EndDay()
+signal RwOpening()
+signal RwoOpening()
+signal Quit()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -37,10 +47,21 @@ func _ready():
 	setMood(GameStats.mood, mood_end)
 	zombie_killed.text = str(GameStats.score) + " Zombies killed"
 	day_summary.text = "Day " + str(GameStats.day) + " Summary"
+	
+	setSuccessFail()
 	pass # Replace with function body.
 
 func EndDayPressed():
 	EndDay.emit()
+	
+func QiutPressed():
+	Quit.emit()
+	
+func RwOpeningPressed():
+	RwOpening.emit()
+	
+func RwoOpeningPressed():
+	RwoOpening.emit()
 	
 func setMood(mood: int, moodRect: TextureRect):
 	match mood:
@@ -52,3 +73,17 @@ func setMood(mood: int, moodRect: TextureRect):
 			pass
 		7, 8, 9:
 			moodRect.texture = Happy
+
+func setSuccessFail():
+	if !GameStats.isGameOver:
+		end_day.visible = true
+	else:
+		game_over.visible = true
+		restart_container.visible = true
+		quit.visible = true
+		if GameStats.curHealth >= 1 && GameStats.day >= 3:
+			success.visible = true
+		else:
+			fail.visible = true
+	pass
+	
