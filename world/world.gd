@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var camera : Camera2D= $Camera2D
 @onready var pause_menu = $ui/PauseMenu
+@onready var pause_sound = %PauseSound
+@onready var unpause_sound = $UnpauseSound
+
 @export var move = Move_States
 
 @export var stumbleDialogues : DialogueResource
@@ -27,6 +30,7 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("pause"):
 		pause()
+		pause_sound.play()
 		
 func pause():
 	get_tree().paused = !get_tree().paused 
@@ -34,6 +38,7 @@ func pause():
 	
 func resumePressed():
 	get_tree().paused = false
+	unpause_sound.play()
 	pause_menu.visible = !pause_menu.visible
 	pass
 

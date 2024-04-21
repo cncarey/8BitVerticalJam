@@ -34,7 +34,8 @@ var isDead: bool = false
 @onready var hurtbox_component = $HurtboxComponent
 @onready var stats_component = $StatsComponent
 @onready var invisibility_timer = $invisibilityTimer
-
+@onready var flash_component = $FlashComponent
+@onready var pistol_fire = $PistolFire
 
 func _ready():
 	stats_component.maxHealth = GameStats.curHealthMax
@@ -89,18 +90,11 @@ func moveState(delta):
 					#stepTimer.start(1.3)
 					#pass
 					
-		#swordHitbox.knockbackVector = inputDirection
 		ani_body.play("walk")
 		if velocity.x < 0:
 			ani_body.flip_h = true
 		else:
 			ani_body.flip_h = false
-		
-		#if we switch this to an animation tree set teh blend positions
-		#aniTree.set("parameters/Idle/blend_position", inputDirection)
-		#aniTree.set("parameters/Run/blend_position", inputDirection)
-		#aniTree.set("parameters/Attack/blend_position", inputDirection)
-		#aniTree.set("parameters/Death/blend_position", inputDirection)
 		
 		velocity += (inputDirection * maxSpeed * delta)
 		if addKickback():
@@ -110,9 +104,7 @@ func moveState(delta):
 		
 	#we may not need this because you should be able to run and gun		
 	if Input.is_action_just_pressed("shoot"):
-		
 		ani_body.play("shoot")
-		
 	move_and_slide()
 
 
@@ -122,6 +114,7 @@ func _input(event: InputEvent) -> void:
 			if GameStats.tryTakeAmmo(1):
 				KickbackVel= (global_position - get_global_mouse_position()).normalized() * curKickbackSpeed
 				fireGun()
+				pistol_fire.play_with_variance()
 				GameStats.camera.shake(5.0, curFireScreenShake)
 		if event.is_action_pressed("healthPack"):
 			if GameStats.tryTakehealthPack(1):
@@ -145,11 +138,11 @@ func fireGun():
 	get_tree().current_scene.add_child(b)
 
 func onHurt(hb):
-	#TODO factor in mood
+	flash_component.flash()
 	stats_component.health -= hb.damage
 	hurtbox_component.is_invincible = true
 	invisibility_timer.start()
-	#TODO 
+	
 	pass
 
 func turnOffInvisibility():

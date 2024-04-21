@@ -37,3 +37,8 @@ res://enemies/zombie.tscn
 res://asserts/sounds/GlobalSound.tscn
 res://asserts/sounds/GlobalSound.gd
 res://default_bus_layout.tres
+res://world/pickups/BreakableObject.tscn
+res://world/pickups/box.tscn
+res://world/pickups/barrel.tscn
+res://world/pickups/vase.tscn
+res://world/pickups/PickUp.gd

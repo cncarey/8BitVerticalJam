@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bhdncv51oll25"]
+[gd_scene load_steps=58 format=3 uid="uid://bhdncv51oll25"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_kas0s"]
 [ext_resource type="Texture2D" uid="uid://di2xtaurrbd20" path="res://asserts/art/Character-and-Zombie.png" id="1_sodpf"]
@@ -9,8 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://bh1teb1nltv5g" path="res://components/hurtbox_component.tscn" id="6_gemq5"]
 [ext_resource type="PackedScene" uid="uid://cvkjhtfhjirxk" path="res://projectiles/bullet.tscn" id="8_kj6t2"]
 [ext_resource type="Script" path="res://components/stats_component.gd" id="10_ex800"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="10_snaug"]
 [ext_resource type="Script" path="res://components/hitbox_component.gd" id="11_iehpk"]
 [ext_resource type="Texture2D" uid="uid://b5kxrbl7mgaoy" path="res://asserts/art/light.png" id="11_vpmlq"]
+[ext_resource type="AudioStream" uid="uid://chgwk15ht1e5l" path="res://asserts/sounds/pistol.ogg" id="13_wmab5"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="14_jb5hg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7j6l"]
 atlas = ExtResource("1_sodpf")
@@ -371,6 +374,10 @@ script = ExtResource("10_ex800")
 maxHealth = 5.0
 health = 5.0
 
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("10_snaug")
+sprite = NodePath("../AniBody")
+
 [node name="invisibilityTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
@@ -389,5 +396,10 @@ color = Color(1, 1, 0.8, 1)
 energy = 0.4
 texture = ExtResource("11_vpmlq")
 texture_scale = 0.5
+
+[node name="PistolFire" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_wmab5")
+bus = &"SFx"
+script = ExtResource("14_jb5hg")
 
 [editable path="HurtboxComponent"]

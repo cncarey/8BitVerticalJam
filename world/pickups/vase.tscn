@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://duv8geiya5wrr"]
+[gd_scene load_steps=15 format=3 uid="uid://duv8geiya5wrr"]
 
 [ext_resource type="PackedScene" uid="uid://cky80nb3kq30j" path="res://world/pickups/BreakableObject.tscn" id="1_ca5te"]
 [ext_resource type="Texture2D" uid="uid://bdu2cc70kcuxr" path="res://asserts/art/Destructible Objects Sprite Sheet.png" id="2_gvl24"]
+[ext_resource type="AudioStream" uid="uid://dkgot75lx5kso" path="res://asserts/sounds/breakingvase.ogg" id="3_nfj38"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvtmi"]
 atlas = ExtResource("2_gvl24")
@@ -96,3 +97,6 @@ autoplay = "default"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent" index="1"]
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_bps0y")
+
+[node name="VariablePitchAudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("3_nfj38")

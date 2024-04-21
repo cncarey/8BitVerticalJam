@@ -165,7 +165,6 @@ shape = SubResource("CapsuleShape2D_3ps7p")
 
 [node name="VariablePitchAudioStreamPlayer" parent="." index="4"]
 stream = ExtResource("5_4w6v2")
-bus = &"SFx"
 
 [node name="MoveComponent" type="Node" parent="." index="6" node_paths=PackedStringArray("actor")]
 script = ExtResource("5_2sjn2")

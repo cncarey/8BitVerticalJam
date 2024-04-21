@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqsc17puxxioq"]
+[gd_scene load_steps=15 format=3 uid="uid://cqsc17puxxioq"]
 
 [ext_resource type="PackedScene" uid="uid://cky80nb3kq30j" path="res://world/pickups/BreakableObject.tscn" id="1_7k3c1"]
 [ext_resource type="Texture2D" uid="uid://bdu2cc70kcuxr" path="res://asserts/art/Destructible Objects Sprite Sheet.png" id="2_qplrh"]
+[ext_resource type="AudioStream" uid="uid://dughwtxqpqxsp" path="res://asserts/sounds/wood-crate-destory.ogg" id="3_niaw7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t5b5t"]
 atlas = ExtResource("2_qplrh")
@@ -98,3 +99,6 @@ autoplay = "default"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent" index="1"]
 position = Vector2(1, 2)
 shape = SubResource("CapsuleShape2D_psa5m")
+
+[node name="VariablePitchAudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("3_niaw7")

@@ -1,4 +1,7 @@
 AudioStreamPlayer
+AudioStreamPlayer2D
+VariablePitchAudioStreamPlayer
+FlashComponent
 Control
 TextureRect
 MarginContainer
@@ -9,7 +12,3 @@ PointLight2D
 HBoxContainer
 SpawnerComponent
 MoveComponent
-ScaleComponent
-Timer
-AnimatedSprite2D
-Node2D

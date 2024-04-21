@@ -18,6 +18,7 @@ func _ready():
 	if pickUpType == 0:
 		move_component.ignore = true
 	else:
+		setSrcollable(move_stats.canScroll)
 		move_stats.canScroll_changed.connect(setSrcollable)
 		
 	visible_on_screen_notifier_2d.screen_exited.connect(queue_free)

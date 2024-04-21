@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://i6k5cjoauv2p"]
+[gd_scene load_steps=21 format=3 uid="uid://i6k5cjoauv2p"]
 
 [ext_resource type="PackedScene" uid="uid://bhdncv51oll25" path="res://player/player.tscn" id="1_aho6t"]
 [ext_resource type="Script" path="res://world/world.gd" id="1_yjyb2"]
@@ -16,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://UI/Options.tscn" id="8_kna0o"]
 [ext_resource type="PackedScene" uid="uid://cp7wjxn0en1f5" path="res://UI/LevelTransition.tscn" id="10_xgf6g"]
 [ext_resource type="Shader" path="res://world/rain.gdshader" id="12_rgf5i"]
+[ext_resource type="AudioStream" uid="uid://bboitb88me5te" path="res://asserts/sounds/Pause.wav" id="16_4qj2t"]
 [ext_resource type="PackedScene" uid="uid://1i7o88b4k72w" path="res://world/pickups/car.tscn" id="16_6sbtt"]
+[ext_resource type="AudioStream" uid="uid://b1audpfet8xlw" path="res://asserts/sounds/Unpause.wav" id="19_mlvvm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_43vmp"]
 shader = ExtResource("12_rgf5i")
@@ -98,11 +100,20 @@ color = Color(0.129412, 0.129412, 0.129412, 1)
 [node name="OptionsContainer" parent="ui/PauseMenu" instance=ExtResource("8_kna0o")]
 layout_mode = 1
 
+[node name="PauseSound" type="AudioStreamPlayer" parent="ui/PauseMenu"]
+unique_name_in_owner = true
+stream = ExtResource("16_4qj2t")
+bus = &"SFx"
+
 [node name="Enemy" parent="." instance=ExtResource("6_je3rf")]
 position = Vector2(31, 14)
 
 [node name="Car" parent="." instance=ExtResource("16_6sbtt")]
 position = Vector2(232, 20)
+
+[node name="UnpauseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_mlvvm")
+bus = &"SFx"
 
 [connection signal="playerDeath" from="player" to="." method="onGameOver"]
 [connection signal="totalDistanceCovered" from="ui/ProgressBar" to="." method="_on_progress_bar_total_distance_covered"]

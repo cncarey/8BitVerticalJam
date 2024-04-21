@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dif84j5o0j5gm"]
+[gd_scene load_steps=16 format=3 uid="uid://dif84j5o0j5gm"]
 
 [ext_resource type="PackedScene" uid="uid://b0tftyj1qy1j2" path="res://enemies/enemy.tscn" id="1_ther5"]
 [ext_resource type="Resource" uid="uid://do11s08vsav4v" path="res://world/move_states.tres" id="2_jtalj"]
 [ext_resource type="Texture2D" uid="uid://di2xtaurrbd20" path="res://asserts/art/Character-and-Zombie.png" id="2_ydnhb"]
+[ext_resource type="AudioStream" uid="uid://bsejfynom8vyw" path="res://asserts/sounds/zombie.ogg" id="4_n8c7x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1u41x"]
 radius = 3.0
@@ -96,6 +97,13 @@ shape = SubResource("CircleShape2D_q2201")
 [node name="PlayerDetection" parent="." index="10"]
 collision_layer = 2
 collision_mask = 4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="14"]
+stream = ExtResource("4_n8c7x")
+autoplay = true
+max_distance = 100.0
+bus = &"SFx"
+area_mask = 7
 
 [editable path="HurtboxComponent"]
 [editable path="PlayerDetection"]

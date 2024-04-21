@@ -8,8 +8,25 @@ extends BreakableObject
 func _ready():
 	hurtbox_component.hurt.connect(onBreak)
 	animation_player.play("default")
-	animation_player.animation_finished.connect(animtionFinished)
+	animation_player.animation_finished.connect(_animtionFinished)
 	pass # Replace with function body.
+
+func _animtionFinished():
+	match state:
+		1:
+			pass
+		2:
+			state = 3
+			animation_player.play("broken")
+			pass
+		3:
+			hurtbox_component.is_invincible = true
+			if randi_range(1,2) == 1:
+				var pu = spawner_component.scene.instantiate()
+				pu.pickUpType = randi_range(1,3)
+				get_tree().current_scene.add_child(pu)
+				pu.global_position = global_position
+				pass
 
 func onBreak(hb):
 	super.onBreak(hb)
