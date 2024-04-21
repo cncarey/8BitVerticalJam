@@ -8,6 +8,8 @@ using_states = PackedStringArray()
 titles = {
 "BadGroceryStore": "138",
 "CheckTheGroceryStore": "120",
+"DerelictTown": "189",
+"DesertedBaracade": "182",
 "EndOfDay": "3",
 "FarmTrip": "64",
 "Fight": "25",
@@ -30,6 +32,7 @@ titles = {
 "RandomSimple": "146",
 "RobTheFarm": "96",
 "RunAway": "48",
+"SurvivorHealthPacks": "197",
 "TiredHelp": "89",
 "addAmmo": "165",
 "addFood": "160",
@@ -876,12 +879,185 @@ lines = {
 "translation_key": "Fight the Bandits",
 "type": &"response"
 },
+"180": {
+"id": "180",
+"next_id": "182",
+"text": "DesertedBaracade",
+"type": &"title"
+},
+"182": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "182",
+"next_id": "183",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "As you travel along the deserted highway, you stumble upon a makeshift barricade. It's clear someone put a lot of effort into it. Do you investigate further or find an alternative route?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "As you travel along the deserted highway, you stumble upon a makeshift barricade. It's clear someone put a lot of effort into it. Do you investigate further or find an alternative route?",
+"type": &"dialogue"
+},
+"183": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "183",
+"next_id": "186",
+"next_id_after": "186",
+"notes": "",
+"responses": PackedStringArray("183", "184"),
+"tags": PackedStringArray(),
+"text": "TODO",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "TODO",
+"type": &"response"
+},
+"184": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "184",
+"next_id": "186",
+"next_id_after": "186",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "TODO",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "TODO",
+"type": &"response"
+},
+"186": {
+"id": "186",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"188": {
+"id": "188",
+"next_id": "189",
+"text": "DerelictTown",
+"type": &"title"
+},
+"189": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "189",
+"next_id": "190",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "While scavenging for supplies in a derelict town, you hear the distant sound of approaching zombies. Do you",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "While scavenging for supplies in a derelict town, you hear the distant sound of approaching zombies. Do you",
+"type": &"dialogue"
+},
 "19": {
 "id": "19",
 "is_snippet": false,
 "next_id": "25",
 "parent_id": "18",
 "type": &"goto"
+},
+"190": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "190",
+"next_id": "191",
+"next_id_after": "194",
+"notes": "",
+"responses": PackedStringArray("190", "192"),
+"tags": PackedStringArray(),
+"text": "Rush back to your car",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Rush back to your car",
+"type": &"response"
+},
+"191": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "191",
+"next_id": "194",
+"notes": "",
+"parent_id": "190",
+"tags": PackedStringArray(),
+"text": "TODO",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "TODO",
+"type": &"dialogue"
+},
+"192": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "192",
+"next_id": "193",
+"next_id_after": "194",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Risk staying to gather more resources",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Risk staying to gather more resources",
+"type": &"response"
+},
+"193": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "193",
+"next_id": "194",
+"notes": "",
+"parent_id": "192",
+"tags": PackedStringArray(),
+"text": "TODO",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "TODO",
+"type": &"dialogue"
+},
+"194": {
+"id": "194",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"196": {
+"id": "196",
+"next_id": "197",
+"text": "SurvivorHealthPacks",
+"type": &"title"
+},
+"197": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "197",
+"next_id": "198",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You encounter a group of survivors in desperate need of medical supplies. They offer valuable supplies in exchange for your health packs. Do you",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You encounter a group of survivors in desperate need of medical supplies. They offer valuable supplies in exchange for your health packs. Do you",
+"type": &"dialogue"
+},
+"198": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "198",
+"next_id": "199",
+"next_id_after": "202",
+"notes": "",
+"responses": PackedStringArray("198", "200"),
+"tags": PackedStringArray(),
+"text": "agree to the trade",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "agree to the trade",
+"type": &"response"
+},
+"199": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "199",
+"next_id": "202",
+"notes": "",
+"parent_id": "198",
+"tags": PackedStringArray(),
+"text": "TODO",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "TODO",
+"type": &"dialogue"
 },
 "20": {
 "character": "",
@@ -895,6 +1071,38 @@ lines = {
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Try to run before they see you",
 "type": &"response"
+},
+"200": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "200",
+"next_id": "201",
+"next_id_after": "202",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Haggle for a better deal",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Haggle for a better deal",
+"type": &"response"
+},
+"201": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "201",
+"next_id": "202",
+"notes": "",
+"parent_id": "200",
+"tags": PackedStringArray(),
+"text": "TODO",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "TODO",
+"type": &"dialogue"
+},
+"202": {
+"id": "202",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
 },
 "21": {
 "id": "21",
@@ -1949,5 +2157,30 @@ set GameStats.healthPack += 2
 % : That was a waste of time this place was empty
 % : You don't find anything
 % : You get spooked and decide to just leave now
-=> END!"
+=> END!
+
+~ DesertedBaracade
+
+As you travel along the deserted highway, you stumble upon a makeshift barricade. It's clear someone put a lot of effort into it. Do you investigate further or find an alternative route?
+- TODO
+- TODO
+
+=> END!
+
+~ DerelictTown
+While scavenging for supplies in a derelict town, you hear the distant sound of approaching zombies. Do you 
+- Rush back to your car
+	TODO
+- Risk staying to gather more resources
+	TODO
+=> END!
+
+~ SurvivorHealthPacks
+You encounter a group of survivors in desperate need of medical supplies. They offer valuable supplies in exchange for your health packs. Do you 
+- agree to the trade
+	TODO
+- Haggle for a better deal
+	TODO
+=> END!
+"
 metadata/dialogue_manager_version = "2.38.0"

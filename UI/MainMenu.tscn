@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://olnks8p2lfpn"]
+[gd_scene load_steps=8 format=3 uid="uid://olnks8p2lfpn"]
 
 [ext_resource type="Script" path="res://UI/MainMenu.gd" id="1_8e8ci"]
 [ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://UI/Options.tscn" id="1_xnqun"]
 [ext_resource type="LabelSettings" uid="uid://ps53ryb1u13q" path="res://fonts/title_FF_label_settings.tres" id="2_vfhax"]
 [ext_resource type="FontFile" uid="uid://dtpxhbj2t1mb0" path="res://fonts/Foul Fiend.ttf" id="3_ixu6s"]
 [ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://fonts/default_label_settings.tres" id="4_ul7p2"]
+[ext_resource type="PackedScene" uid="uid://cp7wjxn0en1f5" path="res://UI/LevelTransition.tscn" id="6_bn53o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o42be"]
 font = ExtResource("3_ixu6s")
@@ -79,6 +80,8 @@ offset_left = -92.5
 offset_top = -104.5
 offset_right = 92.5
 offset_bottom = 104.5
+
+[node name="LevelTransition" parent="." instance=ExtResource("6_bn53o")]
 
 [connection signal="pressed" from="MainContainer/VBoxContainer/Start" to="." method="start"]
 [connection signal="pressed" from="MainContainer/VBoxContainer/Options" to="." method="showOptions"]

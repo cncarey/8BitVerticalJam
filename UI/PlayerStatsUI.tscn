@@ -136,9 +136,9 @@ layout_mode = 2
 
 [node name="UseOnR" type="TextureRect" parent="Control"]
 layout_mode = 2
-offset_left = 58.0
+offset_left = 78.0
 offset_top = -7.0
-offset_right = 71.0
+offset_right = 91.0
 offset_bottom = 6.0
 size_flags_horizontal = 8
 size_flags_vertical = 0

@@ -85,7 +85,7 @@ healthPack={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/fightDialogues.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogues/fightDialogues.dialogue", "res://Dialogues/openingDialogues.dialogue")
 
 [layer_names]
 

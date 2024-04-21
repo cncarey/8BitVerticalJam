@@ -1,6 +1,7 @@
 extends Control
 @onready var main_container = %MainContainer
 @onready var options_container = $OptionsContainer
+@onready var level_transition = $LevelTransition
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,8 +11,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func start():
-	#TODO opening cut scene
-	get_tree().change_scene_to_file("res://world/world.tscn")
+	level_transition.fadeToBlack()
+	get_tree().change_scene_to_file("res://UI/opening_scene.tscn")
 
 func hideOptions():
 	main_container.show()

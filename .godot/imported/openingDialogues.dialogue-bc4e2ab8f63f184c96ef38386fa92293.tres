@@ -1,0 +1,120 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_o5xl0"]
+
+[resource]
+script = ExtResource("1_o5xl0")
+using_states = PackedStringArray()
+titles = {
+"Req": "9",
+"Start": "3"
+}
+character_names = PackedStringArray("Radio", "You")
+first_title = "3"
+lines = {
+"1": {
+"id": "1",
+"next_id": "3",
+"text": "Start",
+"type": &"title"
+},
+"10": {
+"character": "You",
+"character_replacements": Array[Dictionary]([]),
+"id": "10",
+"next_id": "11",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "It will take me about 3 days to get there and I'll need to eat 2 food everyday. If I'm in a better mood I'll do better than if I'm not.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "It will take me about 3 days to get there and I'll need to eat 2 food everyday. If I'm in a better mood I'll do better than if I'm not.",
+"type": &"dialogue"
+},
+"11": {
+"id": "11",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"3": {
+"character": "Radio",
+"character_replacements": Array[Dictionary]([]),
+"id": "3",
+"next_id": "4",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Is anyone out there.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Is anyone out there.",
+"type": &"dialogue"
+},
+"4": {
+"character": "Radio",
+"character_replacements": Array[Dictionary]([]),
+"id": "4",
+"next_id": "5",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "This is blah with the blah. If any one is out there I'm hauled up in a gas station with supplies.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "This is blah with the blah. If any one is out there I'm hauled up in a gas station with supplies.",
+"type": &"dialogue"
+},
+"5": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "5",
+"next_id": "3",
+"next_id_after": "9",
+"notes": "",
+"responses": PackedStringArray("5", "6"),
+"tags": PackedStringArray(),
+"text": "I hope he says that again",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "I hope he says that again",
+"type": &"response"
+},
+"6": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "6",
+"next_id": "9",
+"next_id_after": "9",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Lets get out of here",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Lets get out of here",
+"type": &"response"
+},
+"8": {
+"id": "8",
+"next_id": "9",
+"text": "Req",
+"type": &"title"
+},
+"9": {
+"character": "You",
+"character_replacements": Array[Dictionary]([]),
+"id": "9",
+"next_id": "10",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "I'm running out of supplies, so what's the worst that could happen.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "I'm running out of supplies, so what's the worst that could happen.",
+"type": &"dialogue"
+}
+}
+raw_text = "~ Start
+
+Radio: Is anyone out there.
+Radio: This is blah with the blah. If any one is out there I'm hauled up in a gas station with supplies.
+- I hope he says that again => Start
+- Lets get out of here => Req
+
+~ Req
+You: I'm running out of supplies, so what's the worst that could happen.
+You: It will take me about 3 days to get there and I'll need to eat 2 food everyday. If I'm in a better mood I'll do better than if I'm not.
+=> END!"
+metadata/dialogue_manager_version = "2.38.0"

@@ -49,13 +49,17 @@ func _on_progress_bar_total_distance_covered():
 func startRandEvent():
 	move.canMove = false
 	move.canScroll = false
-	var randEvent = randi_range(1, 6)
+	randomize()
+	var randEvent = randi_range(1, 10)
 	var event = ""
 	
 	match randEvent:
 		1: event = "FightBandits"
 		2: event = "FarmTrip"
 		3: event = "GroceryTrip"
+		4: event = "DesertedBaracade" #TODO
+		5: event = "DerelictTown" #TODO
+		6: event = "SurvivorHealthPacks" #TODO
 		_: event = "RandomSimple"
 		
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
@@ -130,7 +134,7 @@ func backToMainMenu():
 	
 func restartWithOpening():
 	onResetGame()
-	#TODO go to opening scene
+	get_tree().change_scene_to_file("res://UI/opening_scene.tscn")
 	pass
 	
 func restartWithoutOpening():

@@ -145,7 +145,8 @@ func syncMaxHealth(maxHealth):
 	GameStats.curHealthMax = maxHealth
 
 func onNoHealth():
-	playerDeath.emit()	
+	playerDeath.emit()
+	queue_free()
 	
 func onMoodChange(mood):
 	match mood:

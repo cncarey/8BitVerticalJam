@@ -1,0 +1,182 @@
+[gd_scene load_steps=17 format=3 uid="uid://djqny5tdwl6g1"]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/example_balloon/OpeningDialogue.gd" id="1_wj6ms"]
+[ext_resource type="Texture2D" uid="uid://bo6bp6c64tu4s" path="res://asserts/art/9prGrey.png" id="2_yscxe"]
+[ext_resource type="FontFile" uid="uid://bvtb73tme6xgb" path="res://fonts/kenney_mini_square.ttf" id="3_wvwg3"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="4_yjumq"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="5_ay7ir"]
+[ext_resource type="AudioStream" uid="uid://c2lb4j6mhbtot" path="res://asserts/sounds/talk.wav" id="6_aigll"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.329412, 0.329412, 0.329412, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri4m3"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0njw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uy0d5"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_qq3yp"]
+default_font_size = 20
+Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
+Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
+Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
+Button/styles/normal = SubResource("StyleBoxFlat_e0njw")
+MarginContainer/constants/margin_bottom = 15
+MarginContainer/constants/margin_left = 30
+MarginContainer/constants/margin_right = 30
+MarginContainer/constants/margin_top = 15
+Panel/styles/panel = SubResource("StyleBoxFlat_uy0d5")
+
+[sub_resource type="FontVariation" id="FontVariation_pfrr8"]
+base_font = ExtResource("3_wvwg3")
+
+[sub_resource type="FontVariation" id="FontVariation_rf42f"]
+base_font = ExtResource("3_wvwg3")
+
+[sub_resource type="FontVariation" id="FontVariation_ddt0h"]
+base_font = ExtResource("3_wvwg3")
+
+[sub_resource type="Theme" id="Theme_fo5h5"]
+/fonts/kenny_mini = SubResource("FontVariation_ddt0h")
+
+[sub_resource type="FontVariation" id="FontVariation_dvvyc"]
+base_font = ExtResource("3_wvwg3")
+
+[node name="OpeningBalloon" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_wj6ms")
+
+[node name="Balloon" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qq3yp")
+
+[node name="Panel" type="NinePatchRect" parent="Balloon"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = -183.0
+offset_right = -19.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+texture = ExtResource("2_yscxe")
+region_rect = Rect2(0, 0, 24, 24)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon/Panel"]
+layout_mode = 0
+offset_right = 308.0
+offset_bottom = 164.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Balloon/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Balloon/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/normal_font = SubResource("FontVariation_pfrr8")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "Character"
+fit_content = true
+scroll_active = false
+
+[node name="DialogueLabel" parent="Balloon/Panel/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_yjumq")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = SubResource("FontVariation_rf42f")
+theme_override_font_sizes/normal_font_size = 12
+text = "Dialogue..."
+
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/Panel/MarginContainer/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("response_template")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+theme = SubResource("Theme_fo5h5")
+theme_override_constants/separation = 2
+script = ExtResource("5_ay7ir")
+response_template = NodePath("ResponseExample")
+
+[node name="ResponseExample" type="Button" parent="Balloon/Panel/MarginContainer/HBoxContainer/VBoxContainer/ResponsesMenu"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_dvvyc")
+theme_override_font_sizes/font_size = 14
+text = "Response example"
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon"]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 30.0
+
+[node name="TalkSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_aigll")
+volume_db = -5.0
+bus = &"SFx"
+
+[connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="spoke" from="Balloon/Panel/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]
+[connection signal="response_selected" from="Balloon/Panel/MarginContainer/HBoxContainer/VBoxContainer/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

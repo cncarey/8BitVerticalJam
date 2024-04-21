@@ -176,3 +176,27 @@ set GameStats.healthPack += 2
 % : You don't find anything
 % : You get spooked and decide to just leave now
 => END!
+
+~ DesertedBaracade
+
+As you travel along the deserted highway, you stumble upon a makeshift barricade. It's clear someone put a lot of effort into it. Do you investigate further or find an alternative route?
+- TODO
+- TODO
+
+=> END!
+
+~ DerelictTown
+While scavenging for supplies in a derelict town, you hear the distant sound of approaching zombies. Do you 
+- Rush back to your car
+	TODO
+- Risk staying to gather more resources
+	TODO
+=> END!
+
+~ SurvivorHealthPacks
+You encounter a group of survivors in desperate need of medical supplies. They offer valuable supplies in exchange for your health packs. Do you 
+- agree to the trade
+	TODO
+- Haggle for a better deal
+	TODO
+=> END!

@@ -1,0 +1,11 @@
+~ Start
+
+Radio: Is anyone out there.
+Radio: This is blah with the blah. If any one is out there I'm hauled up in a gas station with supplies.
+- I hope he says that again => Start
+- Lets get out of here => Req
+
+~ Req
+You: I'm running out of supplies, so what's the worst that could happen.
+You: It will take me about 3 days to get there and I'll need to eat 2 food everyday. If I'm in a better mood I'll do better than if I'm not.
+=> END!
