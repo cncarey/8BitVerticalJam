@@ -1,3 +1,7 @@
+NavigationAgent2D
+BorderBounceComponent
+CollisionShape2D
+Area2D
 MarginContainer
 GridContainer
 NinePatchRect
@@ -9,6 +13,3 @@ Container
 Control
 TextureRect
 HBoxContainer
-AnimatedSprite2D
-FlashComponent
-Sprite2D
