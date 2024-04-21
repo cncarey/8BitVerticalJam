@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bhdncv51oll25"]
+[gd_scene load_steps=60 format=3 uid="uid://bhdncv51oll25"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_kas0s"]
 [ext_resource type="Texture2D" uid="uid://di2xtaurrbd20" path="res://asserts/art/Character-and-Zombie.png" id="1_sodpf"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://b5kxrbl7mgaoy" path="res://asserts/art/light.png" id="11_vpmlq"]
 [ext_resource type="AudioStream" uid="uid://chgwk15ht1e5l" path="res://asserts/sounds/pistol.ogg" id="13_wmab5"]
 [ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="14_jb5hg"]
+[ext_resource type="AudioStream" uid="uid://dkp5jj58a2qv3" path="res://asserts/sounds/FootstepsGrass.ogg" id="15_5new4"]
+[ext_resource type="AudioStream" uid="uid://nw2kghxru23i" path="res://asserts/sounds/playerHurt.ogg" id="16_7dcno"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7j6l"]
 atlas = ExtResource("1_sodpf")
@@ -399,6 +401,18 @@ texture_scale = 0.5
 
 [node name="PistolFire" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_wmab5")
+volume_db = -25.0
+bus = &"SFx"
+script = ExtResource("14_jb5hg")
+
+[node name="GrassSteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_5new4")
+bus = &"SFx"
+script = ExtResource("14_jb5hg")
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_7dcno")
+volume_db = -5.0
 bus = &"SFx"
 script = ExtResource("14_jb5hg")
 

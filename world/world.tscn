@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://i6k5cjoauv2p"]
+[gd_scene load_steps=20 format=3 uid="uid://i6k5cjoauv2p"]
 
 [ext_resource type="PackedScene" uid="uid://bhdncv51oll25" path="res://player/player.tscn" id="1_aho6t"]
 [ext_resource type="Script" path="res://world/world.gd" id="1_yjyb2"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://0lr03nxkr2gh" path="res://UI/progress_bar.tscn" id="4_rkiif"]
 [ext_resource type="PackedScene" uid="uid://ctb46l2d1pw2g" path="res://enemies/enemy_generator.tscn" id="5_d5p31"]
 [ext_resource type="PackedScene" uid="uid://dwgaoxrj61dl6" path="res://UI/daySummary.tscn" id="5_lua7v"]
-[ext_resource type="PackedScene" uid="uid://dif84j5o0j5gm" path="res://enemies/zombie.tscn" id="6_je3rf"]
 [ext_resource type="PackedScene" uid="uid://bdu48j8mciy74" path="res://UI/PlayerStatsUI.tscn" id="7_uisvx"]
 [ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://UI/Options.tscn" id="8_kna0o"]
 [ext_resource type="PackedScene" uid="uid://cp7wjxn0en1f5" path="res://UI/LevelTransition.tscn" id="10_xgf6g"]
@@ -104,9 +103,6 @@ layout_mode = 1
 unique_name_in_owner = true
 stream = ExtResource("16_4qj2t")
 bus = &"SFx"
-
-[node name="Enemy" parent="." instance=ExtResource("6_je3rf")]
-position = Vector2(31, 14)
 
 [node name="Car" parent="." instance=ExtResource("16_6sbtt")]
 position = Vector2(232, 20)

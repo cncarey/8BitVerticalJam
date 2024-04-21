@@ -8,6 +8,7 @@ script = ExtResource("1_846c6")
 
 [node name="Rain" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_6rxue")
+volume_db = -5.0
 bus = &"Rain"
 
 [node name="Ambiance" type="AudioStreamPlayer" parent="."]

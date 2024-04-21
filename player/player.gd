@@ -11,7 +11,7 @@ enum worldLocations { Inside, Grass, Sand}
 
 var KickbackVel = Vector2.ZERO
 #TODO move to gun stats
-@export var curKickbackSpeed = 50
+@export var curKickbackSpeed = 10
 @export var curKnockbackSpeed = 10
 @export var curFireScreenShake = 5.0
 @export var maxSpeed = 150
@@ -36,6 +36,9 @@ var isDead: bool = false
 @onready var invisibility_timer = $invisibilityTimer
 @onready var flash_component = $FlashComponent
 @onready var pistol_fire = $PistolFire
+@onready var grass_steps = $GrassSteps
+@onready var hurt_sound = $HurtSound
+
 
 func _ready():
 	stats_component.maxHealth = GameStats.curHealthMax
@@ -72,23 +75,9 @@ func moveState(delta):
 		velocity = Vector2.ZERO
 		addKickback()
 		
-		# stop playing footsteps based on ground type
-		#grassSteps.stop()
-		#floorSteps.stop()
-		#stepTimer.stop()
+		grass_steps.stop()
 	else:
-		#if stepTimer.time_left <= 0:
-			#match footstepLocation:
-				#worldLocations.Grass:
-					#grassSteps.pitch_scale = randf_range(0.8, 1.2)
-					#grassSteps.play(0.5)
-					#stepTimer.start(2)
-					#pass
-				#worldLocations.Inside, _:
-					#floorSteps.pitch_scale = randf_range(0.8, 1.2)
-					#floorSteps.play(0.8)
-					#stepTimer.start(1.3)
-					#pass
+		grass_steps.play_with_variance()
 					
 		ani_body.play("walk")
 		if velocity.x < 0:
@@ -138,6 +127,7 @@ func fireGun():
 	get_tree().current_scene.add_child(b)
 
 func onHurt(hb):
+	hurt_sound.play_with_variance()
 	flash_component.flash()
 	stats_component.health -= hb.damage
 	hurtbox_component.is_invincible = true

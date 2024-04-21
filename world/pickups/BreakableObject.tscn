@@ -21,6 +21,7 @@ sprite = NodePath("../AnimatedSprite2D")
 collision_layer = 4
 
 [node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -14.0
 bus = &"SFx"
 script = ExtResource("5_ueee0")
 
