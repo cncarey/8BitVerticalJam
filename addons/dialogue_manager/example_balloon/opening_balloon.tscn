@@ -1,11 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://djqny5tdwl6g1"]
+[gd_scene load_steps=20 format=3 uid="uid://djqny5tdwl6g1"]
 
 [ext_resource type="Script" path="res://addons/dialogue_manager/example_balloon/OpeningDialogue.gd" id="1_wj6ms"]
+[ext_resource type="Texture2D" uid="uid://cdfby6qihueak" path="res://UI/radioSprite.tres" id="2_kgwjj"]
 [ext_resource type="Texture2D" uid="uid://bo6bp6c64tu4s" path="res://asserts/art/9prGrey.png" id="2_yscxe"]
+[ext_resource type="Texture2D" uid="uid://di2xtaurrbd20" path="res://asserts/art/Character-and-Zombie.png" id="3_g7tbp"]
 [ext_resource type="FontFile" uid="uid://bvtb73tme6xgb" path="res://fonts/kenney_mini_square.ttf" id="3_wvwg3"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="4_yjumq"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="5_ay7ir"]
 [ext_resource type="AudioStream" uid="uid://c2lb4j6mhbtot" path="res://asserts/sounds/talk.wav" id="6_aigll"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjip8"]
+atlas = ExtResource("3_g7tbp")
+region = Rect2(206, 2, 20, 17)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -84,6 +90,8 @@ base_font = ExtResource("3_wvwg3")
 [node name="OpeningBalloon" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_wj6ms")
+RadioPic = ExtResource("2_kgwjj")
+YouPic = SubResource("AtlasTexture_kjip8")
 
 [node name="Balloon" type="Control" parent="."]
 unique_name_in_owner = true
@@ -123,9 +131,35 @@ offset_bottom = 164.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Balloon/Panel/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 21
 
-[node name="TextureRect" type="TextureRect" parent="Balloon/Panel/MarginContainer/HBoxContainer"]
+[node name="PanelContainer" type="MarginContainer" parent="Balloon/Panel/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = -20
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = -14
+theme_override_constants/margin_bottom = -11
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Balloon/Panel/MarginContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_yscxe")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon/Panel/MarginContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = -15
+theme_override_constants/margin_bottom = 10
+
+[node name="CharacterPortrait" type="TextureRect" parent="Balloon/Panel/MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_kgwjj")
 stretch_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/MarginContainer/HBoxContainer"]

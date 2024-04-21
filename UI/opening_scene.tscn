@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dtfp6q5nv5aa2"]
+[gd_scene load_steps=19 format=3 uid="uid://dtfp6q5nv5aa2"]
 
 [ext_resource type="Script" path="res://UI/opening_scene.gd" id="1_s5pi5"]
 [ext_resource type="Resource" uid="uid://7nwblgi7gyrt" path="res://Dialogues/openingDialogues.dialogue" id="2_5e2f8"]
@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://wliq557mojj4" path="res://asserts/art/Free-Survival-Buildings.png" id="3_y0hnn"]
 [ext_resource type="PackedScene" uid="uid://cp7wjxn0en1f5" path="res://UI/LevelTransition.tscn" id="5_ts80a"]
 [ext_resource type="AudioStream" uid="uid://ddl05bb88taeg" path="res://asserts/sounds/fm-radio-static.ogg" id="6_unj5s"]
-[ext_resource type="Texture2D" uid="uid://bdbivn4lj1bai" path="res://asserts/art/Zombie Apocalypse Tileset Reference.png" id="7_sl1nq"]
 [ext_resource type="Script" path="res://components/flash_component.gd" id="8_6dftf"]
+[ext_resource type="Texture2D" uid="uid://cdfby6qihueak" path="res://UI/radioSprite.tres" id="9_ajh7m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7m8o"]
 texture = ExtResource("2_uk1qb")
@@ -168,10 +168,6 @@ _data = {
 "RadioCall": SubResource("Animation_hjcsl")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_afq12"]
-atlas = ExtResource("7_sl1nq")
-region = Rect2(35, 242, 14, 19)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_1ft6g"]
 
 [node name="OpeningScene" type="Node2D"]
@@ -208,7 +204,7 @@ bus = &"SFx"
 
 [node name="radioSprite" type="Sprite2D" parent="."]
 position = Vector2(186.47, 206.639)
-texture = SubResource("AtlasTexture_afq12")
+texture = ExtResource("9_ajh7m")
 
 [node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("8_6dftf")

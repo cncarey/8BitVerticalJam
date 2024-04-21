@@ -11,6 +11,10 @@ extends CanvasLayer
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
+@onready var character_portrait = %CharacterPortrait
+@export var RadioPic : Texture
+@export var YouPic : Texture
+
 @onready var talk_sound = $TalkSound
 
 ## The dialogue resource
@@ -46,6 +50,13 @@ var dialogue_line: DialogueLine:
 		character_label.visible = not dialogue_line.character.is_empty()
 		character_label.text = tr(dialogue_line.character, "dialogue")
 
+		
+		match(dialogue_line.character):
+			"Radio":
+				character_portrait.texture = RadioPic
+			"You":
+				character_portrait.texture = YouPic
+				
 		dialogue_label.hide()
 		dialogue_label.dialogue_line = dialogue_line
 
