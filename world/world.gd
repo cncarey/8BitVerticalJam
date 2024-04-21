@@ -15,6 +15,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalSound.startRain()
 	GameStats.setStartOfDayStats()
 	level_transition.fadeFromBlack()
 	randomize()
@@ -67,13 +68,23 @@ func _on_dialogue_ended(_resource: DialogueResource):
 		if GameStats.day >= 3:
 			onGameOver()
 		else:
-			level_transition.fadeToBlack()
-			var ds = daySummary.instantiate()
-			get_tree().current_scene.add_child(ds)
-			ds.EndDay.connect(closeDaySummary)
+			endOfDay()
 	else:
 		startRandEvent()
-		
+
+func endOfDay():
+	DialogueManager.dialogue_ended.connect(endOfDayDialogeEnd)
+	DialogueManager.show_dialogue_balloon_scene(dialogueTemplate, fightDialogues, "EndOfDay")
+	
+	#eat too food
+	#add extra mood
+	pass	
+func endOfDayDialogeEnd(_resource: DialogueResource):
+	level_transition.fadeToBlack()
+	var ds = daySummary.instantiate()
+	get_tree().current_scene.add_child(ds)
+	ds.EndDay.connect(closeDaySummary)
+	
 func closeDaySummary():
 	move.canMove = true
 	move.canScroll = true
@@ -81,7 +92,7 @@ func closeDaySummary():
 	
 	get_tree().reload_current_scene()
 	pass
-	
+
 func onGameOver():
 	
 	if GameStats.isGameOver:
@@ -107,6 +118,7 @@ func onResetGame():
 	move.distance = 0
 
 func backToMainMenu():
+	GlobalSound.stopRain()
 	onResetGame()
 	get_tree().change_scene_to_file("res://UI/MainMenu.tscn")
 	pass

@@ -61,7 +61,7 @@ func setStartOfDayStats():
 		
 @export var ammo = 250 : 
 	set(value):
-		ammo = value
+		ammo = maxi(0, value)
 		
 		# Signal out that the health has changed
 		ammo_changed.emit(ammo)
@@ -101,7 +101,7 @@ func tryTakeAmmo(dec: int) -> bool:
 		
 @export var healthPack = 0:
 	set(value):
-		healthPack = value
+		healthPack = maxi(0, value)
 		healthPack_changed.emit(healthPack)
 	get:
 		return healthPack
@@ -115,7 +115,7 @@ func tryTakehealthPack(dec: int) -> bool:
 		
 @export var food = 0:
 	set(value):
-		food = value
+		food = maxi(0, value)
 		food_changed.emit(food)
 	get:
 		return food

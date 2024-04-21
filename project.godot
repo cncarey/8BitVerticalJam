@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameStats="*res://world/game_stats.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+GlobalSound="*res://asserts/sounds/GlobalSound.tscn"
 
 [dialogue_manager]
 

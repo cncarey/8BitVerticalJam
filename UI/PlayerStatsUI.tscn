@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdu48j8mciy74"]
+[gd_scene load_steps=15 format=3 uid="uid://bdu48j8mciy74"]
 
 [ext_resource type="Script" path="res://UI/PlayerStatsUI.gd" id="1_b5im4"]
 [ext_resource type="Texture2D" uid="uid://dt01k7xl5vfnj" path="res://asserts/art/Sprite sheet for Basic Pack.png" id="2_fvxpu"]
@@ -7,6 +7,7 @@
 [ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://fonts/default_label_settings.tres" id="4_0d41u"]
 [ext_resource type="Texture2D" uid="uid://d2brdwxntf0sc" path="res://asserts/art/Icon_spritesheet01.png" id="4_b8244"]
 [ext_resource type="Texture2D" uid="uid://dwoaetdytx5yf" path="res://UI/sad.tres" id="4_buerj"]
+[ext_resource type="Texture2D" uid="uid://cba422dd7nfx0" path="res://asserts/art/tilemap_white_packed.png" id="7_6vtqq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pt8pa"]
 atlas = ExtResource("4_b8244")
@@ -27,6 +28,10 @@ region = Rect2(580, 115, 9, 10)
 [sub_resource type="AtlasTexture" id="AtlasTexture_k07la"]
 atlas = ExtResource("2_fvxpu")
 region = Rect2(612, 115, 9, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs4m6"]
+atlas = ExtResource("7_6vtqq")
+region = Rect2(320, 160, 13, 13)
 
 [node name="MarginContainer" type="MarginContainer"]
 offset_right = 40.0
@@ -95,7 +100,10 @@ label_settings = ExtResource("4_0d41u")
 [node name="HealthPackContainer" type="VBoxContainer" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 
-[node name="HealthPackLabel" type="TextureRect" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer/GridContainer/HealthPackContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer/GridContainer/HealthPackContainer"]
+layout_mode = 2
+
+[node name="HealthPackLabel" type="TextureRect" parent="VBoxContainer/ItemsContainer/VBoxContainer/MarginContainer/GridContainer/HealthPackContainer/MarginContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_86e2c")
 
@@ -122,3 +130,17 @@ visible = false
 layout_mode = 2
 texture = SubResource("AtlasTexture_k07la")
 stretch_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="UseOnR" type="TextureRect" parent="Control"]
+layout_mode = 2
+offset_left = 55.0
+offset_top = -8.0
+offset_right = 68.0
+offset_bottom = 5.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_gs4m6")
+stretch_mode = 4

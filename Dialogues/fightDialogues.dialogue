@@ -1,3 +1,18 @@
+~ EndOfDay
+
+if GameStats.food >= 2:
+	You eat 2 food.
+	set GameStats.food -= 2
+elif GameStats.food == 1:
+	You eat 1 food.
+	set GameStats.food -= 1
+	You are still hungry because you don't have enough food to eat, -1 mood
+	set GameStats.mood -= 1
+else:
+	You stomach grumbles. You are sad becuase you don't have any food to eat -2 food
+	set GameStats.mood -= 2
+=> END!
+
 ~ FightBandits
 You come across a group of bandits. They look dangerous and are talking jibberish. They start to approach you. Should you
 - Fight the Bandits

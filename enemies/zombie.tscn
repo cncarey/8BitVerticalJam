@@ -71,6 +71,7 @@ height = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_q2201"]
 
 [node name="Zombie" instance=ExtResource("1_ther5")]
+z_index = 12
 move = ExtResource("2_jtalj")
 origVelocity = Vector2(0, 25)
 

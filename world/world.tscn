@@ -81,7 +81,7 @@ fill_mode = 2
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
+theme_override_constants/margin_top = 10
 
 [node name="PlayerUI" parent="ui/MarginContainer" instance=ExtResource("7_uisvx")]
 layout_mode = 2

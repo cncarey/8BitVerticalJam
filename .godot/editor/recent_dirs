@@ -1,6 +1,7 @@
+res://asserts/sounds
+res://UI
 res://asserts/art
 res://world/pickups
-res://UI
 res://fonts
 res://addons/dialogue_manager/example_balloon
 res://world
@@ -9,6 +10,5 @@ res://world/buildings
 res://components
 res://enemies
 res://projectiles
-res://asserts/sounds
 res://effects
 res://player
