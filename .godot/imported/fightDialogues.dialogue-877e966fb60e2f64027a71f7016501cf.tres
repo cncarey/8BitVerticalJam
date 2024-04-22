@@ -1,43 +1,55 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ocnby"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_nscoh"]
 
 [resource]
-script = ExtResource("1_ocnby")
+script = ExtResource("1_nscoh")
 using_states = PackedStringArray()
 titles = {
-"BadGroceryStore": "138",
-"CheckTheGroceryStore": "120",
-"DerelictTown": "189",
-"DesertedBaracade": "182",
+"AltRoute": "224",
+"BadGroceryStore": "140",
+"CheckTheGroceryStore": "122",
+"DerelictTown": "194",
+"DeserBarInvestigate": "189",
+"DesertedBaracade": "183",
 "EndOfDay": "3",
 "FarmTrip": "64",
 "Fight": "25",
 "FightBandits": "17",
-"GenericGood": "154",
+"FindZombies": "235",
+"GenericGood": "156",
 "GetAwayFight": "53",
 "GetAwayRobTheFarm": "101",
 "GetCaughtFight": "58",
-"GetCaughtRobTheFarm": "106",
-"GoodGroceryStore": "126",
+"GetCaughtRobTheFarm": "108",
+"GoodGroceryStore": "128",
 "GoodHelp": "78",
-"GreatGroceryStore": "131",
+"GreadyTradeSuccess": "276",
+"GreatGroceryStore": "133",
 "GreatHelp": "83",
-"GroceryTrip": "112",
+"GroceryTrip": "114",
+"HaggleTrade": "271",
 "HelpTheFarm": "72",
-"LeaveTheGroceryStore": "142",
+"JustLeave": "267",
+"LeaveTheGroceryStore": "144",
 "LooseFight": "42",
 "MoodAmmo": "36",
 "MoodUp": "31",
-"RandomSimple": "146",
+"RandomSimple": "148",
 "RobTheFarm": "96",
 "RunAway": "48",
-"SurvivorHealthPacks": "197",
+"RushToCar": "244",
+"StumbleAmmo": "252",
+"StumbleFood": "257",
+"StumbleHealthPack": "262",
+"SurvivorHealthPacks": "200",
+"TakeAlt": "230",
 "TiredHelp": "89",
-"addAmmo": "165",
-"addFood": "160",
-"addHealthPacks": "170",
-"addNone": "175"
+"UnhappySurvivers": "207",
+"addAmmo": "167",
+"addFood": "162",
+"addHealthPacks": "172",
+"addNone": "177"
 }
 character_names = PackedStringArray("")
 first_title = "3"
@@ -85,9 +97,9 @@ lines = {
 "next_id": "102",
 "notes": "",
 "tags": PackedStringArray(),
-"text": "You feel so guilty -1 mood but you are loaded",
+"text": "You feel so guilty -1 mood but you are loaded, +3 food and + 50 ammo",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "You feel so guilty -1 mood but you are loaded",
+"translation_key": "You feel so guilty -1 mood but you are loaded, +3 food and + 50 ammo",
 "type": &"dialogue"
 },
 "102": {
@@ -115,226 +127,6 @@ lines = {
 },
 "103": {
 "id": "103",
-"is_snippet": false,
-"next_id": "end!",
-"type": &"goto"
-},
-"105": {
-"id": "105",
-"next_id": "106",
-"text": "GetCaughtRobTheFarm",
-"type": &"title"
-},
-"106": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "106",
-"next_id": "107",
-"notes": "",
-"tags": PackedStringArray(),
-"text": "They beat you up take -2 food and -2 mood you are salty you lost.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "They beat you up take -2 food and -2 mood you are salty you lost.",
-"type": &"dialogue"
-},
-"107": {
-"id": "107",
-"mutation": {
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "GameStats"
-}, {
-"type": "dot"
-}, {
-"type": "variable",
-"value": "mood"
-}, {
-"type": "assignment",
-"value": "-="
-}, {
-"type": "number",
-"value": 2
-}]),
-"is_blocking": true
-},
-"next_id": "108",
-"type": &"mutation"
-},
-"108": {
-"id": "108",
-"mutation": {
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "GameStats"
-}, {
-"type": "dot"
-}, {
-"type": "variable",
-"value": "food"
-}, {
-"type": "assignment",
-"value": "-="
-}, {
-"type": "number",
-"value": 2
-}]),
-"is_blocking": true
-},
-"next_id": "109",
-"type": &"mutation"
-},
-"109": {
-"id": "109",
-"is_snippet": false,
-"next_id": "end!",
-"type": &"goto"
-},
-"11": {
-"id": "11",
-"next_conditional_id": "14",
-"next_id": "12",
-"next_id_after": "14",
-"type": &"condition"
-},
-"111": {
-"id": "111",
-"next_id": "112",
-"text": "GroceryTrip",
-"type": &"title"
-},
-"112": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "112",
-"next_id": "113",
-"notes": "",
-"tags": PackedStringArray(),
-"text": "You come across fortified grocery store. It sounds like there are some people inside. Do you",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "You come across fortified grocery store. It sounds like there are some people inside. Do you",
-"type": &"dialogue"
-},
-"113": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "113",
-"next_id": "114",
-"next_id_after": "120",
-"notes": "",
-"responses": PackedStringArray("113", "115"),
-"tags": PackedStringArray(),
-"text": "Check the Store",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Check the Store",
-"type": &"response"
-},
-"114": {
-"id": "114",
-"is_snippet": false,
-"next_id": "120",
-"parent_id": "113",
-"type": &"goto"
-},
-"115": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "115",
-"next_id": "116",
-"next_id_after": "120",
-"notes": "",
-"tags": PackedStringArray(),
-"text": "Leave",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Leave",
-"type": &"response"
-},
-"116": {
-"id": "116",
-"is_snippet": false,
-"next_id": "142",
-"parent_id": "115",
-"type": &"goto"
-},
-"117": {
-"id": "117",
-"is_snippet": false,
-"next_id": "end",
-"parent_id": "115",
-"type": &"goto"
-},
-"119": {
-"id": "119",
-"next_id": "120",
-"text": "CheckTheGroceryStore",
-"type": &"title"
-},
-"12": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "12",
-"next_id": "13",
-"notes": "",
-"parent_id": "11",
-"tags": PackedStringArray(),
-"text": "You stomach grumbles. You are sad becuase you don't have any food to eat -2 food",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "You stomach grumbles. You are sad becuase you don't have any food to eat -2 food",
-"type": &"dialogue"
-},
-"120": {
-"id": "120",
-"is_snippet": false,
-"next_id": "126",
-"siblings": [{
-"id": "120",
-"weight": 1.0
-}, {
-"id": "121",
-"weight": 1.0
-}, {
-"id": "122",
-"weight": 1.0
-}],
-"type": &"goto"
-},
-"121": {
-"id": "121",
-"is_snippet": false,
-"next_id": "131",
-"type": &"goto"
-},
-"122": {
-"id": "122",
-"is_snippet": false,
-"next_id": "138",
-"type": &"goto"
-},
-"123": {
-"id": "123",
-"is_snippet": false,
-"next_id": "end",
-"type": &"goto"
-},
-"125": {
-"id": "125",
-"next_id": "126",
-"text": "GoodGroceryStore",
-"type": &"title"
-},
-"126": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "126",
-"next_id": "127",
-"notes": "",
-"tags": PackedStringArray(),
-"text": "They let you in and share some of their +3 food",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "They let you in and share some of their +3 food",
-"type": &"dialogue"
-},
-"127": {
-"id": "127",
 "mutation": {
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -353,14 +145,274 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "128",
+"next_id": "104",
 "type": &"mutation"
 },
-"128": {
-"id": "128",
+"104": {
+"id": "104",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "ammo"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 50
+}]),
+"is_blocking": true
+},
+"next_id": "105",
+"type": &"mutation"
+},
+"105": {
+"id": "105",
 "is_snippet": false,
 "next_id": "end!",
 "type": &"goto"
+},
+"107": {
+"id": "107",
+"next_id": "108",
+"text": "GetCaughtRobTheFarm",
+"type": &"title"
+},
+"108": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "108",
+"next_id": "109",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "They beat you up take -2 food and -2 mood you are salty you lost.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "They beat you up take -2 food and -2 mood you are salty you lost.",
+"type": &"dialogue"
+},
+"109": {
+"id": "109",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 2
+}]),
+"is_blocking": true
+},
+"next_id": "110",
+"type": &"mutation"
+},
+"11": {
+"id": "11",
+"next_conditional_id": "14",
+"next_id": "12",
+"next_id_after": "14",
+"type": &"condition"
+},
+"110": {
+"id": "110",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 2
+}]),
+"is_blocking": true
+},
+"next_id": "111",
+"type": &"mutation"
+},
+"111": {
+"id": "111",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"113": {
+"id": "113",
+"next_id": "114",
+"text": "GroceryTrip",
+"type": &"title"
+},
+"114": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "114",
+"next_id": "115",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You come across fortified grocery store. It sounds like there are some people inside. Do you",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You come across fortified grocery store. It sounds like there are some people inside. Do you",
+"type": &"dialogue"
+},
+"115": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "115",
+"next_id": "116",
+"next_id_after": "122",
+"notes": "",
+"responses": PackedStringArray("115", "117"),
+"tags": PackedStringArray(),
+"text": "Check the Store",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Check the Store",
+"type": &"response"
+},
+"116": {
+"id": "116",
+"is_snippet": false,
+"next_id": "122",
+"parent_id": "115",
+"type": &"goto"
+},
+"117": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "117",
+"next_id": "118",
+"next_id_after": "122",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Leave",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Leave",
+"type": &"response"
+},
+"118": {
+"id": "118",
+"is_snippet": false,
+"next_id": "144",
+"parent_id": "117",
+"type": &"goto"
+},
+"119": {
+"id": "119",
+"is_snippet": false,
+"next_id": "end",
+"parent_id": "117",
+"type": &"goto"
+},
+"12": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "12",
+"next_id": "13",
+"notes": "",
+"parent_id": "11",
+"tags": PackedStringArray(),
+"text": "You stomach grumbles. You are sad becuase you don't have any food to eat -2 food",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You stomach grumbles. You are sad becuase you don't have any food to eat -2 food",
+"type": &"dialogue"
+},
+"121": {
+"id": "121",
+"next_id": "122",
+"text": "CheckTheGroceryStore",
+"type": &"title"
+},
+"122": {
+"id": "122",
+"is_snippet": false,
+"next_id": "128",
+"siblings": [{
+"id": "122",
+"weight": 1.0
+}, {
+"id": "123",
+"weight": 1.0
+}, {
+"id": "124",
+"weight": 1.0
+}],
+"type": &"goto"
+},
+"123": {
+"id": "123",
+"is_snippet": false,
+"next_id": "133",
+"type": &"goto"
+},
+"124": {
+"id": "124",
+"is_snippet": false,
+"next_id": "140",
+"type": &"goto"
+},
+"125": {
+"id": "125",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"127": {
+"id": "127",
+"next_id": "128",
+"text": "GoodGroceryStore",
+"type": &"title"
+},
+"128": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "128",
+"next_id": "129",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "They let you in and share some of their +3 food",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "They let you in and share some of their +3 food",
+"type": &"dialogue"
+},
+"129": {
+"id": "129",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 3
+}]),
+"is_blocking": true
+},
+"next_id": "130",
+"type": &"mutation"
 },
 "13": {
 "id": "13",
@@ -388,15 +440,21 @@ lines = {
 },
 "130": {
 "id": "130",
-"next_id": "131",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"132": {
+"id": "132",
+"next_id": "133",
 "text": "GreatGroceryStore",
 "type": &"title"
 },
-"131": {
+"133": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "131",
-"next_id": "132",
+"id": "133",
+"next_id": "134",
 "notes": "",
 "tags": PackedStringArray(),
 "text": "They are so happy just to see a non-zombie face. They give you some +3 food and +25 ammo and send you on your way. You are a bit happier +1 mood.",
@@ -404,8 +462,8 @@ lines = {
 "translation_key": "They are so happy just to see a non-zombie face. They give you some +3 food and +25 ammo and send you on your way. You are a bit happier +1 mood.",
 "type": &"dialogue"
 },
-"132": {
-"id": "132",
+"134": {
+"id": "134",
 "mutation": {
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -424,11 +482,11 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "133",
+"next_id": "135",
 "type": &"mutation"
 },
-"133": {
-"id": "133",
+"135": {
+"id": "135",
 "mutation": {
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -447,11 +505,11 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "134",
+"next_id": "136",
 "type": &"mutation"
 },
-"134": {
-"id": "134",
+"136": {
+"id": "136",
 "mutation": {
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -470,38 +528,20 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "135",
+"next_id": "137",
 "type": &"mutation"
-},
-"135": {
-"id": "135",
-"is_snippet": false,
-"next_id": "end!",
-"type": &"goto"
 },
 "137": {
 "id": "137",
-"next_id": "138",
-"text": "BadGroceryStore",
-"type": &"title"
-},
-"138": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "138",
-"next_id": "139",
-"notes": "",
-"tags": PackedStringArray(),
-"text": "There is someone living in there and they don't open up. They shoot at you an tell you to scram",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "There is someone living in there and they don't open up. They shoot at you an tell you to scram",
-"type": &"dialogue"
-},
-"139": {
-"id": "139",
 "is_snippet": false,
 "next_id": "end!",
 "type": &"goto"
+},
+"139": {
+"id": "139",
+"next_id": "140",
+"text": "BadGroceryStore",
+"type": &"title"
 },
 "14": {
 "id": "14",
@@ -509,41 +549,59 @@ lines = {
 "next_id": "end!",
 "type": &"goto"
 },
-"141": {
-"id": "141",
-"next_id": "142",
-"text": "LeaveTheGroceryStore",
-"type": &"title"
-},
-"142": {
+"140": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "142",
-"next_id": "143",
+"id": "140",
+"next_id": "141",
 "notes": "",
 "tags": PackedStringArray(),
-"text": "You get spooked and decide to keep going",
+"text": "There is someone living in there and they don't open up. They shoot at you an tell you to scram",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "You get spooked and decide to keep going",
+"translation_key": "There is someone living in there and they don't open up. They shoot at you an tell you to scram",
 "type": &"dialogue"
 },
-"143": {
-"id": "143",
+"141": {
+"id": "141",
 "is_snippet": false,
 "next_id": "end!",
 "type": &"goto"
 },
+"143": {
+"id": "143",
+"next_id": "144",
+"text": "LeaveTheGroceryStore",
+"type": &"title"
+},
+"144": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "144",
+"next_id": "145",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You get spooked and decide to get out of there",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You get spooked and decide to get out of there",
+"type": &"dialogue"
+},
 "145": {
 "id": "145",
-"next_id": "146",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"147": {
+"id": "147",
+"next_id": "148",
 "text": "RandomSimple",
 "type": &"title"
 },
-"146": {
+"148": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "146",
-"next_id": "147",
+"id": "148",
+"next_id": "149",
 "notes": "",
 "tags": PackedStringArray(),
 "text": "You [[come across | spot | stumble upon | see | spy]] a [[bookstore | burning house | factory | grocery store | hotel | police station | park]]. It look [[quiet | dangerous | like a large fight is happening | pretty expensive | empty]].",
@@ -551,33 +609,33 @@ lines = {
 "translation_key": "You [[come across | spot | stumble upon | see | spy]] a [[bookstore | burning house | factory | grocery store | hotel | police station | park]]. It look [[quiet | dangerous | like a large fight is happening | pretty expensive | empty]].",
 "type": &"dialogue"
 },
-"147": {
+"149": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "147",
-"next_id": "148",
-"next_id_after": "154",
+"id": "149",
+"next_id": "150",
+"next_id_after": "156",
 "notes": "",
-"responses": PackedStringArray("147", "149"),
+"responses": PackedStringArray("149", "151"),
 "tags": PackedStringArray(),
 "text": "Investigate",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Investigate",
 "type": &"response"
 },
-"148": {
-"id": "148",
+"150": {
+"id": "150",
 "is_snippet": false,
-"next_id": "154",
-"parent_id": "147",
+"next_id": "156",
+"parent_id": "149",
 "type": &"goto"
 },
-"149": {
+"151": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "149",
-"next_id": "150",
-"next_id_after": "154",
+"id": "151",
+"next_id": "152",
+"next_id_after": "156",
 "notes": "",
 "tags": PackedStringArray(),
 "text": "Leave",
@@ -585,74 +643,68 @@ lines = {
 "translation_key": "Leave",
 "type": &"response"
 },
-"150": {
+"152": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "150",
-"next_id": "151",
+"id": "152",
+"next_id": "153",
 "notes": "",
-"parent_id": "149",
+"parent_id": "151",
 "tags": PackedStringArray(),
 "text": "Maybe you should go",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Maybe you should go",
 "type": &"dialogue"
 },
-"151": {
-"id": "151",
-"is_snippet": false,
-"next_id": "end!",
-"parent_id": "149",
-"type": &"goto"
-},
 "153": {
 "id": "153",
-"next_id": "154",
+"is_snippet": false,
+"next_id": "end!",
+"parent_id": "151",
+"type": &"goto"
+},
+"155": {
+"id": "155",
+"next_id": "156",
 "text": "GenericGood",
 "type": &"title"
 },
-"154": {
-"id": "154",
+"156": {
+"id": "156",
 "is_snippet": false,
-"next_id": "160",
+"next_id": "162",
 "siblings": [{
-"id": "154",
-"weight": 1.0
-}, {
-"id": "155",
-"weight": 1.0
-}, {
 "id": "156",
 "weight": 1.0
 }, {
 "id": "157",
 "weight": 1.0
+}, {
+"id": "158",
+"weight": 1.0
+}, {
+"id": "159",
+"weight": 1.0
 }],
-"type": &"goto"
-},
-"155": {
-"id": "155",
-"is_snippet": false,
-"next_id": "165",
-"type": &"goto"
-},
-"156": {
-"id": "156",
-"is_snippet": false,
-"next_id": "170",
 "type": &"goto"
 },
 "157": {
 "id": "157",
 "is_snippet": false,
-"next_id": "175",
+"next_id": "167",
+"type": &"goto"
+},
+"158": {
+"id": "158",
+"is_snippet": false,
+"next_id": "172",
 "type": &"goto"
 },
 "159": {
 "id": "159",
-"next_id": "160",
-"text": "addFood",
-"type": &"title"
+"is_snippet": false,
+"next_id": "177",
+"type": &"goto"
 },
 "16": {
 "id": "16",
@@ -660,11 +712,17 @@ lines = {
 "text": "FightBandits",
 "type": &"title"
 },
-"160": {
+"161": {
+"id": "161",
+"next_id": "162",
+"text": "addFood",
+"type": &"title"
+},
+"162": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "160",
-"next_id": "161",
+"id": "162",
+"next_id": "163",
 "notes": "",
 "tags": PackedStringArray(),
 "text": "You found +3 food",
@@ -672,8 +730,8 @@ lines = {
 "translation_key": "You found +3 food",
 "type": &"dialogue"
 },
-"161": {
-"id": "161",
+"163": {
+"id": "163",
 "mutation": {
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -692,26 +750,26 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "162",
+"next_id": "164",
 "type": &"mutation"
 },
-"162": {
-"id": "162",
+"164": {
+"id": "164",
 "is_snippet": false,
 "next_id": "end!",
 "type": &"goto"
 },
-"164": {
-"id": "164",
-"next_id": "165",
+"166": {
+"id": "166",
+"next_id": "167",
 "text": "addAmmo",
 "type": &"title"
 },
-"165": {
+"167": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "165",
-"next_id": "166",
+"id": "167",
+"next_id": "168",
 "notes": "",
 "tags": PackedStringArray(),
 "text": "You found +25 ammo",
@@ -719,8 +777,8 @@ lines = {
 "translation_key": "You found +25 ammo",
 "type": &"dialogue"
 },
-"166": {
-"id": "166",
+"168": {
+"id": "168",
 "mutation": {
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -739,20 +797,14 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "167",
+"next_id": "169",
 "type": &"mutation"
-},
-"167": {
-"id": "167",
-"is_snippet": false,
-"next_id": "end!",
-"type": &"goto"
 },
 "169": {
 "id": "169",
-"next_id": "170",
-"text": "addHealthPacks",
-"type": &"title"
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
 },
 "17": {
 "character": "",
@@ -766,11 +818,17 @@ lines = {
 "translation_key": "You come across a group of bandits. They look dangerous and are talking jibberish. They start to approach you. Should you",
 "type": &"dialogue"
 },
-"170": {
+"171": {
+"id": "171",
+"next_id": "172",
+"text": "addHealthPacks",
+"type": &"title"
+},
+"172": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "170",
-"next_id": "171",
+"id": "172",
+"next_id": "173",
 "notes": "",
 "tags": PackedStringArray(),
 "text": "You found +2 Health Packs",
@@ -778,8 +836,8 @@ lines = {
 "translation_key": "You found +2 Health Packs",
 "type": &"dialogue"
 },
-"171": {
-"id": "171",
+"173": {
+"id": "173",
 "mutation": {
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -798,35 +856,35 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "172",
+"next_id": "174",
 "type": &"mutation"
 },
-"172": {
-"id": "172",
+"174": {
+"id": "174",
 "is_snippet": false,
 "next_id": "end!",
 "type": &"goto"
 },
-"174": {
-"id": "174",
-"next_id": "175",
+"176": {
+"id": "176",
+"next_id": "177",
 "text": "addNone",
 "type": &"title"
 },
-"175": {
+"177": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "175",
-"next_id": "178",
+"id": "177",
+"next_id": "180",
 "notes": "",
 "siblings": [{
-"id": "175",
-"weight": 1.0
-}, {
-"id": "176",
-"weight": 1.0
-}, {
 "id": "177",
+"weight": 1.0
+}, {
+"id": "178",
+"weight": 1.0
+}, {
+"id": "179",
 "weight": 1.0
 }],
 "tags": PackedStringArray(),
@@ -835,11 +893,11 @@ lines = {
 "translation_key": "That was a waste of time this place was empty",
 "type": &"dialogue"
 },
-"176": {
+"178": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "176",
-"next_id": "178",
+"id": "178",
+"next_id": "180",
 "notes": "",
 "tags": PackedStringArray(),
 "text": "You don't find anything",
@@ -847,23 +905,17 @@ lines = {
 "translation_key": "You don't find anything",
 "type": &"dialogue"
 },
-"177": {
+"179": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "177",
-"next_id": "178",
+"id": "179",
+"next_id": "180",
 "notes": "",
 "tags": PackedStringArray(),
 "text": "You get spooked and decide to just leave now",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "You get spooked and decide to just leave now",
 "type": &"dialogue"
-},
-"178": {
-"id": "178",
-"is_snippet": false,
-"next_id": "end!",
-"type": &"goto"
 },
 "18": {
 "character": "",
@@ -881,47 +933,53 @@ lines = {
 },
 "180": {
 "id": "180",
-"next_id": "182",
-"text": "DesertedBaracade",
-"type": &"title"
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
 },
 "182": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
 "id": "182",
 "next_id": "183",
-"notes": "",
-"tags": PackedStringArray(),
-"text": "As you travel along the deserted highway, you stumble upon a makeshift barricade. It's clear someone put a lot of effort into it. Do you investigate further or find an alternative route?",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "As you travel along the deserted highway, you stumble upon a makeshift barricade. It's clear someone put a lot of effort into it. Do you investigate further or find an alternative route?",
-"type": &"dialogue"
+"text": "DesertedBaracade",
+"type": &"title"
 },
 "183": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
 "id": "183",
-"next_id": "186",
-"next_id_after": "186",
+"next_id": "184",
 "notes": "",
-"responses": PackedStringArray("183", "184"),
 "tags": PackedStringArray(),
-"text": "TODO",
+"text": "As you travel along the deserted highway, you stumble upon a makeshift barricade. It's clear someone put a lot of effort into it. Do you",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "TODO",
-"type": &"response"
+"translation_key": "As you travel along the deserted highway, you stumble upon a makeshift barricade. It's clear someone put a lot of effort into it. Do you",
+"type": &"dialogue"
 },
 "184": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
 "id": "184",
-"next_id": "186",
+"next_id": "189",
+"next_id_after": "186",
+"notes": "",
+"responses": PackedStringArray("184", "185"),
+"tags": PackedStringArray(),
+"text": "Investigate further",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Investigate further",
+"type": &"response"
+},
+"185": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "185",
+"next_id": "224",
 "next_id_after": "186",
 "notes": "",
 "tags": PackedStringArray(),
-"text": "TODO",
+"text": "Find an alternative route",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "TODO",
+"translation_key": "Find an alternative route",
 "type": &"response"
 },
 "186": {
@@ -933,19 +991,26 @@ lines = {
 "188": {
 "id": "188",
 "next_id": "189",
-"text": "DerelictTown",
+"text": "DeserBarInvestigate",
 "type": &"title"
 },
 "189": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
 "id": "189",
-"next_id": "190",
+"next_id": "191",
 "notes": "",
+"siblings": [{
+"id": "189",
+"weight": 1.0
+}, {
+"id": "190",
+"weight": 1.0
+}],
 "tags": PackedStringArray(),
-"text": "While scavenging for supplies in a derelict town, you hear the distant sound of approaching zombies. Do you",
+"text": "=> UnhappySurvivers",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "While scavenging for supplies in a derelict town, you hear the distant sound of approaching zombies. Do you",
+"translation_key": "=> UnhappySurvivers",
 "type": &"dialogue"
 },
 "19": {
@@ -960,34 +1025,57 @@ lines = {
 "character_replacements": Array[Dictionary]([]),
 "id": "190",
 "next_id": "191",
-"next_id_after": "194",
 "notes": "",
-"responses": PackedStringArray("190", "192"),
+"tags": PackedStringArray(),
+"text": "=> CheckTheGroceryStore",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "=> CheckTheGroceryStore",
+"type": &"dialogue"
+},
+"191": {
+"id": "191",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"193": {
+"id": "193",
+"next_id": "194",
+"text": "DerelictTown",
+"type": &"title"
+},
+"194": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "194",
+"next_id": "195",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "While scavenging for supplies in a derelict town, you hear the distant sound of approaching zombies. Do you",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "While scavenging for supplies in a derelict town, you hear the distant sound of approaching zombies. Do you",
+"type": &"dialogue"
+},
+"195": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "195",
+"next_id": "244",
+"next_id_after": "197",
+"notes": "",
+"responses": PackedStringArray("195", "196"),
 "tags": PackedStringArray(),
 "text": "Rush back to your car",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Rush back to your car",
 "type": &"response"
 },
-"191": {
+"196": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "191",
-"next_id": "194",
-"notes": "",
-"parent_id": "190",
-"tags": PackedStringArray(),
-"text": "TODO",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "TODO",
-"type": &"dialogue"
-},
-"192": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "192",
-"next_id": "193",
-"next_id_after": "194",
+"id": "196",
+"next_id": "156",
+"next_id_after": "197",
 "notes": "",
 "tags": PackedStringArray(),
 "text": "Risk staying to gather more resources",
@@ -995,69 +1083,17 @@ lines = {
 "translation_key": "Risk staying to gather more resources",
 "type": &"response"
 },
-"193": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "193",
-"next_id": "194",
-"notes": "",
-"parent_id": "192",
-"tags": PackedStringArray(),
-"text": "TODO",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "TODO",
-"type": &"dialogue"
-},
-"194": {
-"id": "194",
+"197": {
+"id": "197",
 "is_snippet": false,
 "next_id": "end!",
 "type": &"goto"
 },
-"196": {
-"id": "196",
-"next_id": "197",
+"199": {
+"id": "199",
+"next_id": "200",
 "text": "SurvivorHealthPacks",
 "type": &"title"
-},
-"197": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "197",
-"next_id": "198",
-"notes": "",
-"tags": PackedStringArray(),
-"text": "You encounter a group of survivors in desperate need of medical supplies. They offer valuable supplies in exchange for your health packs. Do you",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "You encounter a group of survivors in desperate need of medical supplies. They offer valuable supplies in exchange for your health packs. Do you",
-"type": &"dialogue"
-},
-"198": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "198",
-"next_id": "199",
-"next_id_after": "202",
-"notes": "",
-"responses": PackedStringArray("198", "200"),
-"tags": PackedStringArray(),
-"text": "agree to the trade",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "agree to the trade",
-"type": &"response"
-},
-"199": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "199",
-"next_id": "202",
-"notes": "",
-"parent_id": "198",
-"tags": PackedStringArray(),
-"text": "TODO",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "TODO",
-"type": &"dialogue"
 },
 "20": {
 "character": "",
@@ -1077,7 +1113,33 @@ lines = {
 "character_replacements": Array[Dictionary]([]),
 "id": "200",
 "next_id": "201",
-"next_id_after": "202",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You encounter a group of survivors in desperate need of medical supplies. They offer valuable supplies in exchange for your health packs. Do you",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You encounter a group of survivors in desperate need of medical supplies. They offer valuable supplies in exchange for your health packs. Do you",
+"type": &"dialogue"
+},
+"201": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "201",
+"next_id": "207",
+"next_id_after": "204",
+"notes": "",
+"responses": PackedStringArray("201", "202"),
+"tags": PackedStringArray(),
+"text": "agree to the trade",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "agree to the trade",
+"type": &"response"
+},
+"202": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "202",
+"next_id": "203",
+"next_id_after": "204",
 "notes": "",
 "tags": PackedStringArray(),
 "text": "Haggle for a better deal",
@@ -1085,24 +1147,93 @@ lines = {
 "translation_key": "Haggle for a better deal",
 "type": &"response"
 },
-"201": {
+"203": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "201",
-"next_id": "202",
+"id": "203",
+"next_id": "204",
 "notes": "",
-"parent_id": "200",
+"parent_id": "202",
 "tags": PackedStringArray(),
 "text": "TODO",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "TODO",
 "type": &"dialogue"
 },
-"202": {
-"id": "202",
+"204": {
+"id": "204",
 "is_snippet": false,
 "next_id": "end!",
 "type": &"goto"
+},
+"206": {
+"id": "206",
+"next_id": "207",
+"text": "UnhappySurvivers",
+"type": &"title"
+},
+"207": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "healthPack"
+}, {
+"type": "comparison",
+"value": ">="
+}, {
+"type": "number",
+"value": 2
+}, {
+"type": "colon"
+}])
+},
+"id": "207",
+"next_conditional_id": "211",
+"next_id": "208",
+"next_id_after": "221",
+"type": &"condition"
+},
+"208": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "208",
+"next_id": "209",
+"notes": "",
+"parent_id": "207",
+"tags": PackedStringArray(),
+"text": "The people inside are wonded pretty bad. They give you +2 food in exchange for -2 health packs.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "The people inside are wonded pretty bad. They give you +2 food in exchange for -2 health packs.",
+"type": &"dialogue"
+},
+"209": {
+"id": "209",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 2
+}]),
+"is_blocking": true
+},
+"next_id": "210",
+"parent_id": "207",
+"type": &"mutation"
 },
 "21": {
 "id": "21",
@@ -1111,6 +1242,198 @@ lines = {
 "parent_id": "20",
 "type": &"goto"
 },
+"210": {
+"id": "210",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "healthPack"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 2
+}]),
+"is_blocking": true
+},
+"next_id": "221",
+"parent_id": "207",
+"type": &"mutation"
+},
+"211": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "healthPack"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "number",
+"value": 1
+}, {
+"type": "colon"
+}])
+},
+"id": "211",
+"next_conditional_id": "217",
+"next_id": "212",
+"next_id_after": "221",
+"type": &"condition"
+},
+"212": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "212",
+"next_id": "213",
+"notes": "",
+"parent_id": "211",
+"tags": PackedStringArray(),
+"text": "The people inside are wonded pretty bad. They give you +1 food in exchange for -1 health packs.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "The people inside are wonded pretty bad. They give you +1 food in exchange for -1 health packs.",
+"type": &"dialogue"
+},
+"213": {
+"id": "213",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "214",
+"parent_id": "211",
+"type": &"mutation"
+},
+"214": {
+"id": "214",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "healthPack"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "215",
+"parent_id": "211",
+"type": &"mutation"
+},
+"215": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "215",
+"next_id": "216",
+"notes": "",
+"parent_id": "211",
+"tags": PackedStringArray(),
+"text": "You are sad that you couldn't help more, -1 mood",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You are sad that you couldn't help more, -1 mood",
+"type": &"dialogue"
+},
+"216": {
+"id": "216",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "221",
+"parent_id": "211",
+"type": &"mutation"
+},
+"217": {
+"id": "217",
+"next_conditional_id": "221",
+"next_id": "218",
+"next_id_after": "221",
+"type": &"condition"
+},
+"218": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "218",
+"next_id": "219",
+"notes": "",
+"parent_id": "217",
+"tags": PackedStringArray(),
+"text": "There are wonded people inside and you have nothing to offer them to help. You are saddened -1 mood.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "There are wonded people inside and you have nothing to offer them to help. You are saddened -1 mood.",
+"type": &"dialogue"
+},
+"219": {
+"id": "219",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "221",
+"parent_id": "217",
+"type": &"mutation"
+},
 "22": {
 "id": "22",
 "is_snippet": false,
@@ -1118,11 +1441,247 @@ lines = {
 "parent_id": "20",
 "type": &"goto"
 },
+"221": {
+"id": "221",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"223": {
+"id": "223",
+"next_id": "224",
+"text": "AltRoute",
+"type": &"title"
+},
+"224": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "224",
+"next_id": "227",
+"notes": "",
+"siblings": [{
+"id": "224",
+"weight": 1.0
+}, {
+"id": "225",
+"weight": 1.0
+}],
+"tags": PackedStringArray(),
+"text": "=> TakeAlt",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "=> TakeAlt",
+"type": &"dialogue"
+},
+"225": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "225",
+"next_id": "227",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "=> FindZombies",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "=> FindZombies",
+"type": &"dialogue"
+},
+"227": {
+"id": "227",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"229": {
+"id": "229",
+"next_id": "230",
+"text": "TakeAlt",
+"type": &"title"
+},
+"230": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "230",
+"next_id": "231",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You take another root and get hungry on the way from all the extra walking -1 food",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You take another root and get hungry on the way from all the extra walking -1 food",
+"type": &"dialogue"
+},
+"231": {
+"id": "231",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "232",
+"type": &"mutation"
+},
+"232": {
+"id": "232",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"234": {
+"id": "234",
+"next_id": "235",
+"text": "FindZombies",
+"type": &"title"
+},
+"235": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "ammo"
+}, {
+"type": "comparison",
+"value": ">="
+}, {
+"type": "number",
+"value": 25
+}])
+},
+"id": "235",
+"next_conditional_id": "238",
+"next_id": "236",
+"next_id_after": "241",
+"type": &"condition"
+},
+"236": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "236",
+"next_id": "237",
+"notes": "",
+"parent_id": "235",
+"tags": PackedStringArray(),
+"text": "While finding a new route you run into a pack of savage zombies. You shoote the wolves and use up -25 ammo",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "While finding a new route you run into a pack of savage zombies. You shoote the wolves and use up -25 ammo",
+"type": &"dialogue"
+},
+"237": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "237",
+"next_id": "241",
+"notes": "",
+"parent_id": "235",
+"tags": PackedStringArray(),
+"text": "GameStats.ammo -= 25",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "GameStats.ammo -= 25",
+"type": &"dialogue"
+},
+"238": {
+"id": "238",
+"next_conditional_id": "241",
+"next_id": "239",
+"next_id_after": "241",
+"type": &"condition"
+},
+"239": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "239",
+"next_id": "241",
+"notes": "",
+"parent_id": "238",
+"tags": PackedStringArray(),
+"text": "Well that was a huge waste of time. At least nothing else bad happened",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Well that was a huge waste of time. At least nothing else bad happened",
+"type": &"dialogue"
+},
 "24": {
 "id": "24",
 "next_id": "25",
 "text": "Fight",
 "type": &"title"
+},
+"241": {
+"id": "241",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"243": {
+"id": "243",
+"next_id": "244",
+"text": "RushToCar",
+"type": &"title"
+},
+"244": {
+"id": "244",
+"is_snippet": false,
+"next_id": "144",
+"siblings": [{
+"id": "244",
+"weight": 1.0
+}, {
+"id": "245",
+"weight": 1.0
+}, {
+"id": "246",
+"weight": 1.0
+}, {
+"id": "247",
+"weight": 1.0
+}, {
+"id": "248",
+"weight": 1.0
+}],
+"type": &"goto"
+},
+"245": {
+"id": "245",
+"is_snippet": false,
+"next_id": "252",
+"type": &"goto"
+},
+"246": {
+"id": "246",
+"is_snippet": false,
+"next_id": "257",
+"type": &"goto"
+},
+"247": {
+"id": "247",
+"is_snippet": false,
+"next_id": "262",
+"type": &"goto"
+},
+"248": {
+"id": "248",
+"is_snippet": false,
+"next_id": "267",
+"type": &"goto"
+},
+"249": {
+"id": "249",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
 },
 "25": {
 "id": "25",
@@ -1140,10 +1699,142 @@ lines = {
 }],
 "type": &"goto"
 },
+"251": {
+"id": "251",
+"next_id": "252",
+"text": "StumbleAmmo",
+"type": &"title"
+},
+"252": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "252",
+"next_id": "253",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "As you sprint back to your car you trip over a box of ammo, + 25 ammo",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "As you sprint back to your car you trip over a box of ammo, + 25 ammo",
+"type": &"dialogue"
+},
+"253": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "253",
+"next_id": "254",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "GameStats.ammo += 25",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "GameStats.ammo += 25",
+"type": &"dialogue"
+},
+"254": {
+"id": "254",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"256": {
+"id": "256",
+"next_id": "257",
+"text": "StumbleFood",
+"type": &"title"
+},
+"257": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "257",
+"next_id": "258",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "As you sprint back to your car you trip over a sandwitch, +1 food",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "As you sprint back to your car you trip over a sandwitch, +1 food",
+"type": &"dialogue"
+},
+"258": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "258",
+"next_id": "259",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "GameStats.food += 1",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "GameStats.food += 1",
+"type": &"dialogue"
+},
+"259": {
+"id": "259",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
 "26": {
 "id": "26",
 "is_snippet": false,
 "next_id": "36",
+"type": &"goto"
+},
+"261": {
+"id": "261",
+"next_id": "262",
+"text": "StumbleHealthPack",
+"type": &"title"
+},
+"262": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "262",
+"next_id": "263",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "As you sprint back to your car you trip over a box of bandages, +1 health pack",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "As you sprint back to your car you trip over a box of bandages, +1 health pack",
+"type": &"dialogue"
+},
+"263": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "263",
+"next_id": "264",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "GameStats.healthPack += 2",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "GameStats.healthPack += 2",
+"type": &"dialogue"
+},
+"264": {
+"id": "264",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"266": {
+"id": "266",
+"next_id": "267",
+"text": "JustLeave",
+"type": &"title"
+},
+"267": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "267",
+"next_id": "268",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "You get out of there as fast as possible",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You get out of there as fast as possible",
+"type": &"dialogue"
+},
+"268": {
+"id": "268",
+"is_snippet": false,
+"next_id": "end!",
 "type": &"goto"
 },
 "27": {
@@ -1152,10 +1843,221 @@ lines = {
 "next_id": "42",
 "type": &"goto"
 },
+"270": {
+"id": "270",
+"next_id": "271",
+"text": "HaggleTrade",
+"type": &"title"
+},
+"271": {
+"id": "271",
+"is_snippet": false,
+"next_id": "207",
+"siblings": [{
+"id": "271",
+"weight": 1.0
+}, {
+"id": "272",
+"weight": 1.0
+}],
+"type": &"goto"
+},
+"272": {
+"id": "272",
+"is_snippet": false,
+"next_id": "276",
+"type": &"goto"
+},
+"273": {
+"id": "273",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"275": {
+"id": "275",
+"next_id": "276",
+"text": "GreadyTradeSuccess",
+"type": &"title"
+},
+"276": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "healthPack"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "number",
+"value": 1
+}, {
+"type": "colon"
+}])
+},
+"id": "276",
+"next_conditional_id": "282",
+"next_id": "277",
+"next_id_after": "285",
+"type": &"condition"
+},
+"277": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "277",
+"next_id": "278",
+"notes": "",
+"parent_id": "276",
+"tags": PackedStringArray(),
+"text": "You drive a hard bargon, but they are despate. The people inside are wonded pretty bad. They give you +3 food in exchange for -1 health packs.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You drive a hard bargon, but they are despate. The people inside are wonded pretty bad. They give you +3 food in exchange for -1 health packs.",
+"type": &"dialogue"
+},
+"278": {
+"id": "278",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "food"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 3
+}]),
+"is_blocking": true
+},
+"next_id": "279",
+"parent_id": "276",
+"type": &"mutation"
+},
+"279": {
+"id": "279",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "healthPack"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "280",
+"parent_id": "276",
+"type": &"mutation"
+},
 "28": {
 "id": "28",
 "is_snippet": false,
 "next_id": "end",
+"type": &"goto"
+},
+"280": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "280",
+"next_id": "281",
+"notes": "",
+"parent_id": "276",
+"tags": PackedStringArray(),
+"text": "You feel guilty for price gouging the injuried, -1 mood",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You feel guilty for price gouging the injuried, -1 mood",
+"type": &"dialogue"
+},
+"281": {
+"id": "281",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "285",
+"parent_id": "276",
+"type": &"mutation"
+},
+"282": {
+"id": "282",
+"next_conditional_id": "285",
+"next_id": "283",
+"next_id_after": "285",
+"type": &"condition"
+},
+"283": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "283",
+"next_id": "284",
+"notes": "",
+"parent_id": "282",
+"tags": PackedStringArray(),
+"text": "You relize you don't have any ground to stand on, because you are out of health packs. The survivors yell at you for getting their hopes up -1 mood.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You relize you don't have any ground to stand on, because you are out of health packs. The survivors yell at you for getting their hopes up -1 mood.",
+"type": &"dialogue"
+},
+"284": {
+"id": "284",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GameStats"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "mood"
+}, {
+"type": "assignment",
+"value": "-="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "285",
+"parent_id": "282",
+"type": &"mutation"
+},
+"285": {
+"id": "285",
+"is_snippet": false,
+"next_id": "end!",
 "type": &"goto"
 },
 "3": {
@@ -1970,7 +2872,7 @@ lines = {
 "97": {
 "id": "97",
 "is_snippet": false,
-"next_id": "106",
+"next_id": "108",
 "type": &"goto"
 },
 "98": {
@@ -2080,8 +2982,10 @@ set GameStats.ammo += 50
 => END
 
 ~ GetAwayRobTheFarm
-You feel so guilty -1 mood but you are loaded
+You feel so guilty -1 mood but you are loaded, +3 food and + 50 ammo
 set GameStats.mood -= 1
+set GameStats.food += 3
+set GameStats.ammo += 50
 => END!
 
 ~ GetCaughtRobTheFarm
@@ -2121,7 +3025,7 @@ There is someone living in there and they don't open up. They shoot at you an te
 => END!
 
 ~ LeaveTheGroceryStore
-You get spooked and decide to keep going
+You get spooked and decide to get out of there
 => END!
 
 ~ RandomSimple
@@ -2160,27 +3064,107 @@ set GameStats.healthPack += 2
 => END!
 
 ~ DesertedBaracade
+As you travel along the deserted highway, you stumble upon a makeshift barricade. It's clear someone put a lot of effort into it. Do you 
+- Investigate further => DeserBarInvestigate
+- Find an alternative route => AltRoute
+=> END!
 
-As you travel along the deserted highway, you stumble upon a makeshift barricade. It's clear someone put a lot of effort into it. Do you investigate further or find an alternative route?
-- TODO
-- TODO
-
+~ DeserBarInvestigate
+% : => UnhappySurvivers
+% : => CheckTheGroceryStore
 => END!
 
 ~ DerelictTown
 While scavenging for supplies in a derelict town, you hear the distant sound of approaching zombies. Do you 
-- Rush back to your car
-	TODO
-- Risk staying to gather more resources
-	TODO
+- Rush back to your car => RushToCar
+- Risk staying to gather more resources => GenericGood
 => END!
 
 ~ SurvivorHealthPacks
 You encounter a group of survivors in desperate need of medical supplies. They offer valuable supplies in exchange for your health packs. Do you 
-- agree to the trade
-	TODO
+- agree to the trade => UnhappySurvivers
 - Haggle for a better deal
 	TODO
 => END!
-"
+
+~ UnhappySurvivers
+if GameStats.healthPack >= 2:
+	The people inside are wonded pretty bad. They give you +2 food in exchange for -2 health packs.
+	set GameStats.food += 2
+	set GameStats.healthPack -= 2
+elif GameStats.healthPack == 1:
+	The people inside are wonded pretty bad. They give you +1 food in exchange for -1 health packs.
+	set GameStats.food += 1
+	set GameStats.healthPack -= 1
+	You are sad that you couldn't help more, -1 mood
+	set GameStats.mood -= 1
+else:
+	There are wonded people inside and you have nothing to offer them to help. You are saddened -1 mood.
+	set GameStats.mood -= 1
+	
+=> END!
+
+~ AltRoute
+% : => TakeAlt
+% : => FindZombies
+
+=> END!
+
+~ TakeAlt
+You take another root and get hungry on the way from all the extra walking -1 food
+set GameStats.food -= 1
+=> END!	
+
+~ FindZombies
+if GameStats.ammo >= 25
+	While finding a new route you run into a pack of savage zombies. You shoote the wolves and use up -25 ammo
+	GameStats.ammo -= 25
+else
+	Well that was a huge waste of time. At least nothing else bad happened
+
+=> END!
+
+~ RushToCar
+% => LeaveTheGroceryStore
+% => StumbleAmmo
+% => StumbleFood
+% => StumbleHealthPack
+% => JustLeave
+=> END!
+
+~ StumbleAmmo
+As you sprint back to your car you trip over a box of ammo, + 25 ammo
+GameStats.ammo += 25
+=> END!
+
+~ StumbleFood
+As you sprint back to your car you trip over a sandwitch, +1 food
+GameStats.food += 1
+=> END!
+
+~ StumbleHealthPack
+As you sprint back to your car you trip over a box of bandages, +1 health pack
+GameStats.healthPack += 2
+=> END!
+
+~ JustLeave
+You get out of there as fast as possible
+=> END!
+
+~ HaggleTrade
+% => UnhappySurvivers
+% => GreadyTradeSuccess
+=> END!
+
+~ GreadyTradeSuccess
+if GameStats.healthPack == 1:
+	You drive a hard bargon, but they are despate. The people inside are wonded pretty bad. They give you +3 food in exchange for -1 health packs.
+	set GameStats.food += 3
+	set GameStats.healthPack -= 1
+	You feel guilty for price gouging the injuried, -1 mood
+	set GameStats.mood -= 1
+else:
+	You relize you don't have any ground to stand on, because you are out of health packs. The survivors yell at you for getting their hopes up -1 mood.
+	set GameStats.mood -= 1
+=> END!"
 metadata/dialogue_manager_version = "2.38.0"

@@ -11,3 +11,5 @@ res://enemies/zombie.tscn
 res://world/world.tscn
 res://enemies/enemy.tscn
 res://UI/opening_scene.gd
+res://asserts/sounds/GlobalSound.tscn
+res://world/world.gd

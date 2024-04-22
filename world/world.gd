@@ -50,16 +50,16 @@ func startRandEvent():
 	move.canMove = false
 	move.canScroll = false
 	randomize()
-	var randEvent = randi_range(1, 10)
+	var randEvent = randi_range(1, 11)
 	var event = ""
 	
 	match randEvent:
 		1: event = "FightBandits"
 		2: event = "FarmTrip"
 		3: event = "GroceryTrip"
-		4: event = "DesertedBaracade" #TODO
-		5: event = "DerelictTown" #TODO
-		6: event = "SurvivorHealthPacks" #TODO
+		4: event = "DesertedBaracade" 
+		5: event = "DerelictTown"
+		6: event = "SurvivorHealthPacks"
 		_: event = "RandomSimple"
 		
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)

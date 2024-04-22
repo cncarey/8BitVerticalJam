@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://0jo4u64k5eid"]
+[gd_scene load_steps=4 format=3 uid="uid://0jo4u64k5eid"]
 
 [ext_resource type="AudioStream" uid="uid://bxxsapgonexa4" path="res://asserts/sounds/heavy-rain.ogg" id="1_6rxue"]
 [ext_resource type="Script" path="res://asserts/sounds/GlobalSound.gd" id="1_846c6"]
+[ext_resource type="AudioStream" uid="uid://cpgymlxfijdrv" path="res://asserts/sounds/hero-s-time-paulo-kalazzi.ogg" id="3_r4bqn"]
 
 [node name="GlobalSound" type="Node2D"]
 script = ExtResource("1_846c6")
@@ -12,4 +13,7 @@ volume_db = -5.0
 bus = &"Rain"
 
 [node name="Ambiance" type="AudioStreamPlayer" parent="."]
-bus = &"Rain"
+stream = ExtResource("3_r4bqn")
+volume_db = -13.0
+autoplay = true
+bus = &"Music"

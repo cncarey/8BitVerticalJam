@@ -1,5 +1,5 @@
 3acdcc5cb6df755358dde907981ccea8
-::res://::1713743237
+::res://::1713743244
 default_bus_layout.tres::AudioBusLayout::4115667491852370502::1713669331::0::1::::<><>::
 icon.svg::CompressedTexture2D::5433256371820914509::1712965274::1712965530::1::::<><>::
 PlayerDetection.gd::GDScript::-1::1713069149::0::1::::PlayerDetectionComponent<>Area2D<>::
@@ -88,15 +88,16 @@ SpriteSheetSpark.png::CompressedTexture2D::5194721910913091349::1614275264::1713
 tilemap_white_packed.png::CompressedTexture2D::4844840643194347843::1660652764::1713489473::1::::<><>::
 Zombie Apocalypse Tileset Reference.png::CompressedTexture2D::2599575558091112204::1624704298::1713497650::1::::<><>::
 zombieDeath.png::CompressedTexture2D::2135063829896668684::1713066830::1713066884::1::::<><>::
-::res://asserts/sounds/::1713708780
+::res://asserts/sounds/::1713753920
 breakingvase.ogg::AudioStreamOggVorbis::7874422449589962970::1713666534::1713667668::1::::<><>::
 Explosion.ogg::AudioStreamOggVorbis::3200031542558096368::1689797959::1713557994::1::::<><>::
 fm-radio-static.ogg::AudioStreamOggVorbis::7394108291536735894::1713708672::1713708780::1::::<><>::
 FootstepsGrass.ogg::AudioStreamOggVorbis::7893954256253394846::1689798026::1713672586::1::::<><>::
 FootstepsRunning.ogg::AudioStreamOggVorbis::7871355295682871997::1689798428::1713672586::1::::<><>::
 GlobalSound.gd::GDScript::-1::1713663983::0::1::::<>Node2D<>::
-GlobalSound.tscn::PackedScene::1774203416347434515::1713673047::0::1::::<><>::uid://bxxsapgonexa4::::res://asserts/sounds/heavy-rain.ogg<>res://asserts/sounds/GlobalSound.gd
+GlobalSound.tscn::PackedScene::1774203416347434515::1713753920::0::1::::<><>::uid://bxxsapgonexa4::::res://asserts/sounds/heavy-rain.ogg<>res://asserts/sounds/GlobalSound.gd<>uid://cpgymlxfijdrv::::res://asserts/sounds/hero-s-time-paulo-kalazzi.ogg
 heavy-rain.ogg::AudioStreamOggVorbis::4049338479353747881::1713663337::1713663724::1::::<><>::
+hero-s-time-paulo-kalazzi.ogg::AudioStreamOggVorbis::5839539539359879179::1713751076::1713751132::1::::<><>::
 hit_sound.wav::AudioStreamWAV::4493057812354250867::1702402138::1712983313::1::::<><>::
 monster-death-grunt.ogg::AudioStreamOggVorbis::3682331601662197410::1713673929::1713674072::1::::<><>::
 Pause.wav::AudioStreamWAV::2486030586931788482::1577984736::1712983313::1::::<><>::
@@ -130,33 +131,33 @@ state_component.gd::GDScript::-1::1702402138::0::1::::StateComponent<>Node<>::
 stats_component.gd::GDScript::-1::1713130251::0::1::::StatsComponent<>Node<>::
 timed_state_componoent.gd::GDScript::-1::1702402138::0::1::::TimedStateComponent<>StateComponent<>::
 variable_pitch_audio_stream_player.gd::GDScript::-1::1702402138::0::1::::VariablePitchAudioStreamPlayer<>AudioStreamPlayer<>::
-::res://Dialogues/::1713718137
-fightDialogues.dialogue::Resource::499949739561425204::1713675400::1713675400::1::::<><>::res://addons/dialogue_manager/dialogue_resource.gd
+::res://Dialogues/::1713753920
+fightDialogues.dialogue::Resource::499949739561425204::1713754404::1713754404::1::::<><>::res://addons/dialogue_manager/dialogue_resource.gd
 openingDialogues.dialogue::Resource::2274218054286768869::1713718137::1713718137::1::::<><>::res://addons/dialogue_manager/dialogue_resource.gd
-::res://effects/::1713742685
+::res://effects/::1713753920
 ExplosionAffect.gd::GDScript::-1::1713559452::0::1::::<>AnimatedSprite2D<>::
 ExplosionAffect.tscn::PackedScene::6890719194434158799::1713559499::0::1::::<><>::uid://8ro3oj5jiy1p::::res://asserts/art/explosion.png<>res://effects/ExplosionAffect.gd<>res://components/hitbox_component.gd<>uid://blueb1c3xvgjo::::res://asserts/sounds/Explosion.ogg
 ground_background.gd::GDScript::-1::1713481764::0::1::::<>ParallaxBackground<>::
 ground_background.tscn::PackedScene::5907091505106161592::1713664182::0::1::::<><>::uid://372w87xx36up::::res://asserts/art/jawbreaker_tiles.png<>res://effects/ground_background.gd<>uid://do11s08vsav4v::::res://world/move_states.tres
-white_flash_material.gdshader::Shader::-1::1713742685::0::1::::<><>::
+white_flash_material.gdshader::Shader::-1::1713753920::0::1::::<><>::
 white_flash_material.tres::ShaderMaterial::210536038483746541::1702402138::0::1::::<><>::res://effects/white_flash_material.gdshader
-::res://enemies/::1713742904
+::res://enemies/::1713751268
 BloodSplatter.gd::GDScript::-1::1713563253::0::1::::<>Node2D<>::
 BloodSplatter.tscn::PackedScene::8333998614896941748::1713675968::0::1::::<><>::uid://do4mpxbs0vtnp::::res://asserts/art/splatters.png<>res://enemies/BloodSplatter.gd<>res://components/scale_component.gd<>res://components/move_component.gd<>uid://do11s08vsav4v::::res://world/move_states.tres<>uid://bsp0p011l5lxi::::res://asserts/sounds/monster-death-grunt.ogg<>res://components/variable_pitch_audio_stream_player.gd
 enemy.gd::GDScript::-1::1713742904::0::1::::Enemy<>CharacterBody2D<>::
-enemy.tscn::PackedScene::4180703742686391029::1713742885::0::1::::<><>::res://enemies/enemy.gd<>res://components/stats_component.gd<>res://components/flash_component.gd<>res://components/shake_component.gd<>res://components/hurt_component.gd<>res://components/hitbox_component.gd<>res://components/variable_pitch_audio_stream_player.gd<>uid://ib4a7pgdlhv5::::res://components/player_detection_component.tscn<>uid://bh1teb1nltv5g::::res://components/hurtbox_component.tscn<>res://components/score_component.gd<>res://components/position_clamp_component.gd<>res://components/spawner_component.gd<>uid://dq0b0e7it6cwy::::res://enemies/BloodSplatter.tscn
+enemy.tscn::PackedScene::4180703742686391029::1713751268::0::1::::<><>::res://enemies/enemy.gd<>res://components/stats_component.gd<>res://components/flash_component.gd<>res://components/shake_component.gd<>res://components/hurt_component.gd<>res://components/hitbox_component.gd<>res://components/variable_pitch_audio_stream_player.gd<>uid://ib4a7pgdlhv5::::res://components/player_detection_component.tscn<>uid://bh1teb1nltv5g::::res://components/hurtbox_component.tscn<>res://components/score_component.gd<>res://components/position_clamp_component.gd<>res://components/spawner_component.gd<>uid://dq0b0e7it6cwy::::res://enemies/BloodSplatter.tscn
 enemy_generator.gd::GDScript::-1::1713561420::0::1::::<>Node2D<>::
 enemy_generator.tscn::PackedScene::6110310546302394156::1713670392::0::1::::<><>::res://enemies/enemy_generator.gd<>res://components/spawner_component.gd<>uid://do11s08vsav4v::::res://world/move_states.tres<>uid://dif84j5o0j5gm::::res://enemies/zombie.tscn<>uid://kxmn157vv7vn::::res://world/buildings/building_1.tscn<>uid://nkldx7kfmt00::::res://world/pickups/PickUp.tscn<>uid://cc1h304qmmpqv::::res://world/buildings/building_2.tscn<>uid://1i7o88b4k72w::::res://world/pickups/car.tscn
-zombie.tscn::PackedScene::7733150657462573160::1713742900::0::1::::<><>::uid://b0tftyj1qy1j2::::res://enemies/enemy.tscn<>uid://do11s08vsav4v::::res://world/move_states.tres<>uid://di2xtaurrbd20::::res://asserts/art/Character-and-Zombie.png<>uid://bsejfynom8vyw::::res://asserts/sounds/zombie.ogg
-::res://fonts/::1713728321
+zombie.tscn::PackedScene::7733150657462573160::1713751268::0::1::::<><>::uid://b0tftyj1qy1j2::::res://enemies/enemy.tscn<>uid://do11s08vsav4v::::res://world/move_states.tres<>uid://di2xtaurrbd20::::res://asserts/art/Character-and-Zombie.png<>uid://bsejfynom8vyw::::res://asserts/sounds/zombie.ogg
+::res://fonts/::1713743243
 ButtonFont_Varient.tres::FontVariation::5035595115796822852::1713484158::0::1::::<><>::uid://bvtb73tme6xgb::::res://fonts/kenney_mini_square.ttf
-default_blue_label_settings.tres::LabelSettings::7023166941982511065::1713728321::0::1::::<><>::uid://bvtb73tme6xgb::::res://fonts/kenney_mini_square.ttf
-default_FF_label_settings.tres::LabelSettings::3735111011422613238::1713569027::0::1::::<><>::uid://dtpxhbj2t1mb0::::res://fonts/Foul Fiend.ttf
-default_label_settings.tres::LabelSettings::4442626398858156925::1713728321::0::1::::<><>::uid://bvtb73tme6xgb::::res://fonts/kenney_mini_square.ttf
-default_red_label_settings.tres::LabelSettings::3363502793979894988::1713574512::0::1::::<><>::uid://bvtb73tme6xgb::::res://fonts/kenney_mini_square.ttf
+default_blue_label_settings.tres::LabelSettings::7023166941982511065::1713743243::0::1::::<><>::uid://bvtb73tme6xgb::::res://fonts/kenney_mini_square.ttf
+default_FF_label_settings.tres::LabelSettings::3735111011422613238::1713743243::0::1::::<><>::uid://dtpxhbj2t1mb0::::res://fonts/Foul Fiend.ttf
+default_label_settings.tres::LabelSettings::4442626398858156925::1713743243::0::1::::<><>::uid://bvtb73tme6xgb::::res://fonts/kenney_mini_square.ttf
+default_red_label_settings.tres::LabelSettings::3363502793979894988::1713743243::0::1::::<><>::uid://bvtb73tme6xgb::::res://fonts/kenney_mini_square.ttf
 Foul Fiend.ttf::FontFile::8525224805583550603::1589431978::1713324405::1::::<><>::
 kenney_mini_square.ttf::FontFile::3899728940373543585::1702402138::1713153256::1::::<><>::
-title_FF_label_settings.tres::LabelSettings::1091863896209148432::1713574512::0::1::::<><>::uid://dtpxhbj2t1mb0::::res://fonts/Foul Fiend.ttf
+title_FF_label_settings.tres::LabelSettings::1091863896209148432::1713743243::0::1::::<><>::uid://dtpxhbj2t1mb0::::res://fonts/Foul Fiend.ttf
 title_label_settings.tres::LabelSettings::822879515973830289::1713557452::0::1::::<><>::uid://bvtb73tme6xgb::::res://fonts/kenney_mini_square.ttf
 ::res://player/::1713675970
 player.gd::GDScript::-1::1713675966::0::1::::<>CharacterBody2D<>::
@@ -165,7 +166,7 @@ player.tscn::PackedScene::2884729765450242136::1713675970::0::1::::<><>::res://p
 baseProjectile.gd::GDScript::-1::1713406881::0::1::::<>Node2D<>::
 baseProjectile.tscn::PackedScene::9149468142871651801::1713391235::0::1::::<><>::res://projectiles/baseProjectile.gd<>res://components/scale_component.gd<>res://components/flash_component.gd<>res://components/hitbox_component.gd
 bullet.tscn::PackedScene::6268010820815797068::1713727021::0::1::::<><>::res://projectiles/baseProjectile.gd<>uid://b4rl4nm1x6pv1::::res://asserts/art/laser_small.png<>res://components/scale_component.gd<>res://components/flash_component.gd<>res://components/hitbox_component.gd
-::res://UI/::1713741463
+::res://UI/::1713751267
 daySummary.gd::GDScript::-1::1713580507::0::1::::<>CanvasLayer<>::
 daySummary.tscn::PackedScene::8715829113505142209::1713583925::0::1::::<><>::res://UI/daySummary.gd<>uid://bo6bp6c64tu4s::::res://asserts/art/9prGrey.png<>uid://bh4ib8grregu1::::res://UI/happy.tres<>uid://b4kbn4k1bdngv::::res://fonts/default_label_settings.tres<>uid://bbcpnb60jfjxv::::res://UI/neutral.tres<>uid://dwoaetdytx5yf::::res://UI/sad.tres<>uid://d2brdwxntf0sc::::res://asserts/art/Icon_spritesheet01.png<>uid://c7ccsewg7v4dx::::res://fonts/default_blue_label_settings.tres<>uid://cd0jrsk4u1vyq::::res://fonts/ButtonFont_Varient.tres<>uid://bthky57exjq5c::::res://fonts/default_FF_label_settings.tres<>uid://ps53ryb1u13q::::res://fonts/title_FF_label_settings.tres<>uid://bn6knt682bk5q::::res://fonts/default_red_label_settings.tres
 happy.tres::AtlasTexture::2938098809097763882::1713495281::0::1::::<><>::uid://dt01k7xl5vfnj::::res://asserts/art/Sprite sheet for Basic Pack.png
@@ -175,8 +176,8 @@ MainMenu.gd::GDScript::-1::1713719427::0::1::::<>Control<>::
 MainMenu.tscn::PackedScene::1006160142189023303::1713724253::0::1::::<><>::res://UI/MainMenu.gd<>uid://cxq44ooukv26n::::res://UI/Options.tscn<>uid://ps53ryb1u13q::::res://fonts/title_FF_label_settings.tres<>uid://dtpxhbj2t1mb0::::res://fonts/Foul Fiend.ttf<>uid://b4kbn4k1bdngv::::res://fonts/default_label_settings.tres<>uid://cp7wjxn0en1f5::::res://UI/LevelTransition.tscn
 music_player.tscn::PackedScene::505627210165911943::1713238930::0::1::::<><>::
 neutral.tres::AtlasTexture::2461672354611920991::1713495294::0::1::::<><>::uid://dt01k7xl5vfnj::::res://asserts/art/Sprite sheet for Basic Pack.png
-opening_scene.gd::GDScript::-1::1713719362::0::1::::<>Node2D<>::
-opening_scene.tscn::PackedScene::8504138970812403579::1713741463::0::1::::<><>::res://UI/opening_scene.gd<>uid://7nwblgi7gyrt::::res://Dialogues/openingDialogues.dialogue<>uid://372w87xx36up::::res://asserts/art/jawbreaker_tiles.png<>uid://di2xtaurrbd20::::res://asserts/art/Character-and-Zombie.png<>uid://djqny5tdwl6g1::::res://addons/dialogue_manager/example_balloon/opening_balloon.tscn<>uid://wliq557mojj4::::res://asserts/art/Free-Survival-Buildings.png<>uid://cp7wjxn0en1f5::::res://UI/LevelTransition.tscn<>uid://ddl05bb88taeg::::res://asserts/sounds/fm-radio-static.ogg<>res://components/flash_component.gd<>uid://cdfby6qihueak::::res://UI/radioSprite.tres
+opening_scene.gd::GDScript::-1::1713743602::0::1::::<>Node2D<>::
+opening_scene.tscn::PackedScene::8504138970812403579::1713751267::0::1::::<><>::res://UI/opening_scene.gd<>uid://7nwblgi7gyrt::::res://Dialogues/openingDialogues.dialogue<>uid://372w87xx36up::::res://asserts/art/jawbreaker_tiles.png<>uid://di2xtaurrbd20::::res://asserts/art/Character-and-Zombie.png<>uid://djqny5tdwl6g1::::res://addons/dialogue_manager/example_balloon/opening_balloon.tscn<>uid://wliq557mojj4::::res://asserts/art/Free-Survival-Buildings.png<>uid://cp7wjxn0en1f5::::res://UI/LevelTransition.tscn<>uid://ddl05bb88taeg::::res://asserts/sounds/fm-radio-static.ogg<>res://components/flash_component.gd<>res://world/rain.gdshader<>uid://cdfby6qihueak::::res://UI/radioSprite.tres
 Options.gd::GDScript::-1::1713583527::0::1::::<>MarginContainer<>::
 Options.tscn::PackedScene::6422028153816466143::1713233109::0::1::::<><>::res://UI/Options.gd
 PlayerStatsUI.gd::GDScript::-1::1713495348::0::1::::<>MarginContainer<>::
@@ -185,22 +186,22 @@ progress_bar.gd::GDScript::-1::1713024826::0::1::::<>ProgressBar<>::
 progress_bar.tscn::PackedScene::1778507571765458567::1713407458::0::1::::<><>::res://UI/progress_bar.gd<>uid://do11s08vsav4v::::res://world/move_states.tres
 radioSprite.tres::AtlasTexture::4993835016431435690::1713720410::0::1::::<><>::uid://bdbivn4lj1bai::::res://asserts/art/Zombie Apocalypse Tileset Reference.png
 sad.tres::AtlasTexture::8732326046543318101::1713495304::0::1::::<><>::uid://dt01k7xl5vfnj::::res://asserts/art/Sprite sheet for Basic Pack.png
-::res://world/::1713742685
+::res://world/::1713753920
 Camera2D.gd::GDScript::-1::1713392508::0::1::::<>Camera2D<>::
 game_stats.gd::GDScript::-1::1713661674::0::1::::<>Node<>::
 move_states.gd::GDScript::-1::1713580939::0::1::::Move_States<>Resource<>::
 move_states.tres::Resource/Resource::8197191834760049475::1713303873::0::1::::<><>::res://world/move_states.gd
-rain.gdshader::Shader::-1::1713742685::0::1::::<><>::
+rain.gdshader::Shader::-1::1713753920::0::1::::<><>::
 world.gd::GDScript::-1::1713719231::0::1::::<>Node2D<>::
-world.tscn::PackedScene::626167322811770905::1713741465::0::1::::<><>::uid://bhdncv51oll25::::res://player/player.tscn<>res://world/world.gd<>uid://do11s08vsav4v::::res://world/move_states.tres<>uid://cqfo6008vbvqm::::res://effects/ground_background.tscn<>uid://kxmn157vv7vn::::res://world/buildings/building_1.tscn<>uid://hegdmvwo7e7e::::res://Dialogues/fightDialogues.dialogue<>uid://73jm5qjy52vq::::res://addons/dialogue_manager/example_balloon/example_balloon.tscn<>res://world/Camera2D.gd<>uid://0lr03nxkr2gh::::res://UI/progress_bar.tscn<>uid://ctb46l2d1pw2g::::res://enemies/enemy_generator.tscn<>uid://dwgaoxrj61dl6::::res://UI/daySummary.tscn<>uid://bdu48j8mciy74::::res://UI/PlayerStatsUI.tscn<>uid://cxq44ooukv26n::::res://UI/Options.tscn<>uid://cp7wjxn0en1f5::::res://UI/LevelTransition.tscn<>res://world/rain.gdshader<>uid://bboitb88me5te::::res://asserts/sounds/Pause.wav<>uid://1i7o88b4k72w::::res://world/pickups/car.tscn<>uid://b1audpfet8xlw::::res://asserts/sounds/Unpause.wav
-::res://world/buildings/::1713742911
+world.tscn::PackedScene::626167322811770905::1713751268::0::1::::<><>::uid://bhdncv51oll25::::res://player/player.tscn<>res://world/world.gd<>uid://do11s08vsav4v::::res://world/move_states.tres<>uid://cqfo6008vbvqm::::res://effects/ground_background.tscn<>uid://kxmn157vv7vn::::res://world/buildings/building_1.tscn<>uid://hegdmvwo7e7e::::res://Dialogues/fightDialogues.dialogue<>uid://73jm5qjy52vq::::res://addons/dialogue_manager/example_balloon/example_balloon.tscn<>res://world/Camera2D.gd<>uid://0lr03nxkr2gh::::res://UI/progress_bar.tscn<>uid://ctb46l2d1pw2g::::res://enemies/enemy_generator.tscn<>uid://dwgaoxrj61dl6::::res://UI/daySummary.tscn<>uid://bdu48j8mciy74::::res://UI/PlayerStatsUI.tscn<>uid://cxq44ooukv26n::::res://UI/Options.tscn<>uid://cp7wjxn0en1f5::::res://UI/LevelTransition.tscn<>res://world/rain.gdshader<>uid://bboitb88me5te::::res://asserts/sounds/Pause.wav<>uid://1i7o88b4k72w::::res://world/pickups/car.tscn<>uid://b1audpfet8xlw::::res://asserts/sounds/Unpause.wav
+::res://world/buildings/::1713743243
 building_1.gd::GDScript::-1::1713215708::0::1::::<>building<>::
 building_1.tscn::PackedScene::750122357391755855::1713233108::0::1::::<><>::uid://meg5c3kldqun::::res://world/buildings/building_base.tscn<>res://world/buildings/building_1.gd<>uid://372w87xx36up::::res://asserts/art/jawbreaker_tiles.png
 building_2.gd::GDScript::-1::1713215527::0::1::::<>building<>::
 building_2.tscn::PackedScene::4967369256073097425::1713233109::0::1::::<><>::uid://meg5c3kldqun::::res://world/buildings/building_base.tscn<>res://world/buildings/building_2.gd<>uid://buwdeh332e2r::::res://world/buildings/DefaultBuildingTM.tres
 building_base.gd::GDScript::-1::1713500149::0::1::::building<>Node2D<>::
 building_base.tscn::PackedScene::850941659216788349::1713561892::0::1::::<><>::res://world/buildings/building_base.gd<>uid://cqsc17puxxioq::::res://world/pickups/barrel.tscn<>res://components/spawner_component.gd<>uid://dfpblge1ldwlv::::res://world/pickups/box.tscn<>res://components/move_component.gd<>uid://duv8geiya5wrr::::res://world/pickups/vase.tscn<>uid://do11s08vsav4v::::res://world/move_states.tres<>uid://dif84j5o0j5gm::::res://enemies/zombie.tscn<>uid://nkldx7kfmt00::::res://world/pickups/PickUp.tscn
-DefaultBuildingTM.tres::TileSet::112817752159512335::1713742911::0::1::::<><>::uid://372w87xx36up::::res://asserts/art/jawbreaker_tiles.png
+DefaultBuildingTM.tres::TileSet::112817752159512335::1713743243::0::1::::<><>::uid://372w87xx36up::::res://asserts/art/jawbreaker_tiles.png
 ::res://world/pickups/::1713674269
 barrel.tscn::PackedScene::5933191234654485236::1713674269::0::1::::<><>::uid://cky80nb3kq30j::::res://world/pickups/BreakableObject.tscn<>uid://bdu2cc70kcuxr::::res://asserts/art/Destructible Objects Sprite Sheet.png<>uid://dughwtxqpqxsp::::res://asserts/sounds/wood-crate-destory.ogg
 box.tscn::PackedScene::7541252618821565035::1713669205::0::1::::<><>::uid://cky80nb3kq30j::::res://world/pickups/BreakableObject.tscn<>uid://bdu2cc70kcuxr::::res://asserts/art/Destructible Objects Sprite Sheet.png<>uid://dughwtxqpqxsp::::res://asserts/sounds/wood-crate-destory.ogg

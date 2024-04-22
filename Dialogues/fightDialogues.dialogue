@@ -98,8 +98,10 @@ set GameStats.ammo += 50
 => END
 
 ~ GetAwayRobTheFarm
-You feel so guilty -1 mood but you are loaded
+You feel so guilty -1 mood but you are loaded, +3 food and + 50 ammo
 set GameStats.mood -= 1
+set GameStats.food += 3
+set GameStats.ammo += 50
 => END!
 
 ~ GetCaughtRobTheFarm
@@ -139,7 +141,7 @@ There is someone living in there and they don't open up. They shoot at you an te
 => END!
 
 ~ LeaveTheGroceryStore
-You get spooked and decide to keep going
+You get spooked and decide to get out of there
 => END!
 
 ~ RandomSimple
@@ -178,25 +180,106 @@ set GameStats.healthPack += 2
 => END!
 
 ~ DesertedBaracade
+As you travel along the deserted highway, you stumble upon a makeshift barricade. It's clear someone put a lot of effort into it. Do you 
+- Investigate further => DeserBarInvestigate
+- Find an alternative route => AltRoute
+=> END!
 
-As you travel along the deserted highway, you stumble upon a makeshift barricade. It's clear someone put a lot of effort into it. Do you investigate further or find an alternative route?
-- TODO
-- TODO
-
+~ DeserBarInvestigate
+% : => UnhappySurvivers
+% : => CheckTheGroceryStore
 => END!
 
 ~ DerelictTown
 While scavenging for supplies in a derelict town, you hear the distant sound of approaching zombies. Do you 
-- Rush back to your car
-	TODO
-- Risk staying to gather more resources
-	TODO
+- Rush back to your car => RushToCar
+- Risk staying to gather more resources => GenericGood
 => END!
 
 ~ SurvivorHealthPacks
 You encounter a group of survivors in desperate need of medical supplies. They offer valuable supplies in exchange for your health packs. Do you 
-- agree to the trade
-	TODO
+- agree to the trade => UnhappySurvivers
 - Haggle for a better deal
 	TODO
+=> END!
+
+~ UnhappySurvivers
+if GameStats.healthPack >= 2:
+	The people inside are wonded pretty bad. They give you +2 food in exchange for -2 health packs.
+	set GameStats.food += 2
+	set GameStats.healthPack -= 2
+elif GameStats.healthPack == 1:
+	The people inside are wonded pretty bad. They give you +1 food in exchange for -1 health packs.
+	set GameStats.food += 1
+	set GameStats.healthPack -= 1
+	You are sad that you couldn't help more, -1 mood
+	set GameStats.mood -= 1
+else:
+	There are wonded people inside and you have nothing to offer them to help. You are saddened -1 mood.
+	set GameStats.mood -= 1
+	
+=> END!
+
+~ AltRoute
+% : => TakeAlt
+% : => FindZombies
+
+=> END!
+
+~ TakeAlt
+You take another root and get hungry on the way from all the extra walking -1 food
+set GameStats.food -= 1
+=> END!	
+
+~ FindZombies
+if GameStats.ammo >= 25
+	While finding a new route you run into a pack of savage zombies. You shoote the wolves and use up -25 ammo
+	GameStats.ammo -= 25
+else
+	Well that was a huge waste of time. At least nothing else bad happened
+
+=> END!
+
+~ RushToCar
+% => LeaveTheGroceryStore
+% => StumbleAmmo
+% => StumbleFood
+% => StumbleHealthPack
+% => JustLeave
+=> END!
+
+~ StumbleAmmo
+As you sprint back to your car you trip over a box of ammo, + 25 ammo
+GameStats.ammo += 25
+=> END!
+
+~ StumbleFood
+As you sprint back to your car you trip over a sandwitch, +1 food
+GameStats.food += 1
+=> END!
+
+~ StumbleHealthPack
+As you sprint back to your car you trip over a box of bandages, +1 health pack
+GameStats.healthPack += 2
+=> END!
+
+~ JustLeave
+You get out of there as fast as possible
+=> END!
+
+~ HaggleTrade
+% => UnhappySurvivers
+% => GreadyTradeSuccess
+=> END!
+
+~ GreadyTradeSuccess
+if GameStats.healthPack == 1:
+	You drive a hard bargon, but they are despate. The people inside are wonded pretty bad. They give you +3 food in exchange for -1 health packs.
+	set GameStats.food += 3
+	set GameStats.healthPack -= 1
+	You feel guilty for price gouging the injuried, -1 mood
+	set GameStats.mood -= 1
+else:
+	You relize you don't have any ground to stand on, because you are out of health packs. The survivors yell at you for getting their hopes up -1 mood.
+	set GameStats.mood -= 1
 => END!
